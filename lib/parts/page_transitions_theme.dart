@@ -12,9 +12,7 @@ class NullablePageTransitionsThemeConverter
     json['builders']?.forEach(
       (key, json) =>
           builders[const NullableTargetPlatformConverter().fromJson(key)!] =
-              const PageTransitionsBuilderConverter().fromJson(
-        json,
-      )!,
+              const PageTransitionsBuilderConverter().fromJson(json),
     );
 
     return PageTransitionsTheme(
@@ -38,8 +36,6 @@ class NullablePageTransitionsThemeConverter
     return {
       'builders': builders,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
