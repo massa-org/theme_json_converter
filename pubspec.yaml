@@ -1,7 +1,7 @@
 name: theme_json_converter
-description: Package that provides JsonConverters from `json_serializable` to material theme classes
+description: Package that implements JsonConverters from `json_serializable` to material theme classes
 version: 0.0.1
-homepage: 
+homepage: https://github.com/massa-org/theme_json_converter
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  json_annotation: ^4.0.0
+  json_annotation: ^4.1.0
 
 dev_dependencies:
   flutter_test:
