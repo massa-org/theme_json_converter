@@ -41,7 +41,6 @@ class NullableTileModeConverter extends JsonConverter<TileMode?, String?> {
       case TileMode.repeated:
         return 'repeated';
     }
-
   }
 }
 

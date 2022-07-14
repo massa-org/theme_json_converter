@@ -30,7 +30,6 @@ class NullableDragStartBehaviorConverter
       case DragStartBehavior.start:
         return 'start';
     }
-
   }
 }
 

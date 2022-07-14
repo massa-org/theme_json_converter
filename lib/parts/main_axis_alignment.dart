@@ -49,8 +49,6 @@ class NullableMainAxisAlignmentConverter
       case MainAxisAlignment.start:
         return 'start';
     }
-
-    
   }
 }
 

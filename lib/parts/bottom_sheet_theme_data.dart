@@ -40,7 +40,6 @@ class NullableBottomSheetThemeDataConverter
       'modalElevation': object.modalElevation,
       'shape': const NullableShapeBorderConverter().toJson(object.shape),
     };
-
   }
 }
 

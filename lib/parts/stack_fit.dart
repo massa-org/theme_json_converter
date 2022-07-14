@@ -35,8 +35,6 @@ class NullableStackFitConverter extends JsonConverter<StackFit?, String?> {
       case StackFit.passthrough:
         return 'passthrough';
     }
-
-    
   }
 }
 
