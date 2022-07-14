@@ -97,7 +97,6 @@ part 'parts/offset.dart';
 part 'parts/ordinal_sort_key.dart';
 part 'parts/outlined_border.dart';
 part 'parts/outlined_button_theme_data.dart';
-part 'parts/overflow.dart';
 part 'parts/page_transitions_builder.dart';
 part 'parts/page_transitions_theme.dart';
 part 'parts/popup_menu_theme_data.dart';
