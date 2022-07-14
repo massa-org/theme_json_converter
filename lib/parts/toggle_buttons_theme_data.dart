@@ -56,35 +56,33 @@ class NullableToggleButtonsThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ToggleButtonsThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ToggleButtonsThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'borderColor': const NullableColorConverter().toJson(value.borderColor),
+      'borderColor': const NullableColorConverter().toJson(object.borderColor),
       'borderRadius':
-          const NullableBorderRadiusConverter().toJson(value.borderRadius),
-      'borderWidth': value.borderWidth,
-      'color': const NullableColorConverter().toJson(value.color),
+          const NullableBorderRadiusConverter().toJson(object.borderRadius),
+      'borderWidth': object.borderWidth,
+      'color': const NullableColorConverter().toJson(object.color),
       'constraints':
-          const NullableBoxConstraintsConverter().toJson(value.constraints),
+          const NullableBoxConstraintsConverter().toJson(object.constraints),
       'disabledBorderColor':
-          const NullableColorConverter().toJson(value.disabledBorderColor),
+          const NullableColorConverter().toJson(object.disabledBorderColor),
       'disabledColor':
-          const NullableColorConverter().toJson(value.disabledColor),
-      'fillColor': const NullableColorConverter().toJson(value.fillColor),
-      'focusColor': const NullableColorConverter().toJson(value.focusColor),
+          const NullableColorConverter().toJson(object.disabledColor),
+      'fillColor': const NullableColorConverter().toJson(object.fillColor),
+      'focusColor': const NullableColorConverter().toJson(object.focusColor),
       'highlightColor':
-          const NullableColorConverter().toJson(value.highlightColor),
-      'hoverColor': const NullableColorConverter().toJson(value.hoverColor),
+          const NullableColorConverter().toJson(object.highlightColor),
+      'hoverColor': const NullableColorConverter().toJson(object.hoverColor),
       'selectedBorderColor':
-          const NullableColorConverter().toJson(value.selectedBorderColor),
+          const NullableColorConverter().toJson(object.selectedBorderColor),
       'selectedColor':
-          const NullableColorConverter().toJson(value.selectedColor),
-      'splashColor': const NullableColorConverter().toJson(value.splashColor),
-      'textStyle': const NullableTextStyleConverter().toJson(value.textStyle),
+          const NullableColorConverter().toJson(object.selectedColor),
+      'splashColor': const NullableColorConverter().toJson(object.splashColor),
+      'textStyle': const NullableTextStyleConverter().toJson(object.textStyle),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -98,7 +96,7 @@ class ToggleButtonsThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ToggleButtonsThemeData value) {
-    return const NullableToggleButtonsThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ToggleButtonsThemeData object) {
+    return const NullableToggleButtonsThemeDataConverter().toJson(object)!;
   }
 }

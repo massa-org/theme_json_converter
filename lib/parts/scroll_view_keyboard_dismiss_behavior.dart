@@ -20,20 +20,16 @@ class NullableScrollViewKeyboardDismissBehaviorConverter
   }
 
   @override
-  String? toJson(ScrollViewKeyboardDismissBehavior? value) {
-    if (value == null) return null;
+  String? toJson(ScrollViewKeyboardDismissBehavior? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case ScrollViewKeyboardDismissBehavior.manual:
         return 'manual';
-        break;
 
       case ScrollViewKeyboardDismissBehavior.onDrag:
         return 'onDrag';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -48,8 +44,8 @@ class ScrollViewKeyboardDismissBehaviorConverter
   }
 
   @override
-  String toJson(ScrollViewKeyboardDismissBehavior value) {
+  String toJson(ScrollViewKeyboardDismissBehavior object) {
     return const NullableScrollViewKeyboardDismissBehaviorConverter()
-        .toJson(value)!;
+        .toJson(object)!;
   }
 }

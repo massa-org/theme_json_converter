@@ -20,19 +20,15 @@ class NullableDecorationPositionConverter
   }
 
   @override
-  String? toJson(DecorationPosition? value) {
-    if (value == null) return null;
+  String? toJson(DecorationPosition? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case DecorationPosition.background:
         return 'background';
-        break;
       case DecorationPosition.foreground:
         return 'foreground';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -46,7 +42,7 @@ class DecorationPositionConverter
   }
 
   @override
-  String toJson(DecorationPosition value) {
-    return const NullableDecorationPositionConverter().toJson(value)!;
+  String toJson(DecorationPosition object) {
+    return const NullableDecorationPositionConverter().toJson(object)!;
   }
 }

@@ -31,31 +31,23 @@ class NullableTextAlignConverter extends JsonConverter<TextAlign?, String?> {
   }
 
   @override
-  String? toJson(TextAlign? value) {
-    if (value == null) return null;
+  String? toJson(TextAlign? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TextAlign.center:
         return 'center';
-        break;
       case TextAlign.end:
         return 'end';
-        break;
       case TextAlign.justify:
         return 'justify';
-        break;
       case TextAlign.left:
         return 'left';
-        break;
       case TextAlign.right:
         return 'right';
-        break;
       case TextAlign.start:
         return 'start';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -68,7 +60,7 @@ class TextAlignConverter extends JsonConverter<TextAlign, String> {
   }
 
   @override
-  String toJson(TextAlign value) {
-    return const NullableTextAlignConverter().toJson(value)!;
+  String toJson(TextAlign object) {
+    return const NullableTextAlignConverter().toJson(object)!;
   }
 }

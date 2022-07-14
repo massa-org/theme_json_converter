@@ -100,128 +100,97 @@ class NullableBlendModeConverter extends JsonConverter<BlendMode?, String?> {
   }
 
   @override
-  String? toJson(BlendMode? value) {
-    if (value == null) return null;
+  String? toJson(BlendMode? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case BlendMode.clear:
         return 'clear';
-        break;
 
       case BlendMode.color:
         return 'color';
-        break;
 
       case BlendMode.colorBurn:
         return 'colorBurn';
-        break;
 
       case BlendMode.colorDodge:
         return 'colorDodge';
-        break;
 
       case BlendMode.darken:
         return 'darken';
-        break;
 
       case BlendMode.difference:
         return 'difference';
-        break;
 
       case BlendMode.dst:
         return 'dst';
-        break;
 
       case BlendMode.dstATop:
         return 'dstATop';
-        break;
 
       case BlendMode.dstIn:
         return 'dstIn';
-        break;
 
       case BlendMode.dstOut:
         return 'dstOut';
-        break;
 
       case BlendMode.dstOver:
         return 'dstOver';
-        break;
 
       case BlendMode.exclusion:
         return 'exclusion';
-        break;
 
       case BlendMode.hardLight:
         return 'hardLight';
-        break;
 
       case BlendMode.hue:
         return 'hue';
-        break;
 
       case BlendMode.lighten:
         return 'lighten';
-        break;
 
       case BlendMode.luminosity:
         return 'luminosity';
-        break;
 
       case BlendMode.modulate:
         return 'modulate';
-        break;
 
       case BlendMode.multiply:
         return 'multiply';
-        break;
 
       case BlendMode.overlay:
         return 'overlay';
-        break;
 
       case BlendMode.plus:
         return 'plus';
-        break;
 
       case BlendMode.saturation:
         return 'saturation';
-        break;
 
       case BlendMode.screen:
         return 'screen';
-        break;
 
       case BlendMode.softLight:
         return 'softLight';
-        break;
 
       case BlendMode.src:
         return 'src';
-        break;
 
       case BlendMode.srcATop:
         return 'srcATop';
-        break;
 
       case BlendMode.srcIn:
         return 'srcIn';
-        break;
 
       case BlendMode.srcOut:
         return 'srcOut';
-        break;
 
       case BlendMode.srcOver:
         return 'srcOver';
-        break;
 
       case BlendMode.xor:
         return 'xor';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -234,7 +203,7 @@ class BlendModeConverter extends JsonConverter<BlendMode, String> {
   }
 
   @override
-  String toJson(BlendMode value) {
-    return const NullableBlendModeConverter().toJson(value)!;
+  String toJson(BlendMode object) {
+    return const NullableBlendModeConverter().toJson(object)!;
   }
 }

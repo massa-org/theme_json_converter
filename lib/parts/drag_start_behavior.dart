@@ -20,20 +20,17 @@ class NullableDragStartBehaviorConverter
   }
 
   @override
-  String? toJson(DragStartBehavior? value) {
-    if (value == null) return null;
+  String? toJson(DragStartBehavior? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case DragStartBehavior.down:
         return 'down';
-        break;
 
       case DragStartBehavior.start:
         return 'start';
-        break;
     }
 
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -47,7 +44,7 @@ class DragStartBehaviorConverter
   }
 
   @override
-  String toJson(DragStartBehavior value) {
-    return const NullableDragStartBehaviorConverter().toJson(value)!;
+  String toJson(DragStartBehavior object) {
+    return const NullableDragStartBehaviorConverter().toJson(object)!;
   }
 }

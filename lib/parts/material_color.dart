@@ -23,26 +23,24 @@ class NullableMaterialColorConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(MaterialColor? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(MaterialColor? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'primary': const NullableColorConverter().toJson(Color(value.value)),
+      'primary': const NullableColorConverter().toJson(Color(object.value)),
       'swatches': {
-        '50': const NullableColorConverter().toJson(value.shade50),
-        '100': const NullableColorConverter().toJson(value.shade100),
-        '200': const NullableColorConverter().toJson(value.shade200),
-        '300': const NullableColorConverter().toJson(value.shade300),
-        '400': const NullableColorConverter().toJson(value.shade400),
-        '500': const NullableColorConverter().toJson(value.shade500),
-        '600': const NullableColorConverter().toJson(value.shade600),
-        '700': const NullableColorConverter().toJson(value.shade700),
-        '800': const NullableColorConverter().toJson(value.shade800),
-        '900': const NullableColorConverter().toJson(value.shade900),
+        '50': const NullableColorConverter().toJson(object.shade50),
+        '100': const NullableColorConverter().toJson(object.shade100),
+        '200': const NullableColorConverter().toJson(object.shade200),
+        '300': const NullableColorConverter().toJson(object.shade300),
+        '400': const NullableColorConverter().toJson(object.shade400),
+        '500': const NullableColorConverter().toJson(object.shade500),
+        '600': const NullableColorConverter().toJson(object.shade600),
+        '700': const NullableColorConverter().toJson(object.shade700),
+        '800': const NullableColorConverter().toJson(object.shade800),
+        '900': const NullableColorConverter().toJson(object.shade900),
       },
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -56,7 +54,7 @@ class MaterialColorConverter
   }
 
   @override
-  Map<String, dynamic> toJson(MaterialColor value) {
-    return const NullableMaterialColorConverter().toJson(value)!;
+  Map<String, dynamic> toJson(MaterialColor object) {
+    return const NullableMaterialColorConverter().toJson(object)!;
   }
 }

@@ -53,28 +53,26 @@ class NullableMaterialStatePropertySizeConverter extends JsonConverter<
   }
 
   @override
-  Map<String, dynamic>? toJson(MaterialStateProperty<Size?>? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(MaterialStateProperty<Size?>? object) {
+    if (object == null) return null;
 
     return {
       'disabled': const NullableSizeConverter()
-          .toJson(value.resolve({MaterialState.disabled})),
+          .toJson(object.resolve({MaterialState.disabled})),
       'dragged': const NullableSizeConverter()
-          .toJson(value.resolve({MaterialState.dragged})),
-      'empty': const NullableSizeConverter().toJson(value.resolve({})),
+          .toJson(object.resolve({MaterialState.dragged})),
+      'empty': const NullableSizeConverter().toJson(object.resolve({})),
       'error': const NullableSizeConverter()
-          .toJson(value.resolve({MaterialState.error})),
+          .toJson(object.resolve({MaterialState.error})),
       'focused': const NullableSizeConverter()
-          .toJson(value.resolve({MaterialState.focused})),
+          .toJson(object.resolve({MaterialState.focused})),
       'hovered': const NullableSizeConverter()
-          .toJson(value.resolve({MaterialState.hovered})),
+          .toJson(object.resolve({MaterialState.hovered})),
       'pressed': const NullableSizeConverter()
-          .toJson(value.resolve({MaterialState.pressed})),
+          .toJson(object.resolve({MaterialState.pressed})),
       'selected': const NullableSizeConverter()
-          .toJson(value.resolve({MaterialState.selected})),
+          .toJson(object.resolve({MaterialState.selected})),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -88,7 +86,7 @@ class MaterialStatePropertySizeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(MaterialStateProperty<Size?> value) {
-    return const NullableMaterialStatePropertySizeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(MaterialStateProperty<Size?> object) {
+    return const NullableMaterialStatePropertySizeConverter().toJson(object)!;
   }
 }

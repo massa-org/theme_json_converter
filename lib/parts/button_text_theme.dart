@@ -23,22 +23,17 @@ class NullableButtonTextThemeConverter
   }
 
   @override
-  String? toJson(ButtonTextTheme? value) {
-    if (value == null) return null;
+  String? toJson(ButtonTextTheme? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case ButtonTextTheme.accent:
         return 'accent';
-        break;
       case ButtonTextTheme.normal:
         return 'normal';
-        break;
       case ButtonTextTheme.primary:
         return 'primary';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -51,7 +46,7 @@ class ButtonTextThemeConverter extends JsonConverter<ButtonTextTheme, String> {
   }
 
   @override
-  String toJson(ButtonTextTheme value) {
-    return const NullableButtonTextThemeConverter().toJson(value)!;
+  String toJson(ButtonTextTheme object) {
+    return const NullableButtonTextThemeConverter().toJson(object)!;
   }
 }

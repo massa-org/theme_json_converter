@@ -62,31 +62,29 @@ class NullableMaterialStatePropertyOutlinedBorderConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(MaterialStateProperty<OutlinedBorder?>? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(MaterialStateProperty<OutlinedBorder?>? object) {
+    if (object == null) return null;
 
     return {
       'disabled': const NullableOutlinedBorderConverter().toJson(
-        value.resolve({MaterialState.disabled}),
+        object.resolve({MaterialState.disabled}),
       ),
       'dragged': const NullableOutlinedBorderConverter()
-          .toJson(value.resolve({MaterialState.dragged})),
+          .toJson(object.resolve({MaterialState.dragged})),
       'empty':
-          const NullableOutlinedBorderConverter().toJson(value.resolve({})),
+          const NullableOutlinedBorderConverter().toJson(object.resolve({})),
       'error': const NullableOutlinedBorderConverter()
-          .toJson(value.resolve({MaterialState.error})),
+          .toJson(object.resolve({MaterialState.error})),
       'focused': const NullableOutlinedBorderConverter()
-          .toJson(value.resolve({MaterialState.focused})),
+          .toJson(object.resolve({MaterialState.focused})),
       'hovered': const NullableOutlinedBorderConverter()
-          .toJson(value.resolve({MaterialState.hovered})),
+          .toJson(object.resolve({MaterialState.hovered})),
       'pressed': const NullableOutlinedBorderConverter()
-          .toJson(value.resolve({MaterialState.pressed})),
+          .toJson(object.resolve({MaterialState.pressed})),
       'selected': const NullableOutlinedBorderConverter().toJson(
-        value.resolve({MaterialState.selected}),
+        object.resolve({MaterialState.selected}),
       ),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -101,8 +99,8 @@ class MaterialStatePropertyOutlinedBorderConverter extends JsonConverter<
   }
 
   @override
-  Map<String, dynamic> toJson(MaterialStateProperty<OutlinedBorder?> value) {
+  Map<String, dynamic> toJson(MaterialStateProperty<OutlinedBorder?> object) {
     return const NullableMaterialStatePropertyOutlinedBorderConverter()
-        .toJson(value)!;
+        .toJson(object)!;
   }
 }

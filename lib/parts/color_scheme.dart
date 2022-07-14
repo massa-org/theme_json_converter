@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 part of theme_json_converter;
 
 class NullableColorSchemeConverter
@@ -52,29 +54,28 @@ class NullableColorSchemeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ColorScheme? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ColorScheme? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'background': const NullableColorConverter().toJson(value.background),
+      'background': const NullableColorConverter().toJson(object.background),
       'brightness':
-          const NullableBrightnessConverter().toJson(value.brightness),
-      'error': const NullableColorConverter().toJson(value.error),
-      'onBackground': const NullableColorConverter().toJson(value.onBackground),
-      'onError': const NullableColorConverter().toJson(value.onError),
-      'onPrimary': const NullableColorConverter().toJson(value.onPrimary),
-      'onSecondary': const NullableColorConverter().toJson(value.onSecondary),
-      'onSurface': const NullableColorConverter().toJson(value.onSurface),
-      'primary': const NullableColorConverter().toJson(value.primary),
+          const NullableBrightnessConverter().toJson(object.brightness),
+      'error': const NullableColorConverter().toJson(object.error),
+      'onBackground':
+          const NullableColorConverter().toJson(object.onBackground),
+      'onError': const NullableColorConverter().toJson(object.onError),
+      'onPrimary': const NullableColorConverter().toJson(object.onPrimary),
+      'onSecondary': const NullableColorConverter().toJson(object.onSecondary),
+      'onSurface': const NullableColorConverter().toJson(object.onSurface),
+      'primary': const NullableColorConverter().toJson(object.primary),
       'primaryVariant':
-          const NullableColorConverter().toJson(value.primaryVariant),
-      'secondary': const NullableColorConverter().toJson(value.secondary),
+          const NullableColorConverter().toJson(object.primaryVariant),
+      'secondary': const NullableColorConverter().toJson(object.secondary),
       'secondaryVariant':
-          const NullableColorConverter().toJson(value.secondaryVariant),
-      'surface': const NullableColorConverter().toJson(value.surface),
+          const NullableColorConverter().toJson(object.secondaryVariant),
+      'surface': const NullableColorConverter().toJson(object.surface),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -88,7 +89,7 @@ class ColorSchemeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ColorScheme value) {
-    return const NullableColorSchemeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ColorScheme object) {
+    return const NullableColorSchemeConverter().toJson(object)!;
   }
 }

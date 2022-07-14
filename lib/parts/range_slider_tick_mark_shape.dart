@@ -21,16 +21,14 @@ class NullableRangeSliderTickMarkShapeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(RangeSliderTickMarkShape? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(RangeSliderTickMarkShape? object) {
+    if (object == null) return null;
 
-    var shape = value as RoundRangeSliderTickMarkShape;
+    var shape = object as RoundRangeSliderTickMarkShape;
     return <String, dynamic>{
       'tickMarkRadius': shape.tickMarkRadius,
       'type': 'round',
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -44,7 +42,7 @@ class RangeSliderTickMarkShapeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(RangeSliderTickMarkShape value) {
-    return const NullableRangeSliderTickMarkShapeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(RangeSliderTickMarkShape object) {
+    return const NullableRangeSliderTickMarkShapeConverter().toJson(object)!;
   }
 }

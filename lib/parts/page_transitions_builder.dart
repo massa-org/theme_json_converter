@@ -26,18 +26,16 @@ class NullablePageTransitionsBuilderConverter
   }
 
   @override
-  String? toJson(PageTransitionsBuilder? value) {
-    if (value == null) return null;
+  String? toJson(PageTransitionsBuilder? object) {
+    if (object == null) return null;
 
-    String? result;
-
-    if (value is CupertinoPageTransitionsBuilder) {
+    if (object is CupertinoPageTransitionsBuilder) {
       return 'cupertino';
-    } else if (value is FadeUpwardsPageTransitionsBuilder) {
+    } else if (object is FadeUpwardsPageTransitionsBuilder) {
       return 'fadeUpwards';
-    } else if (value is OpenUpwardsPageTransitionsBuilder) {
+    } else if (object is OpenUpwardsPageTransitionsBuilder) {
       return 'openUpwards';
-    } else if (value is ZoomPageTransitionsBuilder) {
+    } else if (object is ZoomPageTransitionsBuilder) {
       return 'zoom';
     }
 
@@ -55,7 +53,7 @@ class PageTransitionsBuilderConverter
   }
 
   @override
-  String toJson(PageTransitionsBuilder value) {
-    return const NullablePageTransitionsBuilderConverter().toJson(value)!;
+  String toJson(PageTransitionsBuilder object) {
+    return const NullablePageTransitionsBuilderConverter().toJson(object)!;
   }
 }

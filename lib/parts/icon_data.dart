@@ -17,17 +17,15 @@ class NullableIconDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(IconData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(IconData? object) {
+    if (object == null) return null;
 
     return {
-      'codePoint': value.codePoint,
-      'fontFamily': value.fontFamily,
-      'fontPackage': value.fontPackage,
-      'matchTextDirection': value.matchTextDirection,
+      'codePoint': object.codePoint,
+      'fontFamily': object.fontFamily,
+      'fontPackage': object.fontPackage,
+      'matchTextDirection': object.matchTextDirection,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -40,7 +38,7 @@ class IconDataConverter extends JsonConverter<IconData, Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic> toJson(IconData value) {
-    return const NullableIconDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(IconData object) {
+    return const NullableIconDataConverter().toJson(object)!;
   }
 }

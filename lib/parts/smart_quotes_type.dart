@@ -20,19 +20,15 @@ class NullableSmartQuotesTypeConverter
   }
 
   @override
-  String? toJson(SmartQuotesType? value) {
-    if (value == null) return null;
+  String? toJson(SmartQuotesType? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case SmartQuotesType.disabled:
         return 'disabled';
-        break;
       case SmartQuotesType.enabled:
         return 'enabled';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +41,7 @@ class SmartQuotesTypeConverter extends JsonConverter<SmartQuotesType, String> {
   }
 
   @override
-  String toJson(SmartQuotesType value) {
-    return const NullableSmartQuotesTypeConverter().toJson(value)!;
+  String toJson(SmartQuotesType object) {
+    return const NullableSmartQuotesTypeConverter().toJson(object)!;
   }
 }

@@ -17,17 +17,16 @@ class NullableBoxConstraintsConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(BoxConstraints? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(BoxConstraints? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'maxHeight': value.maxHeight == double.infinity ? null : value.maxHeight,
-      'maxWidth': value.maxWidth == double.infinity ? null : value.maxWidth,
-      'minHeight': value.minHeight,
-      'minWidth': value.minWidth,
+      'maxHeight':
+          object.maxHeight == double.infinity ? null : object.maxHeight,
+      'maxWidth': object.maxWidth == double.infinity ? null : object.maxWidth,
+      'minHeight': object.minHeight,
+      'minWidth': object.minWidth,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -41,7 +40,7 @@ class BoxConstraintsConverter
   }
 
   @override
-  Map<String, dynamic> toJson(BoxConstraints value) {
-    return const NullableBoxConstraintsConverter().toJson(value)!;
+  Map<String, dynamic> toJson(BoxConstraints object) {
+    return const NullableBoxConstraintsConverter().toJson(object)!;
   }
 }

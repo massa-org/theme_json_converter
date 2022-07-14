@@ -23,17 +23,15 @@ class NullableBoxShadowConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(BoxShadow? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(BoxShadow? object) {
+    if (object == null) return null;
 
     return {
-      'blurRadius': value.blurRadius,
-      'color': const NullableColorConverter().toJson(value.color),
-      'offset': const NullableOffsetConverter().toJson(value.offset),
-      'spreadRadius': value.spreadRadius,
+      'blurRadius': object.blurRadius,
+      'color': const NullableColorConverter().toJson(object.color),
+      'offset': const NullableOffsetConverter().toJson(object.offset),
+      'spreadRadius': object.spreadRadius,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -47,7 +45,7 @@ class BoxShadowConverter
   }
 
   @override
-  Map<String, dynamic> toJson(BoxShadow value) {
-    return const NullableBoxShadowConverter().toJson(value)!;
+  Map<String, dynamic> toJson(BoxShadow object) {
+    return const NullableBoxShadowConverter().toJson(object)!;
   }
 }

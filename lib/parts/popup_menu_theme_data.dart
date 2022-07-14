@@ -26,18 +26,16 @@ class NullablePopupMenuThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(PopupMenuThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(PopupMenuThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'color': const NullableColorConverter().toJson(value.color),
-      'elevation': value.elevation,
-      'enableFeedback': value.enableFeedback,
-      'shape': const NullableShapeBorderConverter().toJson(value.shape),
-      'textStyle': const NullableTextStyleConverter().toJson(value.textStyle),
+      'color': const NullableColorConverter().toJson(object.color),
+      'elevation': object.elevation,
+      'enableFeedback': object.enableFeedback,
+      'shape': const NullableShapeBorderConverter().toJson(object.shape),
+      'textStyle': const NullableTextStyleConverter().toJson(object.textStyle),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -51,7 +49,7 @@ class PopupMenuThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(PopupMenuThemeData value) {
-    return const NullablePopupMenuThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(PopupMenuThemeData object) {
+    return const NullablePopupMenuThemeDataConverter().toJson(object)!;
   }
 }

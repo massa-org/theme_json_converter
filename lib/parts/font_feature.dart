@@ -15,15 +15,13 @@ class NullableFontFeatureConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(FontFeature? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(FontFeature? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'feature': value.feature,
-      'value': value.value,
+      'feature': object.feature,
+      'value': object.value,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -37,7 +35,7 @@ class FontFeatureConverter
   }
 
   @override
-  Map<String, dynamic> toJson(FontFeature value) {
-    return const NullableFontFeatureConverter().toJson(value)!;
+  Map<String, dynamic> toJson(FontFeature object) {
+    return const NullableFontFeatureConverter().toJson(object)!;
   }
 }

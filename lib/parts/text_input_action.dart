@@ -53,64 +53,49 @@ class NullableTextInputActionConverter
   }
 
   @override
-  String? toJson(TextInputAction? value) {
-    if (value == null) return null;
+  String? toJson(TextInputAction? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TextInputAction.continueAction:
         return 'continueAction';
-        break;
 
       case TextInputAction.done:
         return 'done';
-        break;
 
       case TextInputAction.emergencyCall:
         return 'emergencyCall';
-        break;
 
       case TextInputAction.go:
         return 'go';
-        break;
 
       case TextInputAction.join:
         return 'join';
-        break;
 
       case TextInputAction.newline:
         return 'newline';
-        break;
 
       case TextInputAction.next:
         return 'next';
-        break;
 
       case TextInputAction.none:
         return 'none';
-        break;
 
       case TextInputAction.previous:
         return 'previous';
-        break;
 
       case TextInputAction.route:
         return 'route';
-        break;
 
       case TextInputAction.search:
         return 'search';
-        break;
 
       case TextInputAction.send:
         return 'send';
-        break;
 
       case TextInputAction.unspecified:
         return 'unspecified';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -123,7 +108,7 @@ class TextInputActionConverter extends JsonConverter<TextInputAction, String> {
   }
 
   @override
-  String toJson(TextInputAction value) {
-    return const NullableTextInputActionConverter().toJson(value)!;
+  String toJson(TextInputAction object) {
+    return const NullableTextInputActionConverter().toJson(object)!;
   }
 }

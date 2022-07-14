@@ -44,24 +44,24 @@ class NullableInputBorderConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(InputBorder? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(InputBorder? object) {
+    if (object == null) return null;
 
-    if (value is OutlineInputBorder) {
+    if (object is OutlineInputBorder) {
       return {
         'borderRadius':
-            const NullableBorderRadiusConverter().toJson(value.borderRadius),
+            const NullableBorderRadiusConverter().toJson(object.borderRadius),
         'borderSide':
-            const NullableBorderSideConverter().toJson(value.borderSide),
-        'gapPadding': value.gapPadding,
+            const NullableBorderSideConverter().toJson(object.borderSide),
+        'gapPadding': object.gapPadding,
         'type': 'outline',
       };
-    } else if (value is UnderlineInputBorder) {
+    } else if (object is UnderlineInputBorder) {
       return {
         'borderRadius':
-            const NullableBorderRadiusConverter().toJson(value.borderRadius),
+            const NullableBorderRadiusConverter().toJson(object.borderRadius),
         'borderSide':
-            const NullableBorderSideConverter().toJson(value.borderSide),
+            const NullableBorderSideConverter().toJson(object.borderSide),
         'type': 'underline',
       };
     }
@@ -80,7 +80,7 @@ class InputBorderConverter
   }
 
   @override
-  Map<String, dynamic> toJson(InputBorder value) {
-    return const NullableInputBorderConverter().toJson(value)!;
+  Map<String, dynamic> toJson(InputBorder object) {
+    return const NullableInputBorderConverter().toJson(object)!;
   }
 }

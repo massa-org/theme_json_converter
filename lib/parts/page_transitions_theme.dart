@@ -21,15 +21,15 @@ class NullablePageTransitionsThemeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(PageTransitionsTheme? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(PageTransitionsTheme? object) {
+    if (object == null) return null;
 
     var builders = <String?, String?>{};
-    value.builders.forEach(
-      (key, value) =>
+    object.builders.forEach(
+      (key, object) =>
           builders[const NullableTargetPlatformConverter().toJson(key)] =
               const PageTransitionsBuilderConverter().toJson(
-        value,
+        object,
       ),
     );
 
@@ -49,7 +49,7 @@ class PageTransitionsThemeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(PageTransitionsTheme value) {
-    return const NullablePageTransitionsThemeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(PageTransitionsTheme object) {
+    return const NullablePageTransitionsThemeConverter().toJson(object)!;
   }
 }

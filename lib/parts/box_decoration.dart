@@ -39,27 +39,25 @@ class NullableBoxDecorationConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(BoxDecoration? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(BoxDecoration? object) {
+    if (object == null) return null;
 
     return {
       'backgroundBlendMode':
-          const NullableBlendModeConverter().toJson(value.backgroundBlendMode),
+          const NullableBlendModeConverter().toJson(object.backgroundBlendMode),
       'border':
-          const NullableBoxBorderConverter().toJson(value.border as Border?),
+          const NullableBoxBorderConverter().toJson(object.border as Border?),
       'borderRadius': const NullableBorderRadiusConverter()
-          .toJson(value.borderRadius as BorderRadius?),
+          .toJson(object.borderRadius as BorderRadius?),
       'boxShadow': _encodeList(
-        value.boxShadow,
-        (value) => const NullableBoxShadowConverter().toJson(value),
+        object.boxShadow,
+        (object) => const NullableBoxShadowConverter().toJson(object),
       ),
-      'color': const NullableColorConverter().toJson(value.color),
-      'image': const NullableDecorationImageConverter().toJson(value.image),
-      'gradient': const NullableGradientConverter().toJson(value.gradient),
-      'shape': const NullableBoxShapeConverter().toJson(value.shape),
+      'color': const NullableColorConverter().toJson(object.color),
+      'image': const NullableDecorationImageConverter().toJson(object.image),
+      'gradient': const NullableGradientConverter().toJson(object.gradient),
+      'shape': const NullableBoxShapeConverter().toJson(object.shape),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -73,7 +71,7 @@ class BoxDecorationConverter
   }
 
   @override
-  Map<String, dynamic> toJson(BoxDecoration value) {
-    return const NullableBoxDecorationConverter().toJson(value)!;
+  Map<String, dynamic> toJson(BoxDecoration object) {
+    return const NullableBoxDecorationConverter().toJson(object)!;
   }
 }

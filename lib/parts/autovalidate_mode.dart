@@ -23,24 +23,19 @@ class NullableAutovalidateModeConverter
   }
 
   @override
-  String? toJson(AutovalidateMode? value) {
-    if (value == null) return null;
+  String? toJson(AutovalidateMode? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case AutovalidateMode.always:
         return 'always';
-        break;
 
       case AutovalidateMode.disabled:
         return 'disabled';
-        break;
 
       case AutovalidateMode.onUserInteraction:
         return 'onUserInteraction';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -54,7 +49,7 @@ class AutovalidateModeConverter
   }
 
   @override
-  String toJson(AutovalidateMode value) {
-    return const NullableAutovalidateModeConverter().toJson(value)!;
+  String toJson(AutovalidateMode object) {
+    return const NullableAutovalidateModeConverter().toJson(object)!;
   }
 }

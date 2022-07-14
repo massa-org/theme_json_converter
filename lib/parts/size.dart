@@ -15,15 +15,13 @@ class NullableSizeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(Size? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(Size? object) {
+    if (object == null) return null;
 
     return {
-      'height': value.height,
-      'width': value.width,
+      'height': object.height,
+      'width': object.width,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -36,7 +34,7 @@ class SizeConverter extends JsonConverter<Size, Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic> toJson(Size value) {
-    return const NullableSizeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(Size object) {
+    return const NullableSizeConverter().toJson(object)!;
   }
 }

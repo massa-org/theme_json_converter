@@ -26,28 +26,22 @@ class NullableFilterQualityConverter
   }
 
   @override
-  String? toJson(FilterQuality? value) {
-    if (value == null) return null;
+  String? toJson(FilterQuality? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case FilterQuality.high:
         return 'high';
-        break;
 
       case FilterQuality.low:
         return 'low';
-        break;
 
       case FilterQuality.medium:
         return 'medium';
-        break;
 
       case FilterQuality.none:
         return 'none';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -60,7 +54,7 @@ class FilterQualityConverter extends JsonConverter<FilterQuality, String> {
   }
 
   @override
-  String toJson(FilterQuality value) {
-    return const NullableFilterQualityConverter().toJson(value)!;
+  String toJson(FilterQuality object) {
+    return const NullableFilterQualityConverter().toJson(object)!;
   }
 }

@@ -77,50 +77,50 @@ class NullableInputDecorationThemeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(InputDecorationTheme? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(InputDecorationTheme? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'alignLabelWithHint': value.alignLabelWithHint,
-      'border': const NullableInputBorderConverter().toJson(value.border),
+      'alignLabelWithHint': object.alignLabelWithHint,
+      'border': const NullableInputBorderConverter().toJson(object.border),
       'contentPadding': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.contentPadding as EdgeInsets?),
+          .toJson(object.contentPadding as EdgeInsets?),
       'counterStyle':
-          const NullableTextStyleConverter().toJson(value.counterStyle),
+          const NullableTextStyleConverter().toJson(object.counterStyle),
       'disabledBorder':
-          const NullableInputBorderConverter().toJson(value.disabledBorder),
+          const NullableInputBorderConverter().toJson(object.disabledBorder),
       'enabledBorder':
-          const NullableInputBorderConverter().toJson(value.enabledBorder),
+          const NullableInputBorderConverter().toJson(object.enabledBorder),
       'errorBorder':
-          const NullableInputBorderConverter().toJson(value.errorBorder),
-      'errorMaxLines': value.errorMaxLines,
-      'errorStyle': const NullableTextStyleConverter().toJson(value.errorStyle),
-      'fillColor': const NullableColorConverter().toJson(value.fillColor),
-      'filled': value.filled,
+          const NullableInputBorderConverter().toJson(object.errorBorder),
+      'errorMaxLines': object.errorMaxLines,
+      'errorStyle':
+          const NullableTextStyleConverter().toJson(object.errorStyle),
+      'fillColor': const NullableColorConverter().toJson(object.fillColor),
+      'filled': object.filled,
       'floatingLabelBehavior':
           const NullableFloatingLabelBehaviorConverter().toJson(
-        value.floatingLabelBehavior,
+        object.floatingLabelBehavior,
       ),
-      'focusColor': const NullableColorConverter().toJson(value.focusColor),
+      'focusColor': const NullableColorConverter().toJson(object.focusColor),
       'focusedBorder':
-          const NullableInputBorderConverter().toJson(value.focusedBorder),
-      'focusedErrorBorder':
-          const NullableInputBorderConverter().toJson(value.focusedErrorBorder),
-      'helperMaxLines': value.helperMaxLines,
+          const NullableInputBorderConverter().toJson(object.focusedBorder),
+      'focusedErrorBorder': const NullableInputBorderConverter()
+          .toJson(object.focusedErrorBorder),
+      'helperMaxLines': object.helperMaxLines,
       'helperStyle':
-          const NullableTextStyleConverter().toJson(value.helperStyle),
-      'hintStyle': const NullableTextStyleConverter().toJson(value.hintStyle),
-      'hoverColor': const NullableColorConverter().toJson(value.hoverColor),
-      'isCollapsed': value.isCollapsed,
-      'isDense': value.isDense,
-      'labelStyle': const NullableTextStyleConverter().toJson(value.labelStyle),
+          const NullableTextStyleConverter().toJson(object.helperStyle),
+      'hintStyle': const NullableTextStyleConverter().toJson(object.hintStyle),
+      'hoverColor': const NullableColorConverter().toJson(object.hoverColor),
+      'isCollapsed': object.isCollapsed,
+      'isDense': object.isDense,
+      'labelStyle':
+          const NullableTextStyleConverter().toJson(object.labelStyle),
       'prefixStyle':
-          const NullableTextStyleConverter().toJson(value.prefixStyle),
+          const NullableTextStyleConverter().toJson(object.prefixStyle),
       'suffixStyle':
-          const NullableTextStyleConverter().toJson(value.suffixStyle),
+          const NullableTextStyleConverter().toJson(object.suffixStyle),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -134,7 +134,7 @@ class InputDecorationThemeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(InputDecorationTheme value) {
-    return const NullableInputDecorationThemeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(InputDecorationTheme object) {
+    return const NullableInputDecorationThemeConverter().toJson(object)!;
   }
 }

@@ -20,20 +20,16 @@ class NullableBorderStyleConverter
   }
 
   @override
-  String? toJson(BorderStyle? value) {
-    if (value == null) return null;
+  String? toJson(BorderStyle? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case BorderStyle.none:
         return 'none';
-        break;
 
       case BorderStyle.solid:
         return 'solid';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -46,7 +42,7 @@ class BorderStyleConverter extends JsonConverter<BorderStyle, String> {
   }
 
   @override
-  String toJson(BorderStyle value) {
-    return const NullableBorderStyleConverter().toJson(value)!;
+  String toJson(BorderStyle object) {
+    return const NullableBorderStyleConverter().toJson(object)!;
   }
 }

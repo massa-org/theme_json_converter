@@ -20,19 +20,15 @@ class NullableBottomNavigationBarTypeConverter
   }
 
   @override
-  String? toJson(BottomNavigationBarType? value) {
-    if (value == null) return null;
+  String? toJson(BottomNavigationBarType? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case BottomNavigationBarType.fixed:
         return 'fixed';
-        break;
       case BottomNavigationBarType.shifting:
         return 'shifting';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -46,7 +42,7 @@ class BottomNavigationBarTypeConverter
   }
 
   @override
-  String toJson(BottomNavigationBarType value) {
-    return const NullableBottomNavigationBarTypeConverter().toJson(value)!;
+  String toJson(BottomNavigationBarType object) {
+    return const NullableBottomNavigationBarTypeConverter().toJson(object)!;
   }
 }

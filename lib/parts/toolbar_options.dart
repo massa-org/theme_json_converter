@@ -17,17 +17,15 @@ class NullableToolbarOptionsConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ToolbarOptions? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ToolbarOptions? object) {
+    if (object == null) return null;
 
     return {
-      'copy': value.copy,
-      'cut': value.cut,
-      'paste': value.paste,
-      'selectAll': value.selectAll,
+      'copy': object.copy,
+      'cut': object.cut,
+      'paste': object.paste,
+      'selectAll': object.selectAll,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -41,7 +39,7 @@ class ToolbarOptionsConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ToolbarOptions value) {
-    return const NullableToolbarOptionsConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ToolbarOptions object) {
+    return const NullableToolbarOptionsConverter().toJson(object)!;
   }
 }

@@ -20,20 +20,16 @@ class NullableTextBaselineConverter
   }
 
   @override
-  String? toJson(TextBaseline? value) {
-    if (value == null) return null;
+  String? toJson(TextBaseline? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TextBaseline.alphabetic:
         return 'alphabetic';
-        break;
 
       case TextBaseline.ideographic:
         return 'ideographic';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -46,7 +42,7 @@ class TextBaselineConverter extends JsonConverter<TextBaseline, String> {
   }
 
   @override
-  String toJson(TextBaseline value) {
-    return const NullableTextBaselineConverter().toJson(value)!;
+  String toJson(TextBaseline object) {
+    return const NullableTextBaselineConverter().toJson(object)!;
   }
 }

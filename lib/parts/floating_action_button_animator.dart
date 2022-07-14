@@ -17,10 +17,10 @@ class NullableFloatingActionButtonAnimatorConverter
   }
 
   @override
-  String? toJson(FloatingActionButtonAnimator? value) {
-    if (value == null) return null;
+  String? toJson(FloatingActionButtonAnimator? object) {
+    if (object == null) return null;
 
-    if (value == FloatingActionButtonAnimator.scaling) {
+    if (object == FloatingActionButtonAnimator.scaling) {
       return 'scaling';
     }
 
@@ -39,7 +39,8 @@ class FloatingActionButtonAnimatorConverter
   }
 
   @override
-  String toJson(FloatingActionButtonAnimator value) {
-    return const NullableFloatingActionButtonAnimatorConverter().toJson(value)!;
+  String toJson(FloatingActionButtonAnimator object) {
+    return const NullableFloatingActionButtonAnimatorConverter()
+        .toJson(object)!;
   }
 }

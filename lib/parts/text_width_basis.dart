@@ -20,19 +20,15 @@ class NullableTextWidthBasisConverter
   }
 
   @override
-  String? toJson(TextWidthBasis? value) {
-    if (value == null) return null;
+  String? toJson(TextWidthBasis? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TextWidthBasis.longestLine:
         return 'longestLine';
-        break;
       case TextWidthBasis.parent:
         return 'parent';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +41,7 @@ class TextWidthBasisConverter extends JsonConverter<TextWidthBasis, String> {
   }
 
   @override
-  String toJson(TextWidthBasis value) {
-    return const NullableTextWidthBasisConverter().toJson(value)!;
+  String toJson(TextWidthBasis object) {
+    return const NullableTextWidthBasisConverter().toJson(object)!;
   }
 }

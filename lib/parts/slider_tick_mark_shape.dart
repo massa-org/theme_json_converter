@@ -17,12 +17,10 @@ class NullableSliderTickMarkShapeConverter
   }
 
   @override
-  String? toJson(SliderTickMarkShape? value) {
-    if (value == null) return null;
+  String? toJson(SliderTickMarkShape? object) {
+    if (object == null) return null;
 
-    String? result;
-
-    if (value == SliderTickMarkShape.noTickMark) {
+    if (object == SliderTickMarkShape.noTickMark) {
       return 'noTickMark';
     }
 
@@ -40,7 +38,7 @@ class SliderTickMarkShapeConverter
   }
 
   @override
-  String toJson(SliderTickMarkShape value) {
-    return const NullableSliderTickMarkShapeConverter().toJson(value)!;
+  String toJson(SliderTickMarkShape object) {
+    return const NullableSliderTickMarkShapeConverter().toJson(object)!;
   }
 }

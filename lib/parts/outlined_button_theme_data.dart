@@ -16,14 +16,12 @@ class NullableOutlinedButtonThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(OutlinedButtonThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(OutlinedButtonThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'style': const NullableButtonStyleConverter().toJson(value.style),
+      'style': const NullableButtonStyleConverter().toJson(object.style),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -37,7 +35,7 @@ class OutlinedButtonThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(OutlinedButtonThemeData value) {
-    return const NullableOutlinedButtonThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(OutlinedButtonThemeData object) {
+    return const NullableOutlinedButtonThemeDataConverter().toJson(object)!;
   }
 }

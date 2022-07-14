@@ -25,25 +25,19 @@ class NullableClipConverter extends JsonConverter<Clip?, String?> {
   }
 
   @override
-  String? toJson(Clip? value) {
-    if (value == null) return null;
+  String? toJson(Clip? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case Clip.antiAlias:
         return 'antiAlias';
-        break;
       case Clip.antiAliasWithSaveLayer:
         return 'antiAliasWithSaveLayer';
-        break;
       case Clip.hardEdge:
         return 'hardEdge';
-        break;
       case Clip.none:
         return 'none';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -56,7 +50,7 @@ class ClipConverter extends JsonConverter<Clip, String> {
   }
 
   @override
-  String toJson(Clip value) {
-    return const NullableClipConverter().toJson(value)!;
+  String toJson(Clip object) {
+    return const NullableClipConverter().toJson(object)!;
   }
 }

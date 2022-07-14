@@ -33,29 +33,27 @@ class NullableNavigationRailThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(NavigationRailThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(NavigationRailThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
-      'elevation': value.elevation,
-      'groupAlignment': value.groupAlignment,
+          const NullableColorConverter().toJson(object.backgroundColor),
+      'elevation': object.elevation,
+      'groupAlignment': object.groupAlignment,
       'labelType': const NullableNavigationRailLabelTypeConverter()
-          .toJson(value.labelType),
+          .toJson(object.labelType),
       'selectedIconTheme': const NullableIconThemeDataConverter()
-          .toJson(value.selectedIconTheme),
+          .toJson(object.selectedIconTheme),
       'selectedLabelTextStyle': const NullableTextStyleConverter().toJson(
-        value.selectedLabelTextStyle,
+        object.selectedLabelTextStyle,
       ),
       'unselectedIconTheme': const NullableIconThemeDataConverter()
-          .toJson(value.unselectedIconTheme),
+          .toJson(object.unselectedIconTheme),
       'unselectedLabelTextStyle': const NullableTextStyleConverter().toJson(
-        value.unselectedLabelTextStyle,
+        object.unselectedLabelTextStyle,
       ),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -69,7 +67,7 @@ class NavigationRailThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(NavigationRailThemeData value) {
-    return const NullableNavigationRailThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(NavigationRailThemeData object) {
+    return const NullableNavigationRailThemeDataConverter().toJson(object)!;
   }
 }

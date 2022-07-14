@@ -19,20 +19,16 @@ class NullableAxisConverter extends JsonConverter<Axis?, String?> {
   }
 
   @override
-  String? toJson(Axis? value) {
-    if (value == null) return null;
+  String? toJson(Axis? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case Axis.horizontal:
         return 'horizontal';
-        break;
 
       case Axis.vertical:
         return 'vertical';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +41,7 @@ class AxisConverter extends JsonConverter<Axis, String> {
   }
 
   @override
-  String toJson(Axis value) {
-    return const NullableAxisConverter().toJson(value)!;
+  String toJson(Axis object) {
+    return const NullableAxisConverter().toJson(object)!;
   }
 }

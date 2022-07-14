@@ -20,19 +20,15 @@ class NullableVerticalDirectionConverter
   }
 
   @override
-  String? toJson(VerticalDirection? value) {
-    if (value == null) return null;
+  String? toJson(VerticalDirection? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case VerticalDirection.down:
         return 'down';
-        break;
       case VerticalDirection.up:
         return 'up';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -46,7 +42,7 @@ class VerticalDirectionConverter
   }
 
   @override
-  String toJson(VerticalDirection value) {
-    return const NullableVerticalDirectionConverter().toJson(value)!;
+  String toJson(VerticalDirection object) {
+    return const NullableVerticalDirectionConverter().toJson(object)!;
   }
 }

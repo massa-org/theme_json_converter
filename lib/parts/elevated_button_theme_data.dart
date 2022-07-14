@@ -16,14 +16,12 @@ class NullableElevatedButtonThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ElevatedButtonThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ElevatedButtonThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'style': const NullableButtonStyleConverter().toJson(value.style),
+      'style': const NullableButtonStyleConverter().toJson(object.style),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -37,7 +35,7 @@ class ElevatedButtonThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ElevatedButtonThemeData value) {
-    return const NullableElevatedButtonThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ElevatedButtonThemeData object) {
+    return const NullableElevatedButtonThemeDataConverter().toJson(object)!;
   }
 }

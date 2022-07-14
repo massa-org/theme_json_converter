@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 part of theme_json_converter;
 
 class NullableScrollbarThemeDataConverter
@@ -28,22 +30,20 @@ class NullableScrollbarThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ScrollbarThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ScrollbarThemeData? object) {
+    if (object == null) return null;
 
     return {
-      'crossAxisMargin': value.crossAxisMargin,
-      'isAlwaysShown': value.isAlwaysShown,
-      'mainAxisMargin': value.mainAxisMargin,
-      'minThumbLength': value.minThumbLength,
-      'radius': const NullableRadiusConverter().toJson(value.radius),
-      'showTrackOnHover': value.showTrackOnHover,
+      'crossAxisMargin': object.crossAxisMargin,
+      'isAlwaysShown': object.isAlwaysShown,
+      'mainAxisMargin': object.mainAxisMargin,
+      'minThumbLength': object.minThumbLength,
+      'radius': const NullableRadiusConverter().toJson(object.radius),
+      'showTrackOnHover': object.showTrackOnHover,
       'thickness': const NullableMaterialStatePropertyDoubleConverter().toJson(
-        value.thickness,
+        object.thickness,
       ),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -57,7 +57,7 @@ class ScrollbarThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ScrollbarThemeData value) {
-    return const NullableScrollbarThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ScrollbarThemeData object) {
+    return const NullableScrollbarThemeDataConverter().toJson(object)!;
   }
 }

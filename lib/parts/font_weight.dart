@@ -46,10 +46,10 @@ class NullableFontWeightConverter extends JsonConverter<FontWeight?, String?> {
   }
 
   @override
-  String? toJson(FontWeight? value) {
-    if (value == null) return null;
+  String? toJson(FontWeight? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       // case FontWeight.bold:
       //   return 'bold';
       //   break;
@@ -60,39 +60,30 @@ class NullableFontWeightConverter extends JsonConverter<FontWeight?, String?> {
 
       case FontWeight.w100:
         return 'w100';
-        break;
 
       case FontWeight.w200:
         return 'w200';
-        break;
 
       case FontWeight.w300:
         return 'w300';
-        break;
 
       case FontWeight.w400:
         return 'w400';
-        break;
 
       case FontWeight.w500:
         return 'w500';
-        break;
 
       case FontWeight.w600:
         return 'w600';
-        break;
 
       case FontWeight.w700:
         return 'w700';
-        break;
 
       case FontWeight.w800:
         return 'w800';
-        break;
 
       case FontWeight.w900:
         return 'w900';
-        break;
     }
 
     throw 'Json_Unsuported_Value';
@@ -108,7 +99,7 @@ class FontWeightConverter extends JsonConverter<FontWeight, String> {
   }
 
   @override
-  String toJson(FontWeight value) {
-    return const NullableFontWeightConverter().toJson(value)!;
+  String toJson(FontWeight object) {
+    return const NullableFontWeightConverter().toJson(object)!;
   }
 }

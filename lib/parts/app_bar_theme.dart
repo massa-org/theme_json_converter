@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 part of theme_json_converter;
 
 class NullableAppBarThemeConverter
@@ -51,36 +53,34 @@ class NullableAppBarThemeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(AppBarTheme? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(AppBarTheme? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'actionsIconTheme':
-          const NullableIconThemeDataConverter().toJson(value.actionsIconTheme),
+      'actionsIconTheme': const NullableIconThemeDataConverter()
+          .toJson(object.actionsIconTheme),
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor) ??
-              const NullableColorConverter().toJson(value.color),
-      'backwardsCompatibility': value.backwardsCompatibility,
+          const NullableColorConverter().toJson(object.backgroundColor) ??
+              const NullableColorConverter().toJson(object.color),
+      'backwardsCompatibility': object.backwardsCompatibility,
       'brightness':
-          const NullableBrightnessConverter().toJson(value.brightness),
-      'centerTitle': value.centerTitle,
-      'elevation': value.elevation,
+          const NullableBrightnessConverter().toJson(object.brightness),
+      'centerTitle': object.centerTitle,
+      'elevation': object.elevation,
       'foregroundColor':
-          const NullableColorConverter().toJson(value.foregroundColor),
+          const NullableColorConverter().toJson(object.foregroundColor),
       'iconTheme':
-          const NullableIconThemeDataConverter().toJson(value.iconTheme),
-      'shadowColor': const NullableColorConverter().toJson(value.shadowColor),
+          const NullableIconThemeDataConverter().toJson(object.iconTheme),
+      'shadowColor': const NullableColorConverter().toJson(object.shadowColor),
       'systemOverlayStyle': const NullableSystemUiOverlayStyleConverter()
-          .toJson(value.systemOverlayStyle),
-      'textTheme': const NullableTextThemeConverter().toJson(value.textTheme),
-      'titleSpacing': value.titleSpacing,
+          .toJson(object.systemOverlayStyle),
+      'textTheme': const NullableTextThemeConverter().toJson(object.textTheme),
+      'titleSpacing': object.titleSpacing,
       'titleTextStyle':
-          const NullableTextStyleConverter().toJson(value.titleTextStyle),
+          const NullableTextStyleConverter().toJson(object.titleTextStyle),
       'toolbarTextStyle':
-          const NullableTextStyleConverter().toJson(value.toolbarTextStyle),
+          const NullableTextStyleConverter().toJson(object.toolbarTextStyle),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -94,7 +94,7 @@ class AppBarThemeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(AppBarTheme value) {
-    return const NullableAppBarThemeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(AppBarTheme object) {
+    return const NullableAppBarThemeConverter().toJson(object)!;
   }
 }

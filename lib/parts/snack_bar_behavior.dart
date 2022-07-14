@@ -20,20 +20,16 @@ class NullableSnackBarBehaviorConverter
   }
 
   @override
-  String? toJson(SnackBarBehavior? value) {
-    if (value == null) return null;
+  String? toJson(SnackBarBehavior? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case SnackBarBehavior.fixed:
         return 'fixed';
-        break;
 
       case SnackBarBehavior.floating:
         return 'floating';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -47,7 +43,7 @@ class SnackBarBehaviorConverter
   }
 
   @override
-  String toJson(SnackBarBehavior value) {
-    return const NullableSnackBarBehaviorConverter().toJson(value)!;
+  String toJson(SnackBarBehavior object) {
+    return const NullableSnackBarBehaviorConverter().toJson(object)!;
   }
 }

@@ -26,28 +26,22 @@ class NullableShowValueIndicatorConverter
   }
 
   @override
-  String? toJson(ShowValueIndicator? value) {
-    if (value == null) return null;
+  String? toJson(ShowValueIndicator? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case ShowValueIndicator.always:
         return 'always';
-        break;
 
       case ShowValueIndicator.never:
         return 'never';
-        break;
 
       case ShowValueIndicator.onlyForContinuous:
         return 'onlyForContinuous';
-        break;
 
       case ShowValueIndicator.onlyForDiscrete:
         return 'onlyForDiscrete';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -61,7 +55,7 @@ class ShowValueIndicatorConverter
   }
 
   @override
-  String toJson(ShowValueIndicator value) {
-    return const NullableShowValueIndicatorConverter().toJson(value)!;
+  String toJson(ShowValueIndicator object) {
+    return const NullableShowValueIndicatorConverter().toJson(object)!;
   }
 }

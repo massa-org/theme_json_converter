@@ -15,15 +15,13 @@ class NullableLocaleConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(Locale? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(Locale? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'countryCode': value.countryCode,
-      'languageCode': value.languageCode,
+      'countryCode': object.countryCode,
+      'languageCode': object.languageCode,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -36,7 +34,7 @@ class LocaleConverter extends JsonConverter<Locale, Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic> toJson(Locale value) {
-    return const NullableLocaleConverter().toJson(value)!;
+  Map<String, dynamic> toJson(Locale object) {
+    return const NullableLocaleConverter().toJson(object)!;
   }
 }

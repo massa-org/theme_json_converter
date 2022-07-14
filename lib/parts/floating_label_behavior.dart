@@ -23,24 +23,19 @@ class NullableFloatingLabelBehaviorConverter
   }
 
   @override
-  String? toJson(FloatingLabelBehavior? value) {
-    if (value == null) return null;
+  String? toJson(FloatingLabelBehavior? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case FloatingLabelBehavior.always:
         return 'always';
-        break;
 
       case FloatingLabelBehavior.auto:
         return 'auto';
-        break;
 
       case FloatingLabelBehavior.never:
         return 'never';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -54,7 +49,7 @@ class FloatingLabelBehaviorConverter
   }
 
   @override
-  String toJson(FloatingLabelBehavior value) {
-    return const NullableFloatingLabelBehaviorConverter().toJson(value)!;
+  String toJson(FloatingLabelBehavior object) {
+    return const NullableFloatingLabelBehaviorConverter().toJson(object)!;
   }
 }

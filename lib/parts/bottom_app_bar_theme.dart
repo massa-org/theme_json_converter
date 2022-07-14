@@ -20,16 +20,14 @@ class NullableBottomAppBarThemeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(BottomAppBarTheme? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(BottomAppBarTheme? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'color': const NullableColorConverter().toJson(value.color),
-      'elevation': value.elevation,
-      'shape': const NullableNotchedShapeConverter().toJson(value.shape),
+      'color': const NullableColorConverter().toJson(object.color),
+      'elevation': object.elevation,
+      'shape': const NullableNotchedShapeConverter().toJson(object.shape),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -43,7 +41,7 @@ class BottomAppBarThemeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(BottomAppBarTheme value) {
-    return const NullableBottomAppBarThemeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(BottomAppBarTheme object) {
+    return const NullableBottomAppBarThemeConverter().toJson(object)!;
   }
 }

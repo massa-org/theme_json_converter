@@ -20,19 +20,15 @@ class NullableButtonBarLayoutBehaviorConverter
   }
 
   @override
-  String? toJson(ButtonBarLayoutBehavior? value) {
-    if (value == null) return null;
+  String? toJson(ButtonBarLayoutBehavior? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case ButtonBarLayoutBehavior.constrained:
         return 'constrained';
-        break;
       case ButtonBarLayoutBehavior.padded:
         return 'padded';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -46,7 +42,7 @@ class ButtonBarLayoutBehaviorConverter
   }
 
   @override
-  String toJson(ButtonBarLayoutBehavior value) {
-    return const NullableButtonBarLayoutBehaviorConverter().toJson(value)!;
+  String toJson(ButtonBarLayoutBehavior object) {
+    return const NullableButtonBarLayoutBehaviorConverter().toJson(object)!;
   }
 }

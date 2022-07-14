@@ -25,21 +25,19 @@ class NullableDecorationImageConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(DecorationImage? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(DecorationImage? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'alignment': const NullableAlignmentConverter()
-          .toJson(value.alignment as Alignment?),
-      'centerSlice': const NullableRectConverter().toJson(value.centerSlice),
-      'fit': const NullableBoxFitConverter().toJson(value.fit),
-      'image': const NullableImageProviderConverter().toJson(value.image),
-      'matchTextDirection': value.matchTextDirection,
-      'repeat': const NullableImageRepeatConverter().toJson(value.repeat),
-      'scale': value.scale,
+          .toJson(object.alignment as Alignment?),
+      'centerSlice': const NullableRectConverter().toJson(object.centerSlice),
+      'fit': const NullableBoxFitConverter().toJson(object.fit),
+      'image': const NullableImageProviderConverter().toJson(object.image),
+      'matchTextDirection': object.matchTextDirection,
+      'repeat': const NullableImageRepeatConverter().toJson(object.repeat),
+      'scale': object.scale,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -53,7 +51,7 @@ class DecorationImageConverter
   }
 
   @override
-  Map<String, dynamic> toJson(DecorationImage value) {
-    return const NullableDecorationImageConverter().toJson(value)!;
+  Map<String, dynamic> toJson(DecorationImage object) {
+    return const NullableDecorationImageConverter().toJson(object)!;
   }
 }

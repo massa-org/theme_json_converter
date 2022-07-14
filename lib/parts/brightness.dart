@@ -15,20 +15,16 @@ class NullableBrightnessConverter extends JsonConverter<Brightness?, String?> {
   }
 
   @override
-  String? toJson(Brightness? value) {
-    if (value == null) return null;
+  String? toJson(Brightness? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case Brightness.dark:
         return 'dark';
-        break;
 
       case Brightness.light:
         return 'light';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -41,7 +37,7 @@ class BrightnessConverter extends JsonConverter<Brightness, String> {
   }
 
   @override
-  String toJson(Brightness value) {
-    return const NullableBrightnessConverter().toJson(value)!;
+  String toJson(Brightness object) {
+    return const NullableBrightnessConverter().toJson(object)!;
   }
 }

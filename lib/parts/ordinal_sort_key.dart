@@ -15,15 +15,13 @@ class NullableOrdinalSortKeyConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(OrdinalSortKey? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(OrdinalSortKey? object) {
+    if (object == null) return null;
 
     return {
-      'name': value.name,
-      'order': value.order,
+      'name': object.name,
+      'order': object.order,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -37,7 +35,7 @@ class OrdinalSortKeyConverter
   }
 
   @override
-  Map<String, dynamic> toJson(OrdinalSortKey value) {
-    return const NullableOrdinalSortKeyConverter().toJson(value)!;
+  Map<String, dynamic> toJson(OrdinalSortKey object) {
+    return const NullableOrdinalSortKeyConverter().toJson(object)!;
   }
 }

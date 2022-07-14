@@ -47,7 +47,7 @@ class SwitchThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SwitchThemeData value) {
-    return const NullableSwitchThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(SwitchThemeData object) {
+    return const NullableSwitchThemeDataConverter().toJson(object)!;
   }
 }

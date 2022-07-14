@@ -17,12 +17,10 @@ class NullableNotchedShapeConverter
   }
 
   @override
-  String? toJson(NotchedShape? value) {
-    if (value == null) return null;
+  String? toJson(NotchedShape? object) {
+    if (object == null) return null;
 
     return 'circular';
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -35,7 +33,7 @@ class NotchedShapeConverter extends JsonConverter<NotchedShape, String> {
   }
 
   @override
-  String toJson(NotchedShape value) {
-    return const NullableNotchedShapeConverter().toJson(value)!;
+  String toJson(NotchedShape object) {
+    return const NullableNotchedShapeConverter().toJson(object)!;
   }
 }

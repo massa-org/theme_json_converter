@@ -23,22 +23,17 @@ class NullableMaxLengthEnforcementConverter
   }
 
   @override
-  String? toJson(MaxLengthEnforcement? value) {
-    if (value == null) return null;
+  String? toJson(MaxLengthEnforcement? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case MaxLengthEnforcement.enforced:
         return 'enforced';
-        break;
       case MaxLengthEnforcement.none:
         return 'none';
-        break;
       case MaxLengthEnforcement.truncateAfterCompositionEnds:
         return 'truncateAfterCompositionEnds';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -52,7 +47,7 @@ class MaxLengthEnforcementConverter
   }
 
   @override
-  String toJson(MaxLengthEnforcement value) {
-    return const NullableMaxLengthEnforcementConverter().toJson(value)!;
+  String toJson(MaxLengthEnforcement object) {
+    return const NullableMaxLengthEnforcementConverter().toJson(object)!;
   }
 }

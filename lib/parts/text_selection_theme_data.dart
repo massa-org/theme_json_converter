@@ -22,22 +22,20 @@ class NullableTextSelectionThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(TextSelectionThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(TextSelectionThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'cursorColor': const NullableColorConverter().toJson(
-        value.cursorColor,
+        object.cursorColor,
       ),
       'selectionColor': const NullableColorConverter().toJson(
-        value.selectionColor,
+        object.selectionColor,
       ),
       'selectionHandleColor': const NullableColorConverter().toJson(
-        value.selectionHandleColor,
+        object.selectionHandleColor,
       ),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -51,7 +49,7 @@ class TextSelectionThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(TextSelectionThemeData value) {
-    return const NullableTextSelectionThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(TextSelectionThemeData object) {
+    return const NullableTextSelectionThemeDataConverter().toJson(object)!;
   }
 }

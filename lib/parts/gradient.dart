@@ -100,57 +100,57 @@ class NullableGradientConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(Gradient? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(Gradient? object) {
+    if (object == null) return null;
 
-    if (value is LinearGradient) {
+    if (object is LinearGradient) {
       return {
         'begin': const NullableAlignmentConverter()
-            .toJson(value.begin as Alignment?),
+            .toJson(object.begin as Alignment?),
         'colors': _encodeList<String?>(
-          value.colors,
-          (value) => const NullableColorConverter().toJson(value),
+          object.colors,
+          (object) => const NullableColorConverter().toJson(object),
         ),
         'end':
-            const NullableAlignmentConverter().toJson(value.end as Alignment?),
-        'stops': value.stops,
-        'tileMode': const NullableTileModeConverter().toJson(value.tileMode),
+            const NullableAlignmentConverter().toJson(object.end as Alignment?),
+        'stops': object.stops,
+        'tileMode': const NullableTileModeConverter().toJson(object.tileMode),
         'transform':
-            const NullableGradientTransformConverter().toJson(value.transform),
+            const NullableGradientTransformConverter().toJson(object.transform),
         'type': 'linear',
       };
-    } else if (value is RadialGradient) {
+    } else if (object is RadialGradient) {
       return {
         'center': const NullableAlignmentConverter()
-            .toJson(value.center as Alignment?),
+            .toJson(object.center as Alignment?),
         'colors': _encodeList<String?>(
-          value.colors,
-          (value) => const NullableColorConverter().toJson(value),
+          object.colors,
+          (object) => const NullableColorConverter().toJson(object),
         ),
         'focal': const NullableAlignmentConverter()
-            .toJson(value.focal as Alignment?),
-        'focalRadius': value.focalRadius,
-        'radius': value.radius,
-        'stops': value.stops,
-        'tileMode': const NullableTileModeConverter().toJson(value.tileMode),
+            .toJson(object.focal as Alignment?),
+        'focalRadius': object.focalRadius,
+        'radius': object.radius,
+        'stops': object.stops,
+        'tileMode': const NullableTileModeConverter().toJson(object.tileMode),
         'transform':
-            const NullableGradientTransformConverter().toJson(value.transform),
+            const NullableGradientTransformConverter().toJson(object.transform),
         'type': 'radial',
       };
-    } else if (value is SweepGradient) {
+    } else if (object is SweepGradient) {
       return {
         'center': const NullableAlignmentConverter()
-            .toJson(value.center as Alignment?),
+            .toJson(object.center as Alignment?),
         'colors': _encodeList<String?>(
-          value.colors,
-          (value) => const NullableColorConverter().toJson(value),
+          object.colors,
+          (object) => const NullableColorConverter().toJson(object),
         ),
-        'endAngle': value.endAngle,
-        'startAngle': value.startAngle,
-        'stops': value.stops,
-        'tileMode': const NullableTileModeConverter().toJson(value.tileMode),
+        'endAngle': object.endAngle,
+        'startAngle': object.startAngle,
+        'stops': object.stops,
+        'tileMode': const NullableTileModeConverter().toJson(object.tileMode),
         'transform':
-            const NullableGradientTransformConverter().toJson(value.transform),
+            const NullableGradientTransformConverter().toJson(object.transform),
         'type': 'sweep',
       };
     }
@@ -168,7 +168,7 @@ class GradientConverter extends JsonConverter<Gradient, Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic> toJson(Gradient value) {
-    return const NullableGradientConverter().toJson(value)!;
+  Map<String, dynamic> toJson(Gradient object) {
+    return const NullableGradientConverter().toJson(object)!;
   }
 }

@@ -36,28 +36,26 @@ class NullableButtonBarThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ButtonBarThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ButtonBarThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'alignment':
-          const NullableMainAxisAlignmentConverter().toJson(value.alignment),
-      'buttonAlignedDropdown': value.buttonAlignedDropdown,
-      'buttonHeight': value.buttonHeight,
-      'buttonMinWidth': value.buttonMinWidth,
+          const NullableMainAxisAlignmentConverter().toJson(object.alignment),
+      'buttonAlignedDropdown': object.buttonAlignedDropdown,
+      'buttonHeight': object.buttonHeight,
+      'buttonMinWidth': object.buttonMinWidth,
       'buttonPadding': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.buttonPadding as EdgeInsets?),
+          .toJson(object.buttonPadding as EdgeInsets?),
       'buttonTextTheme': const NullableButtonTextThemeConverter()
-          .toJson(value.buttonTextTheme),
+          .toJson(object.buttonTextTheme),
       'layoutBehavior': const NullableButtonBarLayoutBehaviorConverter()
-          .toJson(value.layoutBehavior),
+          .toJson(object.layoutBehavior),
       'mainAxisSize':
-          const NullableMainAxisSizeConverter().toJson(value.mainAxisSize),
+          const NullableMainAxisSizeConverter().toJson(object.mainAxisSize),
       'overflowDirection': const NullableVerticalDirectionConverter()
-          .toJson(value.overflowDirection),
+          .toJson(object.overflowDirection),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -71,7 +69,7 @@ class ButtonBarThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ButtonBarThemeData value) {
-    return const NullableButtonBarThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ButtonBarThemeData object) {
+    return const NullableButtonBarThemeDataConverter().toJson(object)!;
   }
 }

@@ -31,22 +31,20 @@ class NullableStrutStyleConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(StrutStyle? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(StrutStyle? object) {
+    if (object == null) return null;
 
     return {
-      'fontFamily': value.fontFamily,
-      'fontFamilyFallback': value.fontFamilyFallback,
-      'fontSize': value.fontSize,
-      'fontStyle': const NullableFontStyleConverter().toJson(value.fontStyle),
+      'fontFamily': object.fontFamily,
+      'fontFamilyFallback': object.fontFamilyFallback,
+      'fontSize': object.fontSize,
+      'fontStyle': const NullableFontStyleConverter().toJson(object.fontStyle),
       'fontWeight':
-          const NullableFontWeightConverter().toJson(value.fontWeight),
-      'forceStrutHeight': value.forceStrutHeight,
-      'height': value.height,
-      'leading': value.leading,
+          const NullableFontWeightConverter().toJson(object.fontWeight),
+      'forceStrutHeight': object.forceStrutHeight,
+      'height': object.height,
+      'leading': object.leading,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -60,7 +58,7 @@ class StrutStyleConverter
   }
 
   @override
-  Map<String, dynamic> toJson(StrutStyle value) {
-    return const NullableStrutStyleConverter().toJson(value)!;
+  Map<String, dynamic> toJson(StrutStyle object) {
+    return const NullableStrutStyleConverter().toJson(object)!;
   }
 }

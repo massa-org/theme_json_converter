@@ -32,36 +32,28 @@ class NullableTargetPlatformConverter
   }
 
   @override
-  String? toJson(TargetPlatform? value) {
-    if (value == null) return null;
+  String? toJson(TargetPlatform? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TargetPlatform.android:
         return 'android';
-        break;
 
       case TargetPlatform.fuchsia:
         return 'fuchsia';
-        break;
 
       case TargetPlatform.iOS:
         return 'iOS';
-        break;
 
       case TargetPlatform.linux:
         return 'linux';
-        break;
 
       case TargetPlatform.macOS:
         return 'macOS';
-        break;
 
       case TargetPlatform.windows:
         return 'windows';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -74,7 +66,7 @@ class TargetPlatformConverter extends JsonConverter<TargetPlatform, String> {
   }
 
   @override
-  String toJson(TargetPlatform value) {
-    return const NullableTargetPlatformConverter().toJson(value)!;
+  String toJson(TargetPlatform object) {
+    return const NullableTargetPlatformConverter().toJson(object)!;
   }
 }

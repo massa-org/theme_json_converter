@@ -22,16 +22,14 @@ class NullableBorderSideConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(BorderSide? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(BorderSide? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'color': const NullableColorConverter().toJson(value.color),
-      'style': const NullableBorderStyleConverter().toJson(value.style),
-      'width': value.width,
+      'color': const NullableColorConverter().toJson(object.color),
+      'style': const NullableBorderStyleConverter().toJson(object.style),
+      'width': object.width,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +43,7 @@ class BorderSideConverter
   }
 
   @override
-  Map<String, dynamic> toJson(BorderSide value) {
-    return const NullableBorderSideConverter().toJson(value)!;
+  Map<String, dynamic> toJson(BorderSide object) {
+    return const NullableBorderSideConverter().toJson(object)!;
   }
 }

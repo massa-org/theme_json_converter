@@ -61,42 +61,41 @@ class NullableChipThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ChipThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ChipThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
+          const NullableColorConverter().toJson(object.backgroundColor),
       'brightness':
-          const NullableBrightnessConverter().toJson(value.brightness),
+          const NullableBrightnessConverter().toJson(object.brightness),
       'checkmarkColor':
-          const NullableColorConverter().toJson(value.checkmarkColor),
+          const NullableColorConverter().toJson(object.checkmarkColor),
       'deleteIconColor':
-          const NullableColorConverter().toJson(value.deleteIconColor),
+          const NullableColorConverter().toJson(object.deleteIconColor),
       'disabledColor':
-          const NullableColorConverter().toJson(value.disabledColor),
-      'elevation': value.elevation,
+          const NullableColorConverter().toJson(object.disabledColor),
+      'elevation': object.elevation,
       'labelPadding': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.labelPadding as EdgeInsets?),
-      'labelStyle': const NullableTextStyleConverter().toJson(value.labelStyle),
+          .toJson(object.labelPadding as EdgeInsets?),
+      'labelStyle':
+          const NullableTextStyleConverter().toJson(object.labelStyle),
       'padding': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.padding as EdgeInsets?),
-      'pressElevation': value.pressElevation,
+          .toJson(object.padding as EdgeInsets?),
+      'pressElevation': object.pressElevation,
       'secondaryLabelStyle':
-          const NullableTextStyleConverter().toJson(value.secondaryLabelStyle),
+          const NullableTextStyleConverter().toJson(object.secondaryLabelStyle),
       'secondarySelectedColor':
-          const NullableColorConverter().toJson(value.secondarySelectedColor),
+          const NullableColorConverter().toJson(object.secondarySelectedColor),
       'selectedColor':
-          const NullableColorConverter().toJson(value.selectedColor),
-      'shape': const NullableShapeBorderConverter().toJson(value.shape),
-      'side': const NullableBorderSideConverter().toJson(value.side),
+          const NullableColorConverter().toJson(object.selectedColor),
+      'shape': const NullableShapeBorderConverter().toJson(object.shape),
+      'side': const NullableBorderSideConverter().toJson(object.side),
       'selectedShadowColor':
-          const NullableColorConverter().toJson(value.selectedShadowColor),
-      'shadowColor': const NullableColorConverter().toJson(value.shadowColor),
-      'showCheckmark': value.showCheckmark,
+          const NullableColorConverter().toJson(object.selectedShadowColor),
+      'shadowColor': const NullableColorConverter().toJson(object.shadowColor),
+      'showCheckmark': object.showCheckmark,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -110,7 +109,7 @@ class ChipThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ChipThemeData value) {
-    return const NullableChipThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ChipThemeData object) {
+    return const NullableChipThemeDataConverter().toJson(object)!;
   }
 }

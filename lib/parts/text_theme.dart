@@ -70,26 +70,24 @@ class NullableTextThemeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(TextTheme? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(TextTheme? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'bodyText1': const NullableTextStyleConverter().toJson(value.bodyText1),
-      'bodyText2': const NullableTextStyleConverter().toJson(value.bodyText2),
-      'button': const NullableTextStyleConverter().toJson(value.button),
-      'caption': const NullableTextStyleConverter().toJson(value.caption),
-      'headline1': const NullableTextStyleConverter().toJson(value.headline1),
-      'headline2': const NullableTextStyleConverter().toJson(value.headline2),
-      'headline3': const NullableTextStyleConverter().toJson(value.headline3),
-      'headline4': const NullableTextStyleConverter().toJson(value.headline4),
-      'headline5': const NullableTextStyleConverter().toJson(value.headline5),
-      'headline6': const NullableTextStyleConverter().toJson(value.headline6),
-      'overline': const NullableTextStyleConverter().toJson(value.overline),
-      'subtitle1': const NullableTextStyleConverter().toJson(value.subtitle1),
-      'subtitle2': const NullableTextStyleConverter().toJson(value.subtitle2),
+      'bodyText1': const NullableTextStyleConverter().toJson(object.bodyText1),
+      'bodyText2': const NullableTextStyleConverter().toJson(object.bodyText2),
+      'button': const NullableTextStyleConverter().toJson(object.button),
+      'caption': const NullableTextStyleConverter().toJson(object.caption),
+      'headline1': const NullableTextStyleConverter().toJson(object.headline1),
+      'headline2': const NullableTextStyleConverter().toJson(object.headline2),
+      'headline3': const NullableTextStyleConverter().toJson(object.headline3),
+      'headline4': const NullableTextStyleConverter().toJson(object.headline4),
+      'headline5': const NullableTextStyleConverter().toJson(object.headline5),
+      'headline6': const NullableTextStyleConverter().toJson(object.headline6),
+      'overline': const NullableTextStyleConverter().toJson(object.overline),
+      'subtitle1': const NullableTextStyleConverter().toJson(object.subtitle1),
+      'subtitle2': const NullableTextStyleConverter().toJson(object.subtitle2),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -103,7 +101,7 @@ class TextThemeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(TextTheme value) {
-    return const NullableTextThemeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(TextTheme object) {
+    return const NullableTextThemeConverter().toJson(object)!;
   }
 }

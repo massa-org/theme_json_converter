@@ -29,32 +29,25 @@ class NullableTextDecorationStyleConverter
   }
 
   @override
-  String? toJson(TextDecorationStyle? value) {
-    if (value == null) return null;
+  String? toJson(TextDecorationStyle? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TextDecorationStyle.dashed:
         return 'dashed';
-        break;
 
       case TextDecorationStyle.dotted:
         return 'dotted';
-        break;
 
       case TextDecorationStyle.double:
         return 'double';
-        break;
 
       case TextDecorationStyle.solid:
         return 'solid';
-        break;
 
       case TextDecorationStyle.wavy:
         return 'wavy';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -68,7 +61,7 @@ class TextDecorationStyleConverter
   }
 
   @override
-  String toJson(TextDecorationStyle value) {
-    return const NullableTextDecorationStyleConverter().toJson(value)!;
+  String toJson(TextDecorationStyle object) {
+    return const NullableTextDecorationStyleConverter().toJson(object)!;
   }
 }

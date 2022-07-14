@@ -28,16 +28,14 @@ class NullableRadiusConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(Radius? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(Radius? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'type': 'elliptical',
-      'x': value.x,
-      'y': value.y,
+      'x': object.x,
+      'y': object.y,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -50,7 +48,7 @@ class RadiusConverter extends JsonConverter<Radius, Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic> toJson(Radius value) {
-    return const NullableRadiusConverter().toJson(value)!;
+  Map<String, dynamic> toJson(Radius object) {
+    return const NullableRadiusConverter().toJson(object)!;
   }
 }

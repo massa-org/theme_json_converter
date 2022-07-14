@@ -16,14 +16,12 @@ class NullableTextButtonThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(TextButtonThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(TextButtonThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'style': const NullableButtonStyleConverter().toJson(value.style),
+      'style': const NullableButtonStyleConverter().toJson(object.style),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -37,7 +35,7 @@ class TextButtonThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(TextButtonThemeData value) {
-    return const NullableTextButtonThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(TextButtonThemeData object) {
+    return const NullableTextButtonThemeDataConverter().toJson(object)!;
   }
 }

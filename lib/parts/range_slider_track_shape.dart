@@ -20,12 +20,12 @@ class NullableRangeSliderTrackShapeConverter
   }
 
   @override
-  String? toJson(RangeSliderTrackShape? value) {
-    if (value == null) return null;
+  String? toJson(RangeSliderTrackShape? object) {
+    if (object == null) return null;
 
-    if (value is RectangularRangeSliderTrackShape) {
+    if (object is RectangularRangeSliderTrackShape) {
       return 'rectangular';
-    } else if (value is RoundedRectRangeSliderTrackShape) {
+    } else if (object is RoundedRectRangeSliderTrackShape) {
       return 'rounded';
     }
 
@@ -43,7 +43,7 @@ class RangeSliderTrackShapeConverter
   }
 
   @override
-  String toJson(RangeSliderTrackShape value) {
-    return const NullableRangeSliderTrackShapeConverter().toJson(value)!;
+  String toJson(RangeSliderTrackShape object) {
+    return const NullableRangeSliderTrackShapeConverter().toJson(object)!;
   }
 }

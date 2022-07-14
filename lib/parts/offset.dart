@@ -15,15 +15,13 @@ class NullableOffsetConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(Offset? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(Offset? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'dx': value.dx,
-      'dy': value.dy,
+      'dx': object.dx,
+      'dy': object.dy,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -36,7 +34,7 @@ class OffsetConverter extends JsonConverter<Offset, Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic> toJson(Offset value) {
-    return const NullableOffsetConverter().toJson(value)!;
+  Map<String, dynamic> toJson(Offset object) {
+    return const NullableOffsetConverter().toJson(object)!;
   }
 }

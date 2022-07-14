@@ -26,16 +26,16 @@ class NullableTextDecorationConverter
   }
 
   @override
-  String? toJson(TextDecoration? value) {
-    if (value == null) return null;
+  String? toJson(TextDecoration? object) {
+    if (object == null) return null;
 
-    if (value == TextDecoration.lineThrough) {
+    if (object == TextDecoration.lineThrough) {
       return 'lineThrough';
-    } else if (value == TextDecoration.none) {
+    } else if (object == TextDecoration.none) {
       return 'none';
-    } else if (value == TextDecoration.overline) {
+    } else if (object == TextDecoration.overline) {
       return 'overline';
-    } else if (value == TextDecoration.underline) {
+    } else if (object == TextDecoration.underline) {
       return 'underline';
     }
 
@@ -52,7 +52,7 @@ class TextDecorationConverter extends JsonConverter<TextDecoration, String> {
   }
 
   @override
-  String toJson(TextDecoration value) {
-    return const NullableTextDecorationConverter().toJson(value)!;
+  String toJson(TextDecoration object) {
+    return const NullableTextDecorationConverter().toJson(object)!;
   }
 }

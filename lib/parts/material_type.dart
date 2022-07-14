@@ -29,28 +29,21 @@ class NullableMaterialTypeConverter
   }
 
   @override
-  String? toJson(MaterialType? value) {
-    if (value == null) return null;
+  String? toJson(MaterialType? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case MaterialType.button:
         return 'button';
-        break;
       case MaterialType.canvas:
         return 'canvas';
-        break;
       case MaterialType.card:
         return 'card';
-        break;
       case MaterialType.circle:
         return 'circle';
-        break;
       case MaterialType.transparency:
         return 'transparency';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -63,7 +56,7 @@ class MaterialTypeConverter extends JsonConverter<MaterialType, String> {
   }
 
   @override
-  String toJson(MaterialType value) {
-    return const NullableMaterialTypeConverter().toJson(value)!;
+  String toJson(MaterialType object) {
+    return const NullableMaterialTypeConverter().toJson(object)!;
   }
 }

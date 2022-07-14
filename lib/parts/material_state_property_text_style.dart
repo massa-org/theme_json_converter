@@ -53,28 +53,26 @@ class NullableMaterialStatePropertyTextStyleConverter extends JsonConverter<
   }
 
   @override
-  Map<String, dynamic>? toJson(MaterialStateProperty<TextStyle?>? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(MaterialStateProperty<TextStyle?>? object) {
+    if (object == null) return null;
 
     return {
       'disabled': const NullableTextStyleConverter()
-          .toJson(value.resolve({MaterialState.disabled})),
+          .toJson(object.resolve({MaterialState.disabled})),
       'dragged': const NullableTextStyleConverter()
-          .toJson(value.resolve({MaterialState.dragged})),
-      'empty': const NullableTextStyleConverter().toJson(value.resolve({})),
+          .toJson(object.resolve({MaterialState.dragged})),
+      'empty': const NullableTextStyleConverter().toJson(object.resolve({})),
       'error': const NullableTextStyleConverter()
-          .toJson(value.resolve({MaterialState.error})),
+          .toJson(object.resolve({MaterialState.error})),
       'focused': const NullableTextStyleConverter()
-          .toJson(value.resolve({MaterialState.focused})),
+          .toJson(object.resolve({MaterialState.focused})),
       'hovered': const NullableTextStyleConverter()
-          .toJson(value.resolve({MaterialState.hovered})),
+          .toJson(object.resolve({MaterialState.hovered})),
       'pressed': const NullableTextStyleConverter()
-          .toJson(value.resolve({MaterialState.pressed})),
+          .toJson(object.resolve({MaterialState.pressed})),
       'selected': const NullableTextStyleConverter()
-          .toJson(value.resolve({MaterialState.selected})),
+          .toJson(object.resolve({MaterialState.selected})),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -89,8 +87,8 @@ class MaterialStatePropertyTextStyleConverter extends JsonConverter<
   }
 
   @override
-  Map<String, dynamic> toJson(MaterialStateProperty<TextStyle?> value) {
+  Map<String, dynamic> toJson(MaterialStateProperty<TextStyle?> object) {
     return const NullableMaterialStatePropertyTextStyleConverter()
-        .toJson(value)!;
+        .toJson(object)!;
   }
 }

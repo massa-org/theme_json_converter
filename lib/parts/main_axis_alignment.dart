@@ -32,31 +32,25 @@ class NullableMainAxisAlignmentConverter
   }
 
   @override
-  String? toJson(MainAxisAlignment? value) {
-    if (value == null) return null;
+  String? toJson(MainAxisAlignment? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case MainAxisAlignment.center:
         return 'center';
-        break;
       case MainAxisAlignment.end:
         return 'end';
-        break;
       case MainAxisAlignment.spaceAround:
         return 'spaceAround';
-        break;
       case MainAxisAlignment.spaceBetween:
         return 'spaceBetween';
-        break;
       case MainAxisAlignment.spaceEvenly:
         return 'spaceEvenly';
-        break;
       case MainAxisAlignment.start:
         return 'start';
-        break;
     }
 
-    throw 'Json_Unsuported_Value';
+    
   }
 }
 
@@ -70,7 +64,7 @@ class MainAxisAlignmentConverter
   }
 
   @override
-  String toJson(MainAxisAlignment value) {
-    return const NullableMainAxisAlignmentConverter().toJson(value)!;
+  String toJson(MainAxisAlignment object) {
+    return const NullableMainAxisAlignmentConverter().toJson(object)!;
   }
 }

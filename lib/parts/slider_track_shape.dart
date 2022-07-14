@@ -21,14 +21,14 @@ class NullableSliderTrackShapeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(SliderTrackShape? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(SliderTrackShape? object) {
+    if (object == null) return null;
 
-    if (value is RectangularSliderTrackShape) {
+    if (object is RectangularSliderTrackShape) {
       return <String, dynamic>{
         'type': 'rectangular',
       };
-    } else if (value is RoundedRectSliderTrackShape) {
+    } else if (object is RoundedRectSliderTrackShape) {
       return <String, dynamic>{
         'type': 'rounded',
       };
@@ -48,7 +48,7 @@ class SliderTrackShapeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SliderTrackShape value) {
-    return const NullableSliderTrackShapeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(SliderTrackShape object) {
+    return const NullableSliderTrackShapeConverter().toJson(object)!;
   }
 }

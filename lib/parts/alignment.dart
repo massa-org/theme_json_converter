@@ -40,41 +40,42 @@ class NullableAlignmentConverter extends JsonConverter<Alignment?, String?> {
   }
 
   @override
-  String? toJson(Alignment? value) {
-    if (value == null) return null;
+  String? toJson(Alignment? object) {
+    if (object == null) return null;
 
-    if (value.x == Alignment.bottomCenter.x &&
-        value.y == Alignment.bottomCenter.y) {
+    if (object.x == Alignment.bottomCenter.x &&
+        object.y == Alignment.bottomCenter.y) {
       return 'bottomCenter';
     }
-    if (value.x == Alignment.bottomLeft.x &&
-        value.y == Alignment.bottomLeft.y) {
+    if (object.x == Alignment.bottomLeft.x &&
+        object.y == Alignment.bottomLeft.y) {
       return 'bottomLeft';
     }
-    if (value.x == Alignment.bottomRight.x &&
-        value.y == Alignment.bottomRight.y) {
+    if (object.x == Alignment.bottomRight.x &&
+        object.y == Alignment.bottomRight.y) {
       return 'bottomRight';
     }
 
-    if (value.x == Alignment.center.x && value.y == Alignment.center.y) {
+    if (object.x == Alignment.center.x && object.y == Alignment.center.y) {
       return 'center';
     }
-    if (value.x == Alignment.centerLeft.x &&
-        value.y == Alignment.centerLeft.y) {
+    if (object.x == Alignment.centerLeft.x &&
+        object.y == Alignment.centerLeft.y) {
       return 'centerLeft';
     }
-    if (value.x == Alignment.centerRight.x &&
-        value.y == Alignment.centerRight.y) {
+    if (object.x == Alignment.centerRight.x &&
+        object.y == Alignment.centerRight.y) {
       return 'centerRight';
     }
 
-    if (value.x == Alignment.topCenter.x && value.y == Alignment.topCenter.y) {
+    if (object.x == Alignment.topCenter.x &&
+        object.y == Alignment.topCenter.y) {
       return 'topCenter';
     }
-    if (value.x == Alignment.topLeft.x && value.y == Alignment.topLeft.y) {
+    if (object.x == Alignment.topLeft.x && object.y == Alignment.topLeft.y) {
       return 'topLeft';
     }
-    if (value.x == Alignment.topRight.x && value.y == Alignment.topRight.y) {
+    if (object.x == Alignment.topRight.x && object.y == Alignment.topRight.y) {
       return 'topRight';
     }
 
@@ -91,7 +92,7 @@ class AlignmentConverter extends JsonConverter<Alignment, String> {
   }
 
   @override
-  String toJson(Alignment value) {
-    return const NullableAlignmentConverter().toJson(value)!;
+  String toJson(Alignment object) {
+    return const NullableAlignmentConverter().toJson(object)!;
   }
 }

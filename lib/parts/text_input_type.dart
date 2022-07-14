@@ -44,28 +44,28 @@ class NullableTextInputTypeConverter
   }
 
   @override
-  String? toJson(TextInputType? value) {
-    if (value == null) return null;
+  String? toJson(TextInputType? object) {
+    if (object == null) return null;
 
-    if (value.index == TextInputType.datetime.index) {
+    if (object.index == TextInputType.datetime.index) {
       return 'datetime';
-    } else if (value.index == TextInputType.emailAddress.index) {
+    } else if (object.index == TextInputType.emailAddress.index) {
       return 'emailAddress';
-    } else if (value.index == TextInputType.multiline.index) {
+    } else if (object.index == TextInputType.multiline.index) {
       return 'multiline';
-    } else if (value.index == TextInputType.name.index) {
+    } else if (object.index == TextInputType.name.index) {
       return 'name';
-    } else if (value.index == TextInputType.number.index) {
+    } else if (object.index == TextInputType.number.index) {
       return 'number';
-    } else if (value.index == TextInputType.phone.index) {
+    } else if (object.index == TextInputType.phone.index) {
       return 'phone';
-    } else if (value.index == TextInputType.streetAddress.index) {
+    } else if (object.index == TextInputType.streetAddress.index) {
       return 'streetAddress';
-    } else if (value.index == TextInputType.text.index) {
+    } else if (object.index == TextInputType.text.index) {
       return 'text';
-    } else if (value.index == TextInputType.url.index) {
+    } else if (object.index == TextInputType.url.index) {
       return 'url';
-    } else if (value.index == TextInputType.visiblePassword.index) {
+    } else if (object.index == TextInputType.visiblePassword.index) {
       return 'visiblePassword';
     }
 
@@ -82,7 +82,7 @@ class TextInputTypeConverter extends JsonConverter<TextInputType, String> {
   }
 
   @override
-  String toJson(TextInputType value) {
-    return const NullableTextInputTypeConverter().toJson(value)!;
+  String toJson(TextInputType object) {
+    return const NullableTextInputTypeConverter().toJson(object)!;
   }
 }

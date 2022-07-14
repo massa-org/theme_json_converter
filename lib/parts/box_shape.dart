@@ -19,20 +19,16 @@ class NullableBoxShapeConverter extends JsonConverter<BoxShape?, String?> {
   }
 
   @override
-  String? toJson(BoxShape? value) {
-    if (value == null) return null;
+  String? toJson(BoxShape? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case BoxShape.circle:
         return 'circle';
-        break;
 
       case BoxShape.rectangle:
         return 'rectangle';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +41,7 @@ class BoxShapeConverter extends JsonConverter<BoxShape, String> {
   }
 
   @override
-  String toJson(BoxShape value) {
-    return const NullableBoxShapeConverter().toJson(value)!;
+  String toJson(BoxShape object) {
+    return const NullableBoxShapeConverter().toJson(object)!;
   }
 }

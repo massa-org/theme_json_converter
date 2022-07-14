@@ -134,193 +134,193 @@ class NullableMouseCursorConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(MouseCursor? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(MouseCursor? object) {
+    if (object == null) return null;
 
-    if (value == MouseCursor.defer) {
+    if (object == MouseCursor.defer) {
       return {
         'type': 'defer',
       };
-    } else if (value == MouseCursor.uncontrolled) {
+    } else if (object == MouseCursor.uncontrolled) {
       return {
         'type': 'uncontrolled',
       };
-    } else if (MaterialStateMouseCursor.clickable == value) {
+    } else if (MaterialStateMouseCursor.clickable == object) {
       return {
         'cursor': 'clickable',
         'type': 'material',
       };
-    } else if (MaterialStateMouseCursor.textable == value) {
+    } else if (MaterialStateMouseCursor.textable == object) {
       return {
         'cursor': 'textable',
         'type': 'material',
       };
-    } else if (SystemMouseCursors.alias == value) {
+    } else if (SystemMouseCursors.alias == object) {
       return {
         'cursor': 'alias',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.allScroll == value) {
+    } else if (SystemMouseCursors.allScroll == object) {
       return {
         'cursor': 'allScroll',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.basic == value) {
+    } else if (SystemMouseCursors.basic == object) {
       return {
         'cursor': 'basic',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.cell == value) {
+    } else if (SystemMouseCursors.cell == object) {
       return {
         'cursor': 'cell',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.click == value) {
+    } else if (SystemMouseCursors.click == object) {
       return {
         'cursor': 'click',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.contextMenu == value) {
+    } else if (SystemMouseCursors.contextMenu == object) {
       return {
         'cursor': 'contextMenu',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.copy == value) {
+    } else if (SystemMouseCursors.copy == object) {
       return {
         'cursor': 'copy',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.disappearing == value) {
+    } else if (SystemMouseCursors.disappearing == object) {
       return {
         'cursor': 'disappearing',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.forbidden == value) {
+    } else if (SystemMouseCursors.forbidden == object) {
       return {
         'cursor': 'forbidden',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.grab == value) {
+    } else if (SystemMouseCursors.grab == object) {
       return {
         'cursor': 'grab',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.grabbing == value) {
+    } else if (SystemMouseCursors.grabbing == object) {
       return {
         'cursor': 'grabbing',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.help == value) {
+    } else if (SystemMouseCursors.help == object) {
       return {
         'cursor': 'help',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.move == value) {
+    } else if (SystemMouseCursors.move == object) {
       return {
         'cursor': 'move',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.none == value) {
+    } else if (SystemMouseCursors.none == object) {
       return {
         'cursor': 'none',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.precise == value) {
+    } else if (SystemMouseCursors.precise == object) {
       return {
         'cursor': 'precise',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.progress == value) {
+    } else if (SystemMouseCursors.progress == object) {
       return {
         'cursor': 'progress',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeColumn == value) {
+    } else if (SystemMouseCursors.resizeColumn == object) {
       return {
         'cursor': 'resizeColumn',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeDown == value) {
+    } else if (SystemMouseCursors.resizeDown == object) {
       return {
         'cursor': 'resizeDown',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeDownLeft == value) {
+    } else if (SystemMouseCursors.resizeDownLeft == object) {
       return {
         'cursor': 'resizeDownLeft',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeDownRight == value) {
+    } else if (SystemMouseCursors.resizeDownRight == object) {
       return {
         'cursor': 'resizeDownRight',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeLeft == value) {
+    } else if (SystemMouseCursors.resizeLeft == object) {
       return {
         'cursor': 'resizeLeft',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeRight == value) {
+    } else if (SystemMouseCursors.resizeRight == object) {
       return {
         'cursor': 'resizeRight',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeRow == value) {
+    } else if (SystemMouseCursors.resizeRow == object) {
       return {
         'cursor': 'resizeRow',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeUp == value) {
+    } else if (SystemMouseCursors.resizeUp == object) {
       return {
         'cursor': 'resizeUp',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeUpDown == value) {
+    } else if (SystemMouseCursors.resizeUpDown == object) {
       return {
         'cursor': 'resizeUpDown',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeUpLeft == value) {
+    } else if (SystemMouseCursors.resizeUpLeft == object) {
       return {
         'cursor': 'resizeUpLeft',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeUpLeftDownRight == value) {
+    } else if (SystemMouseCursors.resizeUpLeftDownRight == object) {
       return {
         'cursor': 'resizeUpLeftDownRight',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeUpRight == value) {
+    } else if (SystemMouseCursors.resizeUpRight == object) {
       return {
         'cursor': 'resizeUpRight',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.resizeUpRightDownLeft == value) {
+    } else if (SystemMouseCursors.resizeUpRightDownLeft == object) {
       return {
         'cursor': 'resizeUpRightDownLeft',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.text == value) {
+    } else if (SystemMouseCursors.text == object) {
       return {
         'cursor': 'text',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.verticalText == value) {
+    } else if (SystemMouseCursors.verticalText == object) {
       return {
         'cursor': 'verticalText',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.wait == value) {
+    } else if (SystemMouseCursors.wait == object) {
       return {
         'cursor': 'wait',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.zoomIn == value) {
+    } else if (SystemMouseCursors.zoomIn == object) {
       return {
         'cursor': 'zoomIn',
         'type': 'system',
       };
-    } else if (SystemMouseCursors.zoomOut == value) {
+    } else if (SystemMouseCursors.zoomOut == object) {
       return {
         'cursor': 'zoomOut',
         'type': 'system',
@@ -341,7 +341,7 @@ class MouseCursorConverter
   }
 
   @override
-  Map<String, dynamic> toJson(MouseCursor value) {
-    return const NullableMouseCursorConverter().toJson(value)!;
+  Map<String, dynamic> toJson(MouseCursor object) {
+    return const NullableMouseCursorConverter().toJson(object)!;
   }
 }

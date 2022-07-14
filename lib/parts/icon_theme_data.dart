@@ -18,16 +18,14 @@ class NullableIconThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(IconThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(IconThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'color': const NullableColorConverter().toJson(value.color),
-      'opacity': value.opacity,
-      'size': value.size,
+      'color': const NullableColorConverter().toJson(object.color),
+      'opacity': object.opacity,
+      'size': object.size,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -41,7 +39,7 @@ class IconThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(IconThemeData value) {
-    return const NullableIconThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(IconThemeData object) {
+    return const NullableIconThemeDataConverter().toJson(object)!;
   }
 }

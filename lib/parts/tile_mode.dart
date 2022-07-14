@@ -25,28 +25,23 @@ class NullableTileModeConverter extends JsonConverter<TileMode?, String?> {
   }
 
   @override
-  String? toJson(TileMode? value) {
-    if (value == null) return null;
+  String? toJson(TileMode? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TileMode.clamp:
         return 'clamp';
-        break;
 
       case TileMode.decal:
         return 'decal';
-        break;
 
       case TileMode.mirror:
         return 'mirror';
-        break;
 
       case TileMode.repeated:
         return 'repeated';
-        break;
     }
 
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -59,7 +54,7 @@ class TileModeConverter extends JsonConverter<TileMode, String> {
   }
 
   @override
-  String toJson(TileMode value) {
-    return const NullableTileModeConverter().toJson(value)!;
+  String toJson(TileMode object) {
+    return const NullableTileModeConverter().toJson(object)!;
   }
 }

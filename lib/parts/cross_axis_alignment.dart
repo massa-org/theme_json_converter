@@ -29,28 +29,21 @@ class NullableCrossAxisAlignmentConverter
   }
 
   @override
-  String? toJson(CrossAxisAlignment? value) {
-    if (value == null) return null;
+  String? toJson(CrossAxisAlignment? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case CrossAxisAlignment.baseline:
         return 'baseline';
-        break;
       case CrossAxisAlignment.center:
         return 'center';
-        break;
       case CrossAxisAlignment.end:
         return 'end';
-        break;
       case CrossAxisAlignment.start:
         return 'start';
-        break;
       case CrossAxisAlignment.stretch:
         return 'stretch';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -64,7 +57,7 @@ class CrossAxisAlignmentConverter
   }
 
   @override
-  String toJson(CrossAxisAlignment value) {
-    return const NullableCrossAxisAlignmentConverter().toJson(value)!;
+  String toJson(CrossAxisAlignment object) {
+    return const NullableCrossAxisAlignmentConverter().toJson(object)!;
   }
 }

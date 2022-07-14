@@ -32,32 +32,30 @@ class NullableDataTableThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(DataTableThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(DataTableThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'columnSpacing': value.columnSpacing,
+      'columnSpacing': object.columnSpacing,
       'dataRowColor':
           const NullableMaterialStatePropertyColorConverter().toJson(
-        value.dataRowColor,
+        object.dataRowColor,
       ),
-      'dataRowHeight': value.dataRowHeight,
+      'dataRowHeight': object.dataRowHeight,
       'dataTextStyle': const NullableTextStyleConverter().toJson(
-        value.dataTextStyle,
+        object.dataTextStyle,
       ),
-      'dividerThickness': value.dividerThickness,
+      'dividerThickness': object.dividerThickness,
       'headingRowColor':
           const NullableMaterialStatePropertyColorConverter().toJson(
-        value.headingRowColor,
+        object.headingRowColor,
       ),
-      'headingRowHeight': value.headingRowHeight,
+      'headingRowHeight': object.headingRowHeight,
       'headingTextStyle': const NullableTextStyleConverter().toJson(
-        value.headingTextStyle,
+        object.headingTextStyle,
       ),
-      'horizontalMargin': value.horizontalMargin,
+      'horizontalMargin': object.horizontalMargin,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -71,7 +69,7 @@ class DataTableThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(DataTableThemeData value) {
-    return const NullableDataTableThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(DataTableThemeData object) {
+    return const NullableDataTableThemeDataConverter().toJson(object)!;
   }
 }

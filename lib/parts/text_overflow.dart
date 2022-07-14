@@ -26,28 +26,22 @@ class NullableTextOverflowConverter
   }
 
   @override
-  String? toJson(TextOverflow? value) {
-    if (value == null) return null;
+  String? toJson(TextOverflow? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TextOverflow.clip:
         return 'clip';
-        break;
 
       case TextOverflow.ellipsis:
         return 'ellipsis';
-        break;
 
       case TextOverflow.fade:
         return 'fade';
-        break;
 
       case TextOverflow.visible:
         return 'visible';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -60,7 +54,7 @@ class TextOverflowConverter extends JsonConverter<TextOverflow, String> {
   }
 
   @override
-  String toJson(TextOverflow value) {
-    return const NullableTextOverflowConverter().toJson(value)!;
+  String toJson(TextOverflow object) {
+    return const NullableTextOverflowConverter().toJson(object)!;
   }
 }

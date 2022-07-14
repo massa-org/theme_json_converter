@@ -32,31 +32,29 @@ class NullableRadioThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(RadioThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(RadioThemeData? object) {
+    if (object == null) return null;
 
     return {
       'fillColor': const NullableMaterialStatePropertyColorConverter().toJson(
-        value.fillColor,
+        object.fillColor,
       ),
       'materialTapTargetSize':
           const NullableMaterialTapTargetSizeConverter().toJson(
-        value.materialTapTargetSize,
+        object.materialTapTargetSize,
       ),
       'mouseCursor':
           const NullableMaterialStatePropertyMouseCursorConverter().toJson(
-        value.mouseCursor,
+        object.mouseCursor,
       ),
       'overlayColor':
           const NullableMaterialStatePropertyColorConverter().toJson(
-        value.overlayColor,
+        object.overlayColor,
       ),
-      'splashRadius': value.splashRadius,
+      'splashRadius': object.splashRadius,
       'visualDensity':
-          const NullableVisualDensityConverter().toJson(value.visualDensity),
+          const NullableVisualDensityConverter().toJson(object.visualDensity),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -70,7 +68,7 @@ class RadioThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(RadioThemeData value) {
-    return const NullableRadioThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(RadioThemeData object) {
+    return const NullableRadioThemeDataConverter().toJson(object)!;
   }
 }

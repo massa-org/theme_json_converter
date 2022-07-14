@@ -36,26 +36,24 @@ class NullableFloatingActionButtonThemeDataConverter extends JsonConverter<
   }
 
   @override
-  Map<String, dynamic>? toJson(FloatingActionButtonThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(FloatingActionButtonThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
-      'disabledElevation': value.disabledElevation,
-      'elevation': value.elevation,
-      'focusColor': const NullableColorConverter().toJson(value.focusColor),
-      'focusElevation': value.focusElevation,
+          const NullableColorConverter().toJson(object.backgroundColor),
+      'disabledElevation': object.disabledElevation,
+      'elevation': object.elevation,
+      'focusColor': const NullableColorConverter().toJson(object.focusColor),
+      'focusElevation': object.focusElevation,
       'foregroundColor':
-          const NullableColorConverter().toJson(value.foregroundColor),
-      'highlightElevation': value.highlightElevation,
-      'hoverColor': const NullableColorConverter().toJson(value.hoverColor),
-      'hoverElevation': value.hoverElevation,
-      'shape': const NullableShapeBorderConverter().toJson(value.shape),
-      'splashColor': const NullableColorConverter().toJson(value.splashColor),
+          const NullableColorConverter().toJson(object.foregroundColor),
+      'highlightElevation': object.highlightElevation,
+      'hoverColor': const NullableColorConverter().toJson(object.hoverColor),
+      'hoverElevation': object.hoverElevation,
+      'shape': const NullableShapeBorderConverter().toJson(object.shape),
+      'splashColor': const NullableColorConverter().toJson(object.splashColor),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -70,8 +68,8 @@ class FloatingActionButtonThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(FloatingActionButtonThemeData value) {
+  Map<String, dynamic> toJson(FloatingActionButtonThemeData object) {
     return const NullableFloatingActionButtonThemeDataConverter()
-        .toJson(value)!;
+        .toJson(object)!;
   }
 }

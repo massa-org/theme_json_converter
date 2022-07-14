@@ -37,14 +37,14 @@ class NullableEdgeInsetsGeometryConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(EdgeInsetsGeometry? value) {
-    if (value == null) return null;
-    if (value is EdgeInsets) {
+  Map<String, dynamic>? toJson(EdgeInsetsGeometry? object) {
+    if (object == null) return null;
+    if (object is EdgeInsets) {
       return <String, dynamic>{
-        'bottom': value.bottom,
-        'left': value.left,
-        'right': value.right,
-        'top': value.top,
+        'bottom': object.bottom,
+        'left': object.left,
+        'right': object.right,
+        'top': object.top,
       };
     }
 
@@ -62,7 +62,7 @@ class EdgeInsetsGeometryConverter
   }
 
   @override
-  Map<String, dynamic> toJson(EdgeInsetsGeometry value) {
-    return const NullableEdgeInsetsGeometryConverter().toJson(value)!;
+  Map<String, dynamic> toJson(EdgeInsetsGeometry object) {
+    return const NullableEdgeInsetsGeometryConverter().toJson(object)!;
   }
 }

@@ -54,25 +54,23 @@ class NullableButtonThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ButtonThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ButtonThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'alignedDropdown': value.alignedDropdown,
+      'alignedDropdown': object.alignedDropdown,
       'colorScheme':
-          const NullableColorSchemeConverter().toJson(value.colorScheme),
-      'height': value.height,
+          const NullableColorSchemeConverter().toJson(object.colorScheme),
+      'height': object.height,
       'layoutBehavior': const NullableButtonBarLayoutBehaviorConverter()
-          .toJson(value.layoutBehavior),
-      'minWidth': value.minWidth,
+          .toJson(object.layoutBehavior),
+      'minWidth': object.minWidth,
       'padding': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.padding as EdgeInsets?),
-      'shape': const NullableShapeBorderConverter().toJson(value.shape),
+          .toJson(object.padding as EdgeInsets?),
+      'shape': const NullableShapeBorderConverter().toJson(object.shape),
       'textTheme':
-          const NullableButtonTextThemeConverter().toJson(value.textTheme),
+          const NullableButtonTextThemeConverter().toJson(object.textTheme),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -86,7 +84,7 @@ class ButtonThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ButtonThemeData value) {
-    return const NullableButtonThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ButtonThemeData object) {
+    return const NullableButtonThemeDataConverter().toJson(object)!;
   }
 }

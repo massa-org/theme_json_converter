@@ -32,25 +32,23 @@ class NullableSnackBarThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(SnackBarThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(SnackBarThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'actionTextColor':
-          const NullableColorConverter().toJson(value.actionTextColor),
+          const NullableColorConverter().toJson(object.actionTextColor),
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
+          const NullableColorConverter().toJson(object.backgroundColor),
       'behavior':
-          const NullableSnackBarBehaviorConverter().toJson(value.behavior),
+          const NullableSnackBarBehaviorConverter().toJson(object.behavior),
       'contentTextStyle':
-          const NullableTextStyleConverter().toJson(value.contentTextStyle),
+          const NullableTextStyleConverter().toJson(object.contentTextStyle),
       'disabledActionTextColor':
-          const NullableColorConverter().toJson(value.disabledActionTextColor),
-      'elevation': value.elevation,
-      'shape': const NullableShapeBorderConverter().toJson(value.shape),
+          const NullableColorConverter().toJson(object.disabledActionTextColor),
+      'elevation': object.elevation,
+      'shape': const NullableShapeBorderConverter().toJson(object.shape),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -64,7 +62,7 @@ class SnackBarThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SnackBarThemeData value) {
-    return const NullableSnackBarThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(SnackBarThemeData object) {
+    return const NullableSnackBarThemeDataConverter().toJson(object)!;
   }
 }

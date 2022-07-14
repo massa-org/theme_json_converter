@@ -68,38 +68,38 @@ class NullableOutlinedBorderConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(OutlinedBorder? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(OutlinedBorder? object) {
+    if (object == null) return null;
 
-    if (value is BeveledRectangleBorder) {
+    if (object is BeveledRectangleBorder) {
       return <String, dynamic>{
         'borderRadius': const NullableBorderRadiusConverter()
-            .toJson(value.borderRadius as BorderRadius?),
-        'side': const NullableBorderSideConverter().toJson(value.side),
+            .toJson(object.borderRadius as BorderRadius?),
+        'side': const NullableBorderSideConverter().toJson(object.side),
         'type': 'beveled',
       };
-    } else if (value is CircleBorder) {
+    } else if (object is CircleBorder) {
       return <String, dynamic>{
-        'side': const NullableBorderSideConverter().toJson(value.side),
+        'side': const NullableBorderSideConverter().toJson(object.side),
         'type': 'circle',
       };
-    } else if (value is ContinuousRectangleBorder) {
+    } else if (object is ContinuousRectangleBorder) {
       return <String, dynamic>{
         'borderRadius': const NullableBorderRadiusConverter()
-            .toJson(value.borderRadius as BorderRadius?),
-        'side': const NullableBorderSideConverter().toJson(value.side),
+            .toJson(object.borderRadius as BorderRadius?),
+        'side': const NullableBorderSideConverter().toJson(object.side),
         'type': 'rectangle',
       };
-    } else if (value is RoundedRectangleBorder) {
+    } else if (object is RoundedRectangleBorder) {
       return <String, dynamic>{
         'borderRadius': const NullableBorderRadiusConverter()
-            .toJson(value.borderRadius as BorderRadius?),
-        'side': const NullableBorderSideConverter().toJson(value.side),
+            .toJson(object.borderRadius as BorderRadius?),
+        'side': const NullableBorderSideConverter().toJson(object.side),
         'type': 'rounded',
       };
-    } else if (value is StadiumBorder) {
+    } else if (object is StadiumBorder) {
       return <String, dynamic>{
-        'side': const NullableBorderSideConverter().toJson(value.side),
+        'side': const NullableBorderSideConverter().toJson(object.side),
         'type': 'stadium',
       };
     }
@@ -118,7 +118,7 @@ class OutlinedBorderConverter
   }
 
   @override
-  Map<String, dynamic> toJson(OutlinedBorder value) {
-    return const NullableOutlinedBorderConverter().toJson(value)!;
+  Map<String, dynamic> toJson(OutlinedBorder object) {
+    return const NullableOutlinedBorderConverter().toJson(object)!;
   }
 }

@@ -92,72 +92,71 @@ class NullableSliderThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(SliderThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(SliderThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'activeTickMarkColor':
-          const NullableColorConverter().toJson(value.activeTickMarkColor),
+          const NullableColorConverter().toJson(object.activeTickMarkColor),
       'activeTrackColor':
-          const NullableColorConverter().toJson(value.activeTrackColor),
+          const NullableColorConverter().toJson(object.activeTrackColor),
       'disabledActiveTickMarkColor': const NullableColorConverter().toJson(
-        value.disabledActiveTickMarkColor,
+        object.disabledActiveTickMarkColor,
       ),
-      'disabledActiveTrackColor':
-          const NullableColorConverter().toJson(value.disabledActiveTrackColor),
+      'disabledActiveTrackColor': const NullableColorConverter()
+          .toJson(object.disabledActiveTrackColor),
       'disabledInactiveTickMarkColor': const NullableColorConverter().toJson(
-        value.disabledInactiveTickMarkColor,
+        object.disabledInactiveTickMarkColor,
       ),
       'disabledInactiveTrackColor': const NullableColorConverter()
-          .toJson(value.disabledInactiveTrackColor),
+          .toJson(object.disabledInactiveTrackColor),
       'disabledThumbColor':
-          const NullableColorConverter().toJson(value.disabledThumbColor),
+          const NullableColorConverter().toJson(object.disabledThumbColor),
       'inactiveTickMarkColor':
-          const NullableColorConverter().toJson(value.inactiveTickMarkColor),
+          const NullableColorConverter().toJson(object.inactiveTickMarkColor),
       'inactiveTrackColor':
-          const NullableColorConverter().toJson(value.inactiveTrackColor),
-      'minThumbSeparation': (value.minThumbSeparation),
+          const NullableColorConverter().toJson(object.inactiveTrackColor),
+      'minThumbSeparation': (object.minThumbSeparation),
       'overlappingShapeStrokeColor': const NullableColorConverter().toJson(
-        value.overlappingShapeStrokeColor,
+        object.overlappingShapeStrokeColor,
       ),
-      'overlayColor': const NullableColorConverter().toJson(value.overlayColor),
+      'overlayColor':
+          const NullableColorConverter().toJson(object.overlayColor),
       'overlayShape': const NullableSliderComponentShapeConverter()
-          .toJson(value.overlayShape),
+          .toJson(object.overlayShape),
       'rangeThumbShape': const NullableRangeSliderThumbShapeConverter()
-          .toJson(value.rangeThumbShape as RoundRangeSliderThumbShape?),
+          .toJson(object.rangeThumbShape as RoundRangeSliderThumbShape?),
       'rangeTickMarkShape':
           const NullableRangeSliderTickMarkShapeConverter().toJson(
-        value.rangeTickMarkShape,
+        object.rangeTickMarkShape,
       ),
       'rangeTrackShape': const NullableRangeSliderTrackShapeConverter()
-          .toJson(value.rangeTrackShape),
+          .toJson(object.rangeTrackShape),
       'rangeValueIndicatorShape':
           const NullableRangeSliderValueIndicatorShapeConverter().toJson(
-        value.rangeValueIndicatorShape,
+        object.rangeValueIndicatorShape,
       ),
       'showValueIndicator': const NullableShowValueIndicatorConverter().toJson(
-        value.showValueIndicator,
+        object.showValueIndicator,
       ),
-      'thumbColor': const NullableColorConverter().toJson(value.thumbColor),
+      'thumbColor': const NullableColorConverter().toJson(object.thumbColor),
       'thumbShape': const NullableSliderComponentShapeConverter()
-          .toJson(value.thumbShape),
+          .toJson(object.thumbShape),
       'tickMarkShape': const NullableSliderTickMarkShapeConverter()
-          .toJson(value.tickMarkShape),
-      'trackHeight': value.trackHeight,
+          .toJson(object.tickMarkShape),
+      'trackHeight': object.trackHeight,
       'trackShape':
-          const NullableSliderTrackShapeConverter().toJson(value.trackShape),
+          const NullableSliderTrackShapeConverter().toJson(object.trackShape),
       'valueIndicatorColor':
-          const NullableColorConverter().toJson(value.valueIndicatorColor),
+          const NullableColorConverter().toJson(object.valueIndicatorColor),
       'valueIndicatorShape':
           const NullableSliderComponentShapeConverter().toJson(
-        value.valueIndicatorShape,
+        object.valueIndicatorShape,
       ),
       'valueIndicatorTextStyle': const NullableTextStyleConverter().toJson(
-        value.valueIndicatorTextStyle,
+        object.valueIndicatorTextStyle,
       ),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -171,7 +170,7 @@ class SliderThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SliderThemeData value) {
-    return const NullableSliderThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(SliderThemeData object) {
+    return const NullableSliderThemeDataConverter().toJson(object)!;
   }
 }

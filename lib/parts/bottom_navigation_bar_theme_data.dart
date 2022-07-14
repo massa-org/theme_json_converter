@@ -44,32 +44,30 @@ class NullableBottomNavigationBarThemeDataConverter extends JsonConverter<
   }
 
   @override
-  Map<String, dynamic>? toJson(BottomNavigationBarThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(BottomNavigationBarThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
-      'elevation': value.elevation,
+          const NullableColorConverter().toJson(object.backgroundColor),
+      'elevation': object.elevation,
       'selectedIconTheme': const NullableIconThemeDataConverter()
-          .toJson(value.selectedIconTheme),
+          .toJson(object.selectedIconTheme),
       'selectedItemColor':
-          const NullableColorConverter().toJson(value.selectedItemColor),
+          const NullableColorConverter().toJson(object.selectedItemColor),
       'selectedLabelStyle':
-          const NullableTextStyleConverter().toJson(value.selectedLabelStyle),
-      'showSelectedLabels': value.showSelectedLabels,
-      'showUnselectedLabels': value.showUnselectedLabels,
+          const NullableTextStyleConverter().toJson(object.selectedLabelStyle),
+      'showSelectedLabels': object.showSelectedLabels,
+      'showUnselectedLabels': object.showUnselectedLabels,
       'type':
-          const NullableBottomNavigationBarTypeConverter().toJson(value.type),
+          const NullableBottomNavigationBarTypeConverter().toJson(object.type),
       'unselectedIconTheme': const NullableIconThemeDataConverter()
-          .toJson(value.unselectedIconTheme),
+          .toJson(object.unselectedIconTheme),
       'unselectedItemColor':
-          const NullableColorConverter().toJson(value.unselectedItemColor),
-      'unselectedLabelStyle':
-          const NullableTextStyleConverter().toJson(value.unselectedLabelStyle),
+          const NullableColorConverter().toJson(object.unselectedItemColor),
+      'unselectedLabelStyle': const NullableTextStyleConverter()
+          .toJson(object.unselectedLabelStyle),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -84,7 +82,8 @@ class BottomNavigationBarThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(BottomNavigationBarThemeData value) {
-    return const NullableBottomNavigationBarThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(BottomNavigationBarThemeData object) {
+    return const NullableBottomNavigationBarThemeDataConverter()
+        .toJson(object)!;
   }
 }

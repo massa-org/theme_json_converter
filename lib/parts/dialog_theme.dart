@@ -26,21 +26,19 @@ class NullableDialogThemeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(DialogTheme? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(DialogTheme? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
+          const NullableColorConverter().toJson(object.backgroundColor),
       'contentTextStyle':
-          const NullableTextStyleConverter().toJson(value.contentTextStyle),
-      'elevation': value.elevation,
-      'shape': const NullableShapeBorderConverter().toJson(value.shape),
+          const NullableTextStyleConverter().toJson(object.contentTextStyle),
+      'elevation': object.elevation,
+      'shape': const NullableShapeBorderConverter().toJson(object.shape),
       'titleTextStyle':
-          const NullableTextStyleConverter().toJson(value.titleTextStyle),
+          const NullableTextStyleConverter().toJson(object.titleTextStyle),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -54,7 +52,7 @@ class DialogThemeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(DialogTheme value) {
-    return const NullableDialogThemeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(DialogTheme object) {
+    return const NullableDialogThemeConverter().toJson(object)!;
   }
 }

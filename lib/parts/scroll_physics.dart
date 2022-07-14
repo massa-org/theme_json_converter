@@ -65,37 +65,35 @@ class NullableScrollPhysicsConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ScrollPhysics? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ScrollPhysics? object) {
+    if (object == null) return null;
 
     String? type;
 
-    if (value is AlwaysScrollableScrollPhysics) {
+    if (object is AlwaysScrollableScrollPhysics) {
       type = 'always';
-    } else if (value is BouncingScrollPhysics) {
+    } else if (object is BouncingScrollPhysics) {
       type = 'bouncing';
-    } else if (value is ClampingScrollPhysics) {
+    } else if (object is ClampingScrollPhysics) {
       type = 'clamping';
-    } else if (value is FixedExtentScrollPhysics) {
+    } else if (object is FixedExtentScrollPhysics) {
       type = 'fixedExtent';
-    } else if (value is NeverScrollableScrollPhysics) {
+    } else if (object is NeverScrollableScrollPhysics) {
       type = 'never';
-    } else if (value is PageScrollPhysics) {
+    } else if (object is PageScrollPhysics) {
       type = 'page';
-    } else if (value is RangeMaintainingScrollPhysics) {
+    } else if (object is RangeMaintainingScrollPhysics) {
       type = 'rangeMaintaining';
     }
 
     if (type == null) {
       throw Exception(
-          'Unknown ScrollPhysics class encounted: ${value.runtimeType}');
+          'Unknown ScrollPhysics class encounted: ${object.runtimeType}');
     }
     return {
-      'parent': const NullableScrollPhysicsConverter().toJson(value.parent),
+      'parent': const NullableScrollPhysicsConverter().toJson(object.parent),
       'type': type,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -109,7 +107,7 @@ class ScrollPhysicsConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ScrollPhysics value) {
-    return const NullableScrollPhysicsConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ScrollPhysics object) {
+    return const NullableScrollPhysicsConverter().toJson(object)!;
   }
 }

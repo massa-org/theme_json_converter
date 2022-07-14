@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 part of theme_json_converter;
 
 class NullableThemeDataConverter
@@ -260,152 +262,152 @@ class NullableThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'accentColor': const NullableColorConverter().toJson(value.accentColor),
+      'accentColor': const NullableColorConverter().toJson(object.accentColor),
       'accentColorBrightness': const NullableBrightnessConverter()
-          .toJson(value.accentColorBrightness),
+          .toJson(object.accentColorBrightness),
       'accentIconTheme':
-          const NullableIconThemeDataConverter().toJson(value.accentIconTheme),
+          const NullableIconThemeDataConverter().toJson(object.accentIconTheme),
       'accentTextTheme':
-          const NullableTextThemeConverter().toJson(value.accentTextTheme),
+          const NullableTextThemeConverter().toJson(object.accentTextTheme),
       'appBarTheme':
-          const NullableAppBarThemeConverter().toJson(value.appBarTheme),
-      'applyElevationOverlayColor': value.applyElevationOverlayColor,
+          const NullableAppBarThemeConverter().toJson(object.appBarTheme),
+      'applyElevationOverlayColor': object.applyElevationOverlayColor,
       'bannerTheme': const NullableMaterialBannerThemeDataConverter()
-          .toJson(value.bannerTheme),
+          .toJson(object.bannerTheme),
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
+          const NullableColorConverter().toJson(object.backgroundColor),
       'bottomAppBarColor':
-          const NullableColorConverter().toJson(value.bottomAppBarColor),
+          const NullableColorConverter().toJson(object.bottomAppBarColor),
       'bottomAppBarTheme': const NullableBottomAppBarThemeConverter()
-          .toJson(value.bottomAppBarTheme),
+          .toJson(object.bottomAppBarTheme),
       'bottomNavigationBarTheme':
           const NullableBottomNavigationBarThemeDataConverter().toJson(
-        value.bottomNavigationBarTheme,
+        object.bottomNavigationBarTheme,
       ),
       'bottomSheetTheme': const NullableBottomSheetThemeDataConverter()
-          .toJson(value.bottomSheetTheme),
+          .toJson(object.bottomSheetTheme),
       'brightness':
-          const NullableBrightnessConverter().toJson(value.brightness),
-      'buttonColor': const NullableColorConverter().toJson(value.buttonColor),
+          const NullableBrightnessConverter().toJson(object.brightness),
+      'buttonColor': const NullableColorConverter().toJson(object.buttonColor),
       'buttonBarTheme': const NullableButtonBarThemeDataConverter()
-          .toJson(value.buttonBarTheme),
+          .toJson(object.buttonBarTheme),
       'buttonTheme':
-          const NullableButtonThemeDataConverter().toJson(value.buttonTheme),
-      'canvasColor': const NullableColorConverter().toJson(value.canvasColor),
-      'cardColor': const NullableColorConverter().toJson(value.cardColor),
-      'cardTheme': const NullableCardThemeConverter().toJson(value.cardTheme),
+          const NullableButtonThemeDataConverter().toJson(object.buttonTheme),
+      'canvasColor': const NullableColorConverter().toJson(object.canvasColor),
+      'cardColor': const NullableColorConverter().toJson(object.cardColor),
+      'cardTheme': const NullableCardThemeConverter().toJson(object.cardTheme),
       'chipTheme':
-          const NullableChipThemeDataConverter().toJson(value.chipTheme),
+          const NullableChipThemeDataConverter().toJson(object.chipTheme),
       'colorScheme':
-          const NullableColorSchemeConverter().toJson(value.colorScheme),
+          const NullableColorSchemeConverter().toJson(object.colorScheme),
       'cupertinoOverrideTheme': const NullableCupertinoThemeDataConverter()
-          .toJson(value.cupertinoOverrideTheme as CupertinoThemeData?),
+          .toJson(object.cupertinoOverrideTheme as CupertinoThemeData?),
       'dataTableTheme': const NullableDataTableThemeDataConverter()
-          .toJson(value.dataTableTheme),
+          .toJson(object.dataTableTheme),
       'dialogBackgroundColor':
-          const NullableColorConverter().toJson(value.dialogBackgroundColor),
+          const NullableColorConverter().toJson(object.dialogBackgroundColor),
       'dialogTheme':
-          const NullableDialogThemeConverter().toJson(value.dialogTheme),
+          const NullableDialogThemeConverter().toJson(object.dialogTheme),
       'disabledColor':
-          const NullableColorConverter().toJson(value.disabledColor),
-      'dividerColor': const NullableColorConverter().toJson(value.dividerColor),
+          const NullableColorConverter().toJson(object.disabledColor),
+      'dividerColor':
+          const NullableColorConverter().toJson(object.dividerColor),
       'dividerTheme':
-          const NullableDividerThemeDataConverter().toJson(value.dividerTheme),
+          const NullableDividerThemeDataConverter().toJson(object.dividerTheme),
       'elevatedButtonTheme':
           const NullableElevatedButtonThemeDataConverter().toJson(
-        value.elevatedButtonTheme,
+        object.elevatedButtonTheme,
       ),
-      'errorColor': const NullableColorConverter().toJson(value.errorColor),
-      'fixTextFieldOutlineLabel': value.fixTextFieldOutlineLabel,
+      'errorColor': const NullableColorConverter().toJson(object.errorColor),
+      'fixTextFieldOutlineLabel': object.fixTextFieldOutlineLabel,
       'floatingActionButtonTheme':
           const NullableFloatingActionButtonThemeDataConverter().toJson(
-        value.floatingActionButtonTheme,
+        object.floatingActionButtonTheme,
       ),
-      'focusColor': const NullableColorConverter().toJson(value.focusColor),
+      'focusColor': const NullableColorConverter().toJson(object.focusColor),
       'highlightColor':
-          const NullableColorConverter().toJson(value.highlightColor),
-      'hintColor': const NullableColorConverter().toJson(value.hintColor),
-      'hoverColor': const NullableColorConverter().toJson(value.hoverColor),
+          const NullableColorConverter().toJson(object.highlightColor),
+      'hintColor': const NullableColorConverter().toJson(object.hintColor),
+      'hoverColor': const NullableColorConverter().toJson(object.hoverColor),
       'iconTheme':
-          const NullableIconThemeDataConverter().toJson(value.iconTheme),
+          const NullableIconThemeDataConverter().toJson(object.iconTheme),
       'indicatorColor':
-          const NullableColorConverter().toJson(value.indicatorColor),
+          const NullableColorConverter().toJson(object.indicatorColor),
       'inputDecorationTheme':
           const NullableInputDecorationThemeConverter().toJson(
-        value.inputDecorationTheme,
+        object.inputDecorationTheme,
       ),
       'materialTapTargetSize':
           const NullableMaterialTapTargetSizeConverter().toJson(
-        value.materialTapTargetSize,
+        object.materialTapTargetSize,
       ),
       'navigationRailTheme':
           const NullableNavigationRailThemeDataConverter().toJson(
-        value.navigationRailTheme,
+        object.navigationRailTheme,
       ),
       'outlinedButtonTheme':
           const NullableOutlinedButtonThemeDataConverter().toJson(
-        value.outlinedButtonTheme,
+        object.outlinedButtonTheme,
       ),
       'platform':
-          const NullableTargetPlatformConverter().toJson(value.platform),
+          const NullableTargetPlatformConverter().toJson(object.platform),
       'popupMenuTheme': const NullablePopupMenuThemeDataConverter()
-          .toJson(value.popupMenuTheme),
-      'primaryColor': const NullableColorConverter().toJson(value.primaryColor),
+          .toJson(object.popupMenuTheme),
+      'primaryColor':
+          const NullableColorConverter().toJson(object.primaryColor),
       'primaryColorBrightness': const NullableBrightnessConverter().toJson(
-        value.primaryColorBrightness,
+        object.primaryColorBrightness,
       ),
       'primaryColorDark':
-          const NullableColorConverter().toJson(value.primaryColorDark),
+          const NullableColorConverter().toJson(object.primaryColorDark),
       'primaryColorLight':
-          const NullableColorConverter().toJson(value.primaryColorLight),
-      'primaryIconTheme':
-          const NullableIconThemeDataConverter().toJson(value.primaryIconTheme),
+          const NullableColorConverter().toJson(object.primaryColorLight),
+      'primaryIconTheme': const NullableIconThemeDataConverter()
+          .toJson(object.primaryIconTheme),
       'primaryTextTheme':
-          const NullableTextThemeConverter().toJson(value.primaryTextTheme),
+          const NullableTextThemeConverter().toJson(object.primaryTextTheme),
       'scaffoldBackgroundColor':
-          const NullableColorConverter().toJson(value.scaffoldBackgroundColor),
+          const NullableColorConverter().toJson(object.scaffoldBackgroundColor),
       'secondaryHeaderColor':
-          const NullableColorConverter().toJson(value.secondaryHeaderColor),
+          const NullableColorConverter().toJson(object.secondaryHeaderColor),
       'selectedRowColor':
-          const NullableColorConverter().toJson(value.selectedRowColor),
-      'shadowColor': const NullableColorConverter().toJson(value.shadowColor),
+          const NullableColorConverter().toJson(object.selectedRowColor),
+      'shadowColor': const NullableColorConverter().toJson(object.shadowColor),
       'sliderTheme':
-          const NullableSliderThemeDataConverter().toJson(value.sliderTheme),
+          const NullableSliderThemeDataConverter().toJson(object.sliderTheme),
       'snackBarTheme': const NullableSnackBarThemeDataConverter()
-          .toJson(value.snackBarTheme),
-      'splashColor': const NullableColorConverter().toJson(value.splashColor),
+          .toJson(object.snackBarTheme),
+      'splashColor': const NullableColorConverter().toJson(object.splashColor),
       'splashFactory': const NullableInteractiveInkFeatureFactoryConverter()
-          .toJson(value.splashFactory),
+          .toJson(object.splashFactory),
       'tabBarTheme':
-          const NullableTabBarThemeConverter().toJson(value.tabBarTheme),
+          const NullableTabBarThemeConverter().toJson(object.tabBarTheme),
       'textButtonTheme': const NullableTextButtonThemeDataConverter()
-          .toJson(value.textButtonTheme),
+          .toJson(object.textButtonTheme),
       'textSelectionTheme':
           const NullableTextSelectionThemeDataConverter().toJson(
-        value.textSelectionTheme,
+        object.textSelectionTheme,
       ),
-      'textTheme': const NullableTextThemeConverter().toJson(value.textTheme),
+      'textTheme': const NullableTextThemeConverter().toJson(object.textTheme),
       'toggleButtonsTheme':
           const NullableToggleButtonsThemeDataConverter().toJson(
-        value.toggleButtonsTheme,
+        object.toggleButtonsTheme,
       ),
       'toggleableActiveColor':
-          const NullableColorConverter().toJson(value.toggleableActiveColor),
+          const NullableColorConverter().toJson(object.toggleableActiveColor),
       'tooltipTheme':
-          const NullableTooltipThemeDataConverter().toJson(value.tooltipTheme),
+          const NullableTooltipThemeDataConverter().toJson(object.tooltipTheme),
       'typography':
-          const NullableTypographyConverter().toJson(value.typography),
+          const NullableTypographyConverter().toJson(object.typography),
       'unselectedWidgetColor':
-          const NullableColorConverter().toJson(value.unselectedWidgetColor),
+          const NullableColorConverter().toJson(object.unselectedWidgetColor),
       'visualDensity':
-          const NullableVisualDensityConverter().toJson(value.visualDensity),
+          const NullableVisualDensityConverter().toJson(object.visualDensity),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -419,7 +421,7 @@ class ThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ThemeData value) {
-    return const NullableThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ThemeData object) {
+    return const NullableThemeDataConverter().toJson(object)!;
   }
 }

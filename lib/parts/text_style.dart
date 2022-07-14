@@ -71,50 +71,48 @@ class NullableTextStyleConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(TextStyle? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(TextStyle? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
-      'color': const NullableColorConverter().toJson(value.color),
+          const NullableColorConverter().toJson(object.backgroundColor),
+      'color': const NullableColorConverter().toJson(object.color),
       'decoration':
-          const NullableTextDecorationConverter().toJson(value.decoration),
+          const NullableTextDecorationConverter().toJson(object.decoration),
       'decorationColor':
-          const NullableColorConverter().toJson(value.decorationColor),
+          const NullableColorConverter().toJson(object.decorationColor),
       'decorationStyle': const NullableTextDecorationStyleConverter()
-          .toJson(value.decorationStyle),
-      'decorationThickness': value.decorationThickness,
-      'fontFamily': value.fontFamily,
-      'fontFamilyFallback': value.fontFamilyFallback,
-      'fontFeatures': value.fontFeatures == null
+          .toJson(object.decorationStyle),
+      'decorationThickness': object.decorationThickness,
+      'fontFamily': object.fontFamily,
+      'fontFamilyFallback': object.fontFamilyFallback,
+      'fontFeatures': object.fontFeatures == null
           ? null
-          : value.fontFeatures!
+          : object.fontFeatures!
               .map(
-                (value) => const NullableFontFeatureConverter().toJson(value),
+                (object) => const NullableFontFeatureConverter().toJson(object),
               )
               .toList(),
       'fontWeight':
-          const NullableFontWeightConverter().toJson(value.fontWeight),
-      'fontSize': value.fontSize,
-      'fontStyle': const NullableFontStyleConverter().toJson(value.fontStyle),
-      'height': value.height,
-      'inherit': value.inherit,
-      'letterSpacing': value.letterSpacing,
-      'locale': const NullableLocaleConverter().toJson(value.locale),
-      'shadows': value.shadows == null
+          const NullableFontWeightConverter().toJson(object.fontWeight),
+      'fontSize': object.fontSize,
+      'fontStyle': const NullableFontStyleConverter().toJson(object.fontStyle),
+      'height': object.height,
+      'inherit': object.inherit,
+      'letterSpacing': object.letterSpacing,
+      'locale': const NullableLocaleConverter().toJson(object.locale),
+      'shadows': object.shadows == null
           ? null
-          : value.shadows!
+          : object.shadows!
               .map(
-                (value) => const NullableShadowConverter().toJson(value),
+                (object) => const NullableShadowConverter().toJson(object),
               )
               .toList(),
       'textBaseline':
-          const NullableTextBaselineConverter().toJson(value.textBaseline),
-      'wordSpacing': value.wordSpacing,
+          const NullableTextBaselineConverter().toJson(object.textBaseline),
+      'wordSpacing': object.wordSpacing,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -128,7 +126,7 @@ class TextStyleConverter
   }
 
   @override
-  Map<String, dynamic> toJson(TextStyle value) {
-    return const NullableTextStyleConverter().toJson(value)!;
+  Map<String, dynamic> toJson(TextStyle object) {
+    return const NullableTextStyleConverter().toJson(object)!;
   }
 }

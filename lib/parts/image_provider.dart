@@ -33,29 +33,30 @@ class NullableImageProviderConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ImageProvider? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ImageProvider? object) {
+    if (object == null) return null;
 
-    assert(
-        value is AssetImage || value is MemoryImage || value is NetworkImage);
-    if (value is AssetImage) {
+    assert(object is AssetImage ||
+        object is MemoryImage ||
+        object is NetworkImage);
+    if (object is AssetImage) {
       return <String, dynamic>{
-        'assetName': value.assetName,
-        'package': value.package,
+        'assetName': object.assetName,
+        'package': object.package,
         'type': 'asset',
       };
-    } else if (value is MemoryImage) {
+    } else if (object is MemoryImage) {
       return <String, dynamic>{
-        'bytes': base64Encode(value.bytes),
-        'scale': value.scale,
+        'bytes': base64Encode(object.bytes),
+        'scale': object.scale,
         'type': 'memory',
       };
-    } else if (value is NetworkImage) {
+    } else if (object is NetworkImage) {
       return <String, dynamic>{
-        'headers': value.headers,
-        'scale': value.scale,
+        'headers': object.headers,
+        'scale': object.scale,
         'type': 'network',
-        'url': value.url,
+        'url': object.url,
       };
     }
 
@@ -73,7 +74,7 @@ class ImageProviderConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ImageProvider value) {
-    return const NullableImageProviderConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ImageProvider object) {
+    return const NullableImageProviderConverter().toJson(object)!;
   }
 }

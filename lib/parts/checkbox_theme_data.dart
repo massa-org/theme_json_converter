@@ -35,34 +35,32 @@ class NullableCheckboxThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(CheckboxThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(CheckboxThemeData? object) {
+    if (object == null) return null;
 
     return {
       'checkColor': const NullableMaterialStatePropertyColorConverter().toJson(
-        value.checkColor,
+        object.checkColor,
       ),
       'fillColor': const NullableMaterialStatePropertyColorConverter().toJson(
-        value.fillColor,
+        object.fillColor,
       ),
       'materialTapTargetSize':
           const NullableMaterialTapTargetSizeConverter().toJson(
-        value.materialTapTargetSize,
+        object.materialTapTargetSize,
       ),
       'mouseCursor':
           const NullableMaterialStatePropertyMouseCursorConverter().toJson(
-        value.mouseCursor,
+        object.mouseCursor,
       ),
       'overlayColor':
           const NullableMaterialStatePropertyColorConverter().toJson(
-        value.overlayColor,
+        object.overlayColor,
       ),
-      'splashRadius': value.splashRadius,
+      'splashRadius': object.splashRadius,
       'visualDensity':
-          const NullableVisualDensityConverter().toJson(value.visualDensity),
+          const NullableVisualDensityConverter().toJson(object.visualDensity),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -76,7 +74,7 @@ class CheckboxThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(CheckboxThemeData value) {
-    return const NullableCheckboxThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(CheckboxThemeData object) {
+    return const NullableCheckboxThemeDataConverter().toJson(object)!;
   }
 }

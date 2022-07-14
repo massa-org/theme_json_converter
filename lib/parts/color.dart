@@ -36,13 +36,11 @@ class NullableColorConverter extends JsonConverter<Color?, String?> {
   }
 
   @override
-  String? toJson(Color? value) {
-    if (value == null) return null;
+  String? toJson(Color? object) {
+    if (object == null) return null;
 
-    var hex = value.value.toRadixString(16).padLeft(8, '0');
+    var hex = object.value.toRadixString(16).padLeft(8, '0');
     return '#$hex';
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -55,7 +53,7 @@ class ColorConverter extends JsonConverter<Color, String> {
   }
 
   @override
-  String toJson(Color value) {
-    return const NullableColorConverter().toJson(value)!;
+  String toJson(Color object) {
+    return const NullableColorConverter().toJson(object)!;
   }
 }

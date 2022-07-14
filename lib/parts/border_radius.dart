@@ -70,18 +70,16 @@ class NullableBorderRadiusConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(BorderRadius? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(BorderRadius? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'bottomLeft': const NullableRadiusConverter().toJson(value.bottomLeft),
-      'bottomRight': const NullableRadiusConverter().toJson(value.bottomRight),
-      'topLeft': const NullableRadiusConverter().toJson(value.topLeft),
-      'topRight': const NullableRadiusConverter().toJson(value.topRight),
+      'bottomLeft': const NullableRadiusConverter().toJson(object.bottomLeft),
+      'bottomRight': const NullableRadiusConverter().toJson(object.bottomRight),
+      'topLeft': const NullableRadiusConverter().toJson(object.topLeft),
+      'topRight': const NullableRadiusConverter().toJson(object.topRight),
       'type': 'only',
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -95,7 +93,7 @@ class BorderRadiusConverter
   }
 
   @override
-  Map<String, dynamic> toJson(BorderRadius value) {
-    return const NullableBorderRadiusConverter().toJson(value)!;
+  Map<String, dynamic> toJson(BorderRadius object) {
+    return const NullableBorderRadiusConverter().toJson(object)!;
   }
 }

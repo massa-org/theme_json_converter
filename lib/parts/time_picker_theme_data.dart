@@ -48,46 +48,44 @@ class NullableTimePickerThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(TimePickerThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(TimePickerThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
-      'dayPeriodBorderSide':
-          const NullableBorderSideConverter().toJson(value.dayPeriodBorderSide),
+          const NullableColorConverter().toJson(object.backgroundColor),
+      'dayPeriodBorderSide': const NullableBorderSideConverter()
+          .toJson(object.dayPeriodBorderSide),
       'dayPeriodColor':
-          const NullableColorConverter().toJson(value.dayPeriodColor),
+          const NullableColorConverter().toJson(object.dayPeriodColor),
       'dayPeriodShape':
-          const NullableShapeBorderConverter().toJson(value.dayPeriodShape),
+          const NullableShapeBorderConverter().toJson(object.dayPeriodShape),
       'dayPeriodTextColor':
-          const NullableColorConverter().toJson(value.dayPeriodTextColor),
+          const NullableColorConverter().toJson(object.dayPeriodTextColor),
       'dayPeriodTextStyle':
-          const NullableTextStyleConverter().toJson(value.dayPeriodTextStyle),
+          const NullableTextStyleConverter().toJson(object.dayPeriodTextStyle),
       'dialBackgroundColor':
-          const NullableColorConverter().toJson(value.dialBackgroundColor),
+          const NullableColorConverter().toJson(object.dialBackgroundColor),
       'dialHandColor':
-          const NullableColorConverter().toJson(value.dialHandColor),
+          const NullableColorConverter().toJson(object.dialHandColor),
       'dialTextColor':
-          const NullableColorConverter().toJson(value.dialTextColor),
+          const NullableColorConverter().toJson(object.dialTextColor),
       'entryModeIconColor':
-          const NullableColorConverter().toJson(value.entryModeIconColor),
+          const NullableColorConverter().toJson(object.entryModeIconColor),
       'helpTextStyle':
-          const NullableTextStyleConverter().toJson(value.helpTextStyle),
+          const NullableTextStyleConverter().toJson(object.helpTextStyle),
       'hourMinuteColor':
-          const NullableColorConverter().toJson(value.hourMinuteColor),
+          const NullableColorConverter().toJson(object.hourMinuteColor),
       'hourMinuteShape':
-          const NullableShapeBorderConverter().toJson(value.hourMinuteShape),
+          const NullableShapeBorderConverter().toJson(object.hourMinuteShape),
       'hourMinuteTextColor':
-          const NullableColorConverter().toJson(value.hourMinuteTextColor),
+          const NullableColorConverter().toJson(object.hourMinuteTextColor),
       'hourMinuteTextStyle':
-          const NullableTextStyleConverter().toJson(value.hourMinuteTextStyle),
+          const NullableTextStyleConverter().toJson(object.hourMinuteTextStyle),
       'inputDecorationTheme': const NullableInputDecorationThemeConverter()
-          .toJson(value.inputDecorationTheme),
-      'shape': const NullableShapeBorderConverter().toJson(value.shape),
+          .toJson(object.inputDecorationTheme),
+      'shape': const NullableShapeBorderConverter().toJson(object.shape),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -101,7 +99,7 @@ class TimePickerThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(TimePickerThemeData value) {
-    return const NullableTimePickerThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(TimePickerThemeData object) {
+    return const NullableTimePickerThemeDataConverter().toJson(object)!;
   }
 }

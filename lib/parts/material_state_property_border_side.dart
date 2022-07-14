@@ -53,25 +53,25 @@ class NullableMaterialStatePropertyBorderSideConverter extends JsonConverter<
   }
 
   @override
-  Map<String, dynamic>? toJson(MaterialStateProperty<BorderSide?>? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(MaterialStateProperty<BorderSide?>? object) {
+    if (object == null) return null;
 
     return {
       'disabled': const NullableBorderSideConverter()
-          .toJson(value.resolve({MaterialState.disabled})),
+          .toJson(object.resolve({MaterialState.disabled})),
       'dragged': const NullableBorderSideConverter()
-          .toJson(value.resolve({MaterialState.dragged})),
-      'empty': const NullableBorderSideConverter().toJson(value.resolve({})),
+          .toJson(object.resolve({MaterialState.dragged})),
+      'empty': const NullableBorderSideConverter().toJson(object.resolve({})),
       'error': const NullableBorderSideConverter()
-          .toJson(value.resolve({MaterialState.error})),
+          .toJson(object.resolve({MaterialState.error})),
       'focused': const NullableBorderSideConverter()
-          .toJson(value.resolve({MaterialState.focused})),
+          .toJson(object.resolve({MaterialState.focused})),
       'hovered': const NullableBorderSideConverter()
-          .toJson(value.resolve({MaterialState.hovered})),
+          .toJson(object.resolve({MaterialState.hovered})),
       'pressed': const NullableBorderSideConverter()
-          .toJson(value.resolve({MaterialState.pressed})),
+          .toJson(object.resolve({MaterialState.pressed})),
       'selected': const NullableBorderSideConverter()
-          .toJson(value.resolve({MaterialState.selected})),
+          .toJson(object.resolve({MaterialState.selected})),
     };
   }
 }
@@ -87,8 +87,8 @@ class MaterialStatePropertyBorderSideConverter extends JsonConverter<
   }
 
   @override
-  Map<String, dynamic> toJson(MaterialStateProperty<BorderSide?> value) {
+  Map<String, dynamic> toJson(MaterialStateProperty<BorderSide?> object) {
     return const NullableMaterialStatePropertyBorderSideConverter()
-        .toJson(value)!;
+        .toJson(object)!;
   }
 }

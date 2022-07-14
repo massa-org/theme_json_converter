@@ -43,29 +43,27 @@ class NullableCupertinoTextThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(CupertinoTextThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(CupertinoTextThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'actionTextStyle':
-          const NullableTextStyleConverter().toJson(value.actionTextStyle),
+          const NullableTextStyleConverter().toJson(object.actionTextStyle),
       'dateTimePickerTextStyle': const NullableTextStyleConverter().toJson(
-        value.dateTimePickerTextStyle,
+        object.dateTimePickerTextStyle,
       ),
       'navActionTextStyle':
-          const NullableTextStyleConverter().toJson(value.navActionTextStyle),
+          const NullableTextStyleConverter().toJson(object.navActionTextStyle),
       'navLargeTitleTextStyle': const NullableTextStyleConverter()
-          .toJson(value.navLargeTitleTextStyle),
+          .toJson(object.navLargeTitleTextStyle),
       'navTitleTextStyle':
-          const NullableTextStyleConverter().toJson(value.navTitleTextStyle),
+          const NullableTextStyleConverter().toJson(object.navTitleTextStyle),
       'pickerTextStyle':
-          const NullableTextStyleConverter().toJson(value.pickerTextStyle),
+          const NullableTextStyleConverter().toJson(object.pickerTextStyle),
       'tabLabelTextStyle':
-          const NullableTextStyleConverter().toJson(value.tabLabelTextStyle),
-      'textStyle': const NullableTextStyleConverter().toJson(value.textStyle),
+          const NullableTextStyleConverter().toJson(object.tabLabelTextStyle),
+      'textStyle': const NullableTextStyleConverter().toJson(object.textStyle),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -79,7 +77,7 @@ class CupertinoTextThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(CupertinoTextThemeData value) {
-    return const NullableCupertinoTextThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(CupertinoTextThemeData object) {
+    return const NullableCupertinoTextThemeDataConverter().toJson(object)!;
   }
 }

@@ -31,10 +31,10 @@ class NullableCupertinoThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(CupertinoThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(CupertinoThemeData? object) {
+    if (object == null) return null;
 
-    var runtimeTypeStr = value.runtimeType.toString();
+    var runtimeTypeStr = object.runtimeType.toString();
     // In Flutter < 1.24, the type is: CupertinoThemeData or _NoDefaultCupertinoThemeData
     // In Flutter >= 1.24, the type is: NoDefaultCupertinoThemeData
     assert(runtimeTypeStr == 'CupertinoThemeData' ||
@@ -46,25 +46,23 @@ class NullableCupertinoThemeDataConverter
         runtimeTypeStr == '_NoDefaultCupertinoThemeData') {
       return <String, dynamic>{
         'barBackgroundColor':
-            const NullableColorConverter().toJson(value.barBackgroundColor),
+            const NullableColorConverter().toJson(object.barBackgroundColor),
         'brightness':
-            const NullableBrightnessConverter().toJson(value.brightness),
+            const NullableBrightnessConverter().toJson(object.brightness),
         'primaryColor':
-            const NullableColorConverter().toJson(value.primaryColor),
+            const NullableColorConverter().toJson(object.primaryColor),
         'primaryContrastingColor': const NullableColorConverter()
-            .toJson(value.primaryContrastingColor),
+            .toJson(object.primaryContrastingColor),
         'scaffoldBackgroundColor': const NullableColorConverter()
-            .toJson(value.scaffoldBackgroundColor),
+            .toJson(object.scaffoldBackgroundColor),
         'textTheme': const NullableCupertinoTextThemeDataConverter()
-            .toJson(value.textTheme),
+            .toJson(object.textTheme),
       };
     } else {
       throw Exception(
         'Unknown type passed in to [const NullableCupertinoThemeDataConverter().toJson]: [$runtimeTypeStr]',
       );
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -78,7 +76,7 @@ class CupertinoThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(CupertinoThemeData value) {
-    return const NullableCupertinoThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(CupertinoThemeData object) {
+    return const NullableCupertinoThemeDataConverter().toJson(object)!;
   }
 }

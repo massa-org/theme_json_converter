@@ -68,44 +68,44 @@ class NullableFloatingActionButtonLocationConverter
   }
 
   @override
-  String? toJson(FloatingActionButtonLocation? value) {
-    if (value == null) return null;
+  String? toJson(FloatingActionButtonLocation? object) {
+    if (object == null) return null;
 
-    if (value == FloatingActionButtonLocation.centerDocked) {
+    if (object == FloatingActionButtonLocation.centerDocked) {
       return 'centerDocked';
-    } else if (value == FloatingActionButtonLocation.centerFloat) {
+    } else if (object == FloatingActionButtonLocation.centerFloat) {
       return 'centerFloat';
-    } else if (value == FloatingActionButtonLocation.centerTop) {
+    } else if (object == FloatingActionButtonLocation.centerTop) {
       return 'centerTop';
-    } else if (value == FloatingActionButtonLocation.endDocked) {
+    } else if (object == FloatingActionButtonLocation.endDocked) {
       return 'endDocked';
-    } else if (value == FloatingActionButtonLocation.endFloat) {
+    } else if (object == FloatingActionButtonLocation.endFloat) {
       return 'endFloat';
-    } else if (value == FloatingActionButtonLocation.endTop) {
+    } else if (object == FloatingActionButtonLocation.endTop) {
       return 'endTop';
-    } else if (value == FloatingActionButtonLocation.miniCenterDocked) {
+    } else if (object == FloatingActionButtonLocation.miniCenterDocked) {
       return 'miniCenterDocked';
-    } else if (value == FloatingActionButtonLocation.miniCenterFloat) {
+    } else if (object == FloatingActionButtonLocation.miniCenterFloat) {
       return 'miniCenterFloat';
-    } else if (value == FloatingActionButtonLocation.miniCenterTop) {
+    } else if (object == FloatingActionButtonLocation.miniCenterTop) {
       return 'miniCenterTop';
-    } else if (value == FloatingActionButtonLocation.miniEndDocked) {
+    } else if (object == FloatingActionButtonLocation.miniEndDocked) {
       return 'miniEndDocked';
-    } else if (value == FloatingActionButtonLocation.miniEndFloat) {
+    } else if (object == FloatingActionButtonLocation.miniEndFloat) {
       return 'miniEndFloat';
-    } else if (value == FloatingActionButtonLocation.miniEndTop) {
+    } else if (object == FloatingActionButtonLocation.miniEndTop) {
       return 'miniEndTop';
-    } else if (value == FloatingActionButtonLocation.miniStartDocked) {
+    } else if (object == FloatingActionButtonLocation.miniStartDocked) {
       return 'miniStartDocked';
-    } else if (value == FloatingActionButtonLocation.miniStartFloat) {
+    } else if (object == FloatingActionButtonLocation.miniStartFloat) {
       return 'miniStartFloat';
-    } else if (value == FloatingActionButtonLocation.miniStartTop) {
+    } else if (object == FloatingActionButtonLocation.miniStartTop) {
       return 'miniStartTop';
-    } else if (value == FloatingActionButtonLocation.startDocked) {
+    } else if (object == FloatingActionButtonLocation.startDocked) {
       return 'startDocked';
-    } else if (value == FloatingActionButtonLocation.startFloat) {
+    } else if (object == FloatingActionButtonLocation.startFloat) {
       return 'startFloat';
-    } else if (value == FloatingActionButtonLocation.startTop) {
+    } else if (object == FloatingActionButtonLocation.startTop) {
       return 'startTop';
     }
 
@@ -124,7 +124,8 @@ class FloatingActionButtonLocationConverter
   }
 
   @override
-  String toJson(FloatingActionButtonLocation value) {
-    return const NullableFloatingActionButtonLocationConverter().toJson(value)!;
+  String toJson(FloatingActionButtonLocation object) {
+    return const NullableFloatingActionButtonLocationConverter()
+        .toJson(object)!;
   }
 }

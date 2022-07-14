@@ -23,19 +23,16 @@ class NullableTextAlignVerticalConverter
   }
 
   @override
-  String? toJson(TextAlignVertical? value) {
-    if (value == null) return null;
+  String? toJson(TextAlignVertical? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TextAlignVertical.bottom:
         return 'bottom';
-        break;
       case TextAlignVertical.center:
         return 'center';
-        break;
       case TextAlignVertical.top:
         return 'top';
-        break;
     }
 
     throw 'Json_Unsuported_Value';
@@ -52,7 +49,7 @@ class TextAlignVerticalConverter
   }
 
   @override
-  String toJson(TextAlignVertical value) {
-    return const NullableTextAlignVerticalConverter().toJson(value)!;
+  String toJson(TextAlignVertical object) {
+    return const NullableTextAlignVerticalConverter().toJson(object)!;
   }
 }

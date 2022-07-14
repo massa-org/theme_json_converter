@@ -19,15 +19,13 @@ class NullableTextHeightBehaviorConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(TextHeightBehavior? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(TextHeightBehavior? object) {
+    if (object == null) return null;
 
     return {
-      'applyHeightToFirstAscent': value.applyHeightToFirstAscent,
-      'applyHeightToLastDescent': value.applyHeightToLastDescent,
+      'applyHeightToFirstAscent': object.applyHeightToFirstAscent,
+      'applyHeightToLastDescent': object.applyHeightToLastDescent,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -41,7 +39,7 @@ class TextHeightBehaviorConverter
   }
 
   @override
-  Map<String, dynamic> toJson(TextHeightBehavior value) {
-    return const NullableTextHeightBehaviorConverter().toJson(value)!;
+  Map<String, dynamic> toJson(TextHeightBehavior object) {
+    return const NullableTextHeightBehaviorConverter().toJson(object)!;
   }
 }

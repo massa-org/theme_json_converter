@@ -12,14 +12,12 @@ class NullableSemanticsTagConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(SemanticsTag? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(SemanticsTag? object) {
+    if (object == null) return null;
 
     return {
-      'name': value.name,
+      'name': object.name,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -33,7 +31,7 @@ class SemanticsTagConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SemanticsTag value) {
-    return const NullableSemanticsTagConverter().toJson(value)!;
+  Map<String, dynamic> toJson(SemanticsTag object) {
+    return const NullableSemanticsTagConverter().toJson(object)!;
   }
 }

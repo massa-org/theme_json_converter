@@ -64,18 +64,16 @@ class NullableRectConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(Rect? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(Rect? object) {
+    if (object == null) return null;
 
     return {
-      'bottom': value.bottom,
-      'left': value.left,
-      'right': value.right,
-      'top': value.top,
+      'bottom': object.bottom,
+      'left': object.left,
+      'right': object.right,
+      'top': object.top,
       'type': 'ltrb',
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -88,7 +86,7 @@ class RectConverter extends JsonConverter<Rect, Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic> toJson(Rect value) {
-    return const NullableRectConverter().toJson(value)!;
+  Map<String, dynamic> toJson(Rect object) {
+    return const NullableRectConverter().toJson(object)!;
   }
 }

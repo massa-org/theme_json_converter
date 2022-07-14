@@ -25,21 +25,19 @@ class NullableMaterialBannerThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(MaterialBannerThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(MaterialBannerThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
+          const NullableColorConverter().toJson(object.backgroundColor),
       'contentTextStyle':
-          const NullableTextStyleConverter().toJson(value.contentTextStyle),
+          const NullableTextStyleConverter().toJson(object.contentTextStyle),
       'leadingPadding': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.leadingPadding as EdgeInsets?),
+          .toJson(object.leadingPadding as EdgeInsets?),
       'padding': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.padding as EdgeInsets?),
+          .toJson(object.padding as EdgeInsets?),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -53,7 +51,7 @@ class MaterialBannerThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(MaterialBannerThemeData value) {
-    return const NullableMaterialBannerThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(MaterialBannerThemeData object) {
+    return const NullableMaterialBannerThemeDataConverter().toJson(object)!;
   }
 }

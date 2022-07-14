@@ -19,20 +19,16 @@ class NullableFontStyleConverter extends JsonConverter<FontStyle?, String?> {
   }
 
   @override
-  String? toJson(FontStyle? value) {
-    if (value == null) return null;
+  String? toJson(FontStyle? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case FontStyle.italic:
         return 'italic';
-        break;
 
       case FontStyle.normal:
         return 'normal';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +41,7 @@ class FontStyleConverter extends JsonConverter<FontStyle, String> {
   }
 
   @override
-  String toJson(FontStyle value) {
-    return const NullableFontStyleConverter().toJson(value)!;
+  String toJson(FontStyle object) {
+    return const NullableFontStyleConverter().toJson(object)!;
   }
 }

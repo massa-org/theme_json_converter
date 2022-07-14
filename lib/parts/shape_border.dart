@@ -56,31 +56,31 @@ class NullableShapeBorderConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ShapeBorder? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ShapeBorder? object) {
+    if (object == null) return null;
 
-    if (value is CircleBorder) {
+    if (object is CircleBorder) {
       return <String, dynamic>{
-        'side': const NullableBorderSideConverter().toJson(value.side),
+        'side': const NullableBorderSideConverter().toJson(object.side),
         'type': 'circle',
       };
-    } else if (value is ContinuousRectangleBorder) {
+    } else if (object is ContinuousRectangleBorder) {
       return <String, dynamic>{
         'borderRadius': const NullableBorderRadiusConverter()
-            .toJson(value.borderRadius as BorderRadius?),
-        'side': const NullableBorderSideConverter().toJson(value.side),
+            .toJson(object.borderRadius as BorderRadius?),
+        'side': const NullableBorderSideConverter().toJson(object.side),
         'type': 'rectangle',
       };
-    } else if (value is RoundedRectangleBorder) {
+    } else if (object is RoundedRectangleBorder) {
       return <String, dynamic>{
         'borderRadius': const NullableBorderRadiusConverter()
-            .toJson(value.borderRadius as BorderRadius?),
-        'side': const NullableBorderSideConverter().toJson(value.side),
+            .toJson(object.borderRadius as BorderRadius?),
+        'side': const NullableBorderSideConverter().toJson(object.side),
         'type': 'rounded',
       };
-    } else if (value is StadiumBorder) {
+    } else if (object is StadiumBorder) {
       return <String, dynamic>{
-        'side': const NullableBorderSideConverter().toJson(value.side),
+        'side': const NullableBorderSideConverter().toJson(object.side),
         'type': 'stadium',
       };
     }
@@ -99,7 +99,7 @@ class ShapeBorderConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ShapeBorder value) {
-    return const NullableShapeBorderConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ShapeBorder object) {
+    return const NullableShapeBorderConverter().toJson(object)!;
   }
 }

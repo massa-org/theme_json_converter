@@ -34,40 +34,31 @@ class NullableBoxFitConverter extends JsonConverter<BoxFit?, String?> {
   }
 
   @override
-  String? toJson(BoxFit? value) {
-    if (value == null) return null;
+  String? toJson(BoxFit? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case BoxFit.contain:
         return 'contain';
-        break;
 
       case BoxFit.cover:
         return 'cover';
-        break;
 
       case BoxFit.fill:
         return 'fill';
-        break;
 
       case BoxFit.fitHeight:
         return 'fitHeight';
-        break;
 
       case BoxFit.fitWidth:
         return 'fitWidth';
-        break;
 
       case BoxFit.none:
         return 'none';
-        break;
 
       case BoxFit.scaleDown:
         return 'scaleDown';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -80,7 +71,7 @@ class BoxFitConverter extends JsonConverter<BoxFit, String> {
   }
 
   @override
-  String toJson(BoxFit value) {
-    return const NullableBoxFitConverter().toJson(value)!;
+  String toJson(BoxFit object) {
+    return const NullableBoxFitConverter().toJson(object)!;
   }
 }

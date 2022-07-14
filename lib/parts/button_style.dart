@@ -65,52 +65,50 @@ class NullableButtonStyleConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(ButtonStyle? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(ButtonStyle? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'alignment': const NullableAlignmentConverter()
-          .toJson(value.alignment as Alignment?),
-      'animationDuration': value.animationDuration?.inMilliseconds,
+          .toJson(object.alignment as Alignment?),
+      'animationDuration': object.animationDuration?.inMilliseconds,
       'backgroundColor':
           const NullableMaterialStatePropertyColorConverter().toJson(
-        value.backgroundColor,
+        object.backgroundColor,
       ),
       'elevation': const NullableMaterialStatePropertyDoubleConverter()
-          .toJson(value.elevation),
-      'enableFeedback': value.enableFeedback,
+          .toJson(object.elevation),
+      'enableFeedback': object.enableFeedback,
       'foregroundColor':
           const NullableMaterialStatePropertyColorConverter().toJson(
-        value.foregroundColor,
+        object.foregroundColor,
       ),
       'minimumSize': const NullableMaterialStatePropertySizeConverter()
-          .toJson(value.minimumSize),
+          .toJson(object.minimumSize),
       'mouseCursor':
           const NullableMaterialStatePropertyMouseCursorConverter().toJson(
-        value.mouseCursor,
+        object.mouseCursor,
       ),
       'overlayColor': const NullableMaterialStatePropertyColorConverter()
-          .toJson(value.overlayColor),
+          .toJson(object.overlayColor),
       'padding':
           const NullableMaterialStatePropertyEdgeInsetsGeometryConverter()
-              .toJson(value.padding),
+              .toJson(object.padding),
       'shadowColor': const NullableMaterialStatePropertyColorConverter()
-          .toJson(value.shadowColor),
+          .toJson(object.shadowColor),
       'shape': const NullableMaterialStatePropertyOutlinedBorderConverter()
-          .toJson(value.shape),
+          .toJson(object.shape),
       'side': const NullableMaterialStatePropertyBorderSideConverter()
-          .toJson(value.side),
+          .toJson(object.side),
       'tapTargetSize': const NullableMaterialTapTargetSizeConverter().toJson(
-        value.tapTargetSize,
+        object.tapTargetSize,
       ),
       'textStyle': const NullableMaterialStatePropertyTextStyleConverter()
-          .toJson(value.textStyle),
+          .toJson(object.textStyle),
       'visualDensity': const NullableVisualDensityConverter().toJson(
-        value.visualDensity,
+        object.visualDensity,
       ),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -124,7 +122,7 @@ class ButtonStyleConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ButtonStyle value) {
-    return const NullableButtonStyleConverter().toJson(value)!;
+  Map<String, dynamic> toJson(ButtonStyle object) {
+    return const NullableButtonStyleConverter().toJson(object)!;
   }
 }

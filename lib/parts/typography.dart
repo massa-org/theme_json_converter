@@ -31,19 +31,17 @@ class NullableTypographyConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(Typography? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(Typography? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'black': const NullableTextThemeConverter().toJson(value.black),
-      'dense': const NullableTextThemeConverter().toJson(value.dense),
+      'black': const NullableTextThemeConverter().toJson(object.black),
+      'dense': const NullableTextThemeConverter().toJson(object.dense),
       'englishLike':
-          const NullableTextThemeConverter().toJson(value.englishLike),
-      'tall': const NullableTextThemeConverter().toJson(value.tall),
-      'white': const NullableTextThemeConverter().toJson(value.white),
+          const NullableTextThemeConverter().toJson(object.englishLike),
+      'tall': const NullableTextThemeConverter().toJson(object.tall),
+      'white': const NullableTextThemeConverter().toJson(object.white),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -57,7 +55,7 @@ class TypographyConverter
   }
 
   @override
-  Map<String, dynamic> toJson(Typography value) {
-    return const NullableTypographyConverter().toJson(value)!;
+  Map<String, dynamic> toJson(Typography object) {
+    return const NullableTypographyConverter().toJson(object)!;
   }
 }

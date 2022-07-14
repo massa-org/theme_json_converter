@@ -20,13 +20,13 @@ class NullableInteractiveInkFeatureFactoryConverter
   }
 
   @override
-  String? toJson(InteractiveInkFeatureFactory? value) {
-    if (value == null) return null;
+  String? toJson(InteractiveInkFeatureFactory? object) {
+    if (object == null) return null;
     final splashType = InkSplash.splashFactory.runtimeType;
     final rippleType = InkRipple.splashFactory.runtimeType;
-    if (value.runtimeType == splashType) {
+    if (object.runtimeType == splashType) {
       return 'splash';
-    } else if (value.runtimeType == rippleType) {
+    } else if (object.runtimeType == rippleType) {
       return 'ripple';
     }
 
@@ -45,7 +45,8 @@ class InteractiveInkFeatureFactoryConverter
   }
 
   @override
-  String toJson(InteractiveInkFeatureFactory value) {
-    return const NullableInteractiveInkFeatureFactoryConverter().toJson(value)!;
+  String toJson(InteractiveInkFeatureFactory object) {
+    return const NullableInteractiveInkFeatureFactoryConverter()
+        .toJson(object)!;
   }
 }

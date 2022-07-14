@@ -29,20 +29,18 @@ class NullableCardThemeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(CardTheme? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(CardTheme? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'clipBehavior': const NullableClipConverter().toJson(value.clipBehavior),
-      'color': const NullableColorConverter().toJson(value.color),
-      'elevation': value.elevation,
+      'clipBehavior': const NullableClipConverter().toJson(object.clipBehavior),
+      'color': const NullableColorConverter().toJson(object.color),
+      'elevation': object.elevation,
       'margin': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.margin as EdgeInsets?),
-      'shadowColor': const NullableColorConverter().toJson(value.shadowColor),
-      'shape': const NullableShapeBorderConverter().toJson(value.shape),
+          .toJson(object.margin as EdgeInsets?),
+      'shadowColor': const NullableColorConverter().toJson(object.shadowColor),
+      'shape': const NullableShapeBorderConverter().toJson(object.shape),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -56,7 +54,7 @@ class CardThemeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(CardTheme value) {
-    return const NullableCardThemeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(CardTheme object) {
+    return const NullableCardThemeConverter().toJson(object)!;
   }
 }

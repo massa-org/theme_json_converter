@@ -20,19 +20,15 @@ class NullableCrossFadeStateConverter
   }
 
   @override
-  String? toJson(CrossFadeState? value) {
-    if (value == null) return null;
+  String? toJson(CrossFadeState? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case CrossFadeState.showFirst:
         return 'showFirst';
-        break;
       case CrossFadeState.showSecond:
         return 'showSecond';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +41,7 @@ class CrossFadeStateConverter extends JsonConverter<CrossFadeState, String> {
   }
 
   @override
-  String toJson(CrossFadeState value) {
-    return const NullableCrossFadeStateConverter().toJson(value)!;
+  String toJson(CrossFadeState object) {
+    return const NullableCrossFadeStateConverter().toJson(object)!;
   }
 }

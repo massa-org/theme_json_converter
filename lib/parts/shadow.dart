@@ -20,16 +20,14 @@ class NullableShadowConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(Shadow? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(Shadow? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'blurRadius': value.blurRadius,
-      'color': const NullableColorConverter().toJson(value.color),
-      'offset': const NullableOffsetConverter().toJson(value.offset),
+      'blurRadius': object.blurRadius,
+      'color': const NullableColorConverter().toJson(object.color),
+      'offset': const NullableOffsetConverter().toJson(object.offset),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -42,7 +40,7 @@ class ShadowConverter extends JsonConverter<Shadow, Map<String, dynamic>> {
   }
 
   @override
-  Map<String, dynamic> toJson(Shadow value) {
-    return const NullableShadowConverter().toJson(value)!;
+  Map<String, dynamic> toJson(Shadow object) {
+    return const NullableShadowConverter().toJson(object)!;
   }
 }

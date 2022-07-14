@@ -22,24 +22,21 @@ class NullableStackFitConverter extends JsonConverter<StackFit?, String?> {
   }
 
   @override
-  String? toJson(StackFit? value) {
-    if (value == null) return null;
+  String? toJson(StackFit? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case StackFit.expand:
         return 'expand';
-        break;
 
       case StackFit.loose:
         return 'loose';
-        break;
 
       case StackFit.passthrough:
         return 'passthrough';
-        break;
     }
 
-    throw 'Json_Unsuported_Value';
+    
   }
 }
 
@@ -52,7 +49,7 @@ class StackFitConverter extends JsonConverter<StackFit, String> {
   }
 
   @override
-  String toJson(StackFit value) {
-    return const NullableStackFitConverter().toJson(value)!;
+  String toJson(StackFit object) {
+    return const NullableStackFitConverter().toJson(object)!;
   }
 }

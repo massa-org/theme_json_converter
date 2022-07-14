@@ -33,23 +33,22 @@ class NullableTabBarThemeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(TabBarTheme? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(TabBarTheme? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'indicatorSize': const NullableTabBarIndicatorSizeConverter()
-          .toJson(value.indicatorSize),
+          .toJson(object.indicatorSize),
       'labelPadding': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.labelPadding as EdgeInsets?),
-      'labelColor': const NullableColorConverter().toJson(value.labelColor),
-      'labelStyle': const NullableTextStyleConverter().toJson(value.labelStyle),
+          .toJson(object.labelPadding as EdgeInsets?),
+      'labelColor': const NullableColorConverter().toJson(object.labelColor),
+      'labelStyle':
+          const NullableTextStyleConverter().toJson(object.labelStyle),
       'unselectedLabelColor':
-          const NullableColorConverter().toJson(value.unselectedLabelColor),
-      'unselectedLabelStyle':
-          const NullableTextStyleConverter().toJson(value.unselectedLabelStyle),
+          const NullableColorConverter().toJson(object.unselectedLabelColor),
+      'unselectedLabelStyle': const NullableTextStyleConverter()
+          .toJson(object.unselectedLabelStyle),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -63,7 +62,7 @@ class TabBarThemeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(TabBarTheme value) {
-    return const NullableTabBarThemeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(TabBarTheme object) {
+    return const NullableTabBarThemeConverter().toJson(object)!;
   }
 }

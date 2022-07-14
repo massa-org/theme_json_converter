@@ -23,24 +23,19 @@ class NullableHitTestBehaviorConverter
   }
 
   @override
-  String? toJson(HitTestBehavior? value) {
-    if (value == null) return null;
+  String? toJson(HitTestBehavior? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case HitTestBehavior.deferToChild:
         return 'deferToChild';
-        break;
 
       case HitTestBehavior.opaque:
         return 'opaque';
-        break;
 
       case HitTestBehavior.translucent:
         return 'translucent';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -53,7 +48,7 @@ class HitTestBehaviorConverter extends JsonConverter<HitTestBehavior, String> {
   }
 
   @override
-  String toJson(HitTestBehavior value) {
-    return const NullableHitTestBehaviorConverter().toJson(value)!;
+  String toJson(HitTestBehavior object) {
+    return const NullableHitTestBehaviorConverter().toJson(object)!;
   }
 }

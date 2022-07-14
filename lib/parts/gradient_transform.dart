@@ -14,15 +14,14 @@ class NullableGradientTransformConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(GradientTransform? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(GradientTransform? object) {
+    if (object == null) return null;
 
-    assert(value == null || value is GradientRotation);
-    Map<String, dynamic>? result;
+    assert(object is GradientRotation);
 
-    if (value != null && value is GradientRotation) {
+    if (object is GradientRotation) {
       return {
-        'radians': value.radians,
+        'radians': object.radians,
       };
     }
 
@@ -40,7 +39,7 @@ class GradientTransformConverter
   }
 
   @override
-  Map<String, dynamic> toJson(GradientTransform value) {
-    return const NullableGradientTransformConverter().toJson(value)!;
+  Map<String, dynamic> toJson(GradientTransform object) {
+    return const NullableGradientTransformConverter().toJson(object)!;
   }
 }

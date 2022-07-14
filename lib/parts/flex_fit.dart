@@ -19,20 +19,16 @@ class NullableFlexFitConverter extends JsonConverter<FlexFit?, String?> {
   }
 
   @override
-  String? toJson(FlexFit? value) {
-    if (value == null) return null;
+  String? toJson(FlexFit? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case FlexFit.loose:
         return 'loose';
-        break;
 
       case FlexFit.tight:
         return 'tight';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +41,7 @@ class FlexFitConverter extends JsonConverter<FlexFit, String> {
   }
 
   @override
-  String toJson(FlexFit value) {
-    return const NullableFlexFitConverter().toJson(value)!;
+  String toJson(FlexFit object) {
+    return const NullableFlexFitConverter().toJson(object)!;
   }
 }

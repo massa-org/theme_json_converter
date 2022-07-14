@@ -20,12 +20,12 @@ class NullableSystemUiOverlayStyleConverter
   }
 
   @override
-  String? toJson(SystemUiOverlayStyle? value) {
-    if (value == null) return null;
+  String? toJson(SystemUiOverlayStyle? object) {
+    if (object == null) return null;
 
-    if (value == SystemUiOverlayStyle.dark) {
+    if (object == SystemUiOverlayStyle.dark) {
       return 'dark';
-    } else if (value == SystemUiOverlayStyle.light) {
+    } else if (object == SystemUiOverlayStyle.light) {
       return 'light';
     }
 
@@ -43,7 +43,7 @@ class SystemUiOverlayStyleConverter
   }
 
   @override
-  String toJson(SystemUiOverlayStyle value) {
-    return const NullableSystemUiOverlayStyleConverter().toJson(value)!;
+  String toJson(SystemUiOverlayStyle object) {
+    return const NullableSystemUiOverlayStyleConverter().toJson(object)!;
   }
 }

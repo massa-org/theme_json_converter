@@ -158,7 +158,7 @@ part 'parts/visual_density.dart';
 
 List<T>? _decodeDynamicList<T>(
   Iterable<dynamic>? list,
-  T Function(dynamic value) decoder,
+  T Function(dynamic object) decoder,
 ) {
   if (list == null) return null;
 
@@ -167,7 +167,7 @@ List<T>? _decodeDynamicList<T>(
 
 List<T>? _decodeStringList<T>(
   Iterable<dynamic>? list,
-  T Function(String value) decoder,
+  T Function(String object) decoder,
 ) {
   if (list == null) return null;
 
@@ -176,14 +176,14 @@ List<T>? _decodeStringList<T>(
 
 List<T>? _encodeList<T>(
   Iterable<dynamic>? list,
-  T Function(dynamic value) encoder,
+  T Function(dynamic object) encoder,
 ) {
   List<T>? result;
 
   if (list != null) {
     result = [];
-    for (var value in list) {
-      result.add(encoder(value));
+    for (var object in list) {
+      result.add(encoder(object));
     }
   }
 

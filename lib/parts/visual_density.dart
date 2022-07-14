@@ -26,14 +26,14 @@ class NullableVisualDensityConverter
   }
 
   @override
-  String? toJson(VisualDensity? value) {
-    if (value == null) return null;
+  String? toJson(VisualDensity? object) {
+    if (object == null) return null;
 
-    if (value == VisualDensity.comfortable) {
+    if (object == VisualDensity.comfortable) {
       return 'comfortable';
-    } else if (value == VisualDensity.compact) {
+    } else if (object == VisualDensity.compact) {
       return 'compact';
-    } else if (value == VisualDensity.standard) {
+    } else if (object == VisualDensity.standard) {
       return 'standard';
     }
 
@@ -50,7 +50,7 @@ class VisualDensityConverter extends JsonConverter<VisualDensity, String> {
   }
 
   @override
-  String toJson(VisualDensity value) {
-    return const NullableVisualDensityConverter().toJson(value)!;
+  String toJson(VisualDensity object) {
+    return const NullableVisualDensityConverter().toJson(object)!;
   }
 }

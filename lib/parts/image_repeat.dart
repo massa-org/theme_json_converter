@@ -26,25 +26,19 @@ class NullableImageRepeatConverter
   }
 
   @override
-  String? toJson(ImageRepeat? value) {
-    if (value == null) return null;
+  String? toJson(ImageRepeat? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case ImageRepeat.noRepeat:
         return 'noRepeat';
-        break;
       case ImageRepeat.repeat:
         return 'repeat';
-        break;
       case ImageRepeat.repeatX:
         return 'repeatX';
-        break;
       case ImageRepeat.repeatY:
         return 'repeatY';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -57,7 +51,7 @@ class ImageRepeatConverter extends JsonConverter<ImageRepeat, String> {
   }
 
   @override
-  String toJson(ImageRepeat value) {
-    return const NullableImageRepeatConverter().toJson(value)!;
+  String toJson(ImageRepeat object) {
+    return const NullableImageRepeatConverter().toJson(object)!;
   }
 }

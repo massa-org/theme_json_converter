@@ -20,20 +20,16 @@ class NullableTabBarIndicatorSizeConverter
   }
 
   @override
-  String? toJson(TabBarIndicatorSize? value) {
-    if (value == null) return null;
+  String? toJson(TabBarIndicatorSize? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TabBarIndicatorSize.label:
         return 'label';
-        break;
 
       case TabBarIndicatorSize.tab:
         return 'tab';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -47,7 +43,7 @@ class TabBarIndicatorSizeConverter
   }
 
   @override
-  String toJson(TabBarIndicatorSize value) {
-    return const NullableTabBarIndicatorSizeConverter().toJson(value)!;
+  String toJson(TabBarIndicatorSize object) {
+    return const NullableTabBarIndicatorSizeConverter().toJson(object)!;
   }
 }

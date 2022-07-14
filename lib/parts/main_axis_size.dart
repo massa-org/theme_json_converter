@@ -20,19 +20,15 @@ class NullableMainAxisSizeConverter
   }
 
   @override
-  String? toJson(MainAxisSize? value) {
-    if (value == null) return null;
+  String? toJson(MainAxisSize? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case MainAxisSize.max:
         return 'max';
-        break;
       case MainAxisSize.min:
         return 'min';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +41,7 @@ class MainAxisSizeConverter extends JsonConverter<MainAxisSize, String> {
   }
 
   @override
-  String toJson(MainAxisSize value) {
-    return const NullableMainAxisSizeConverter().toJson(value)!;
+  String toJson(MainAxisSize object) {
+    return const NullableMainAxisSizeConverter().toJson(object)!;
   }
 }

@@ -26,28 +26,22 @@ class NullableTextCapitalizationConverter
   }
 
   @override
-  String? toJson(TextCapitalization? value) {
-    if (value == null) return null;
+  String? toJson(TextCapitalization? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TextCapitalization.characters:
         return 'characters';
-        break;
 
       case TextCapitalization.none:
         return 'none';
-        break;
 
       case TextCapitalization.sentences:
         return 'sentences';
-        break;
 
       case TextCapitalization.words:
         return 'words';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -61,7 +55,7 @@ class TextCapitalizationConverter
   }
 
   @override
-  String toJson(TextCapitalization value) {
-    return const NullableTextCapitalizationConverter().toJson(value)!;
+  String toJson(TextCapitalization object) {
+    return const NullableTextCapitalizationConverter().toJson(object)!;
   }
 }

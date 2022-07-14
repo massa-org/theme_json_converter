@@ -40,14 +40,14 @@ class NullableBoxBorderConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(BoxBorder? value) {
-    if (value == null) return null;
-    if (value is Border) {
+  Map<String, dynamic>? toJson(BoxBorder? object) {
+    if (object == null) return null;
+    if (object is Border) {
       return {
-        'bottom': const NullableBorderSideConverter().toJson(value.bottom),
-        'left': const NullableBorderSideConverter().toJson(value.left),
-        'right': const NullableBorderSideConverter().toJson(value.right),
-        'top': const NullableBorderSideConverter().toJson(value.top),
+        'bottom': const NullableBorderSideConverter().toJson(object.bottom),
+        'left': const NullableBorderSideConverter().toJson(object.left),
+        'right': const NullableBorderSideConverter().toJson(object.right),
+        'top': const NullableBorderSideConverter().toJson(object.top),
       };
     }
 
@@ -65,7 +65,7 @@ class BoxBorderConverter
   }
 
   @override
-  Map<String, dynamic> toJson(BoxBorder value) {
-    return const NullableBoxBorderConverter().toJson(value)!;
+  Map<String, dynamic> toJson(BoxBorder object) {
+    return const NullableBoxBorderConverter().toJson(object)!;
   }
 }

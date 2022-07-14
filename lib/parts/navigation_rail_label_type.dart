@@ -23,24 +23,19 @@ class NullableNavigationRailLabelTypeConverter
   }
 
   @override
-  String? toJson(NavigationRailLabelType? value) {
-    if (value == null) return null;
+  String? toJson(NavigationRailLabelType? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case NavigationRailLabelType.all:
         return 'all';
-        break;
 
       case NavigationRailLabelType.none:
         return 'none';
-        break;
 
       case NavigationRailLabelType.selected:
         return 'selected';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -54,7 +49,7 @@ class NavigationRailLabelTypeConverter
   }
 
   @override
-  String toJson(NavigationRailLabelType value) {
-    return const NullableNavigationRailLabelTypeConverter().toJson(value)!;
+  String toJson(NavigationRailLabelType object) {
+    return const NullableNavigationRailLabelTypeConverter().toJson(object)!;
   }
 }

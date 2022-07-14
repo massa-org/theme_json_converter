@@ -27,21 +27,20 @@ class NullableBottomSheetThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(BottomSheetThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(BottomSheetThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
       'backgroundColor':
-          const NullableColorConverter().toJson(value.backgroundColor),
-      'clipBehavior': const NullableClipConverter().toJson(value.clipBehavior),
-      'elevation': value.elevation,
+          const NullableColorConverter().toJson(object.backgroundColor),
+      'clipBehavior': const NullableClipConverter().toJson(object.clipBehavior),
+      'elevation': object.elevation,
       'modalBackgroundColor':
-          const NullableColorConverter().toJson(value.modalBackgroundColor),
-      'modalElevation': value.modalElevation,
-      'shape': const NullableShapeBorderConverter().toJson(value.shape),
+          const NullableColorConverter().toJson(object.modalBackgroundColor),
+      'modalElevation': object.modalElevation,
+      'shape': const NullableShapeBorderConverter().toJson(object.shape),
     };
 
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -55,7 +54,7 @@ class BottomSheetThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(BottomSheetThemeData value) {
-    return const NullableBottomSheetThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(BottomSheetThemeData object) {
+    return const NullableBottomSheetThemeDataConverter().toJson(object)!;
   }
 }

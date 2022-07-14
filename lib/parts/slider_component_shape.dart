@@ -20,14 +20,14 @@ class NullableSliderComponentShapeConverter
   }
 
   @override
-  String? toJson(SliderComponentShape? value) {
-    if (value == null) return null;
+  String? toJson(SliderComponentShape? object) {
+    if (object == null) return null;
 
     // This one's a bit strange because both noOverlay and noThumb actually
     // point to the exact same no-op class, so there's no way to tell them
     // apart.  Might as well just pick the one that comes first
     // alphabetically.
-    if (value.runtimeType == SliderComponentShape.noOverlay.runtimeType) {
+    if (object.runtimeType == SliderComponentShape.noOverlay.runtimeType) {
       return 'noOverlay';
     }
 
@@ -45,7 +45,7 @@ class SliderComponentShapeConverter
   }
 
   @override
-  String toJson(SliderComponentShape value) {
-    return const NullableSliderComponentShapeConverter().toJson(value)!;
+  String toJson(SliderComponentShape object) {
+    return const NullableSliderComponentShapeConverter().toJson(object)!;
   }
 }

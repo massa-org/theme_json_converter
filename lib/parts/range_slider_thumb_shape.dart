@@ -26,15 +26,15 @@ class NullableRangeSliderThumbShapeConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(RangeSliderThumbShape? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(RangeSliderThumbShape? object) {
+    if (object == null) return null;
 
-    if (value is RoundRangeSliderThumbShape) {
+    if (object is RoundRangeSliderThumbShape) {
       return <String, dynamic>{
-        'disabledThumbRadius': value.disabledThumbRadius,
-        'elevation': value.elevation,
-        'enabledThumbRadius': value.enabledThumbRadius,
-        'pressedElevation': value.pressedElevation,
+        'disabledThumbRadius': object.disabledThumbRadius,
+        'elevation': object.elevation,
+        'enabledThumbRadius': object.enabledThumbRadius,
+        'pressedElevation': object.pressedElevation,
         'type': 'round',
       };
     }
@@ -53,7 +53,7 @@ class RangeSliderThumbShapeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(RangeSliderThumbShape value) {
-    return const NullableRangeSliderThumbShapeConverter().toJson(value)!;
+  Map<String, dynamic> toJson(RangeSliderThumbShape object) {
+    return const NullableRangeSliderThumbShapeConverter().toJson(object)!;
   }
 }

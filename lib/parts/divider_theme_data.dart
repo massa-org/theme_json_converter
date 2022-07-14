@@ -20,18 +20,16 @@ class NullableDividerThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(DividerThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(DividerThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'color': const NullableColorConverter().toJson(value.color),
-      'endIndent': value.endIndent,
-      'indent': value.indent,
-      'space': value.space,
-      'thickness': value.thickness,
+      'color': const NullableColorConverter().toJson(object.color),
+      'endIndent': object.endIndent,
+      'indent': object.indent,
+      'space': object.space,
+      'thickness': object.thickness,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +43,7 @@ class DividerThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(DividerThemeData value) {
-    return const NullableDividerThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(DividerThemeData object) {
+    return const NullableDividerThemeDataConverter().toJson(object)!;
   }
 }

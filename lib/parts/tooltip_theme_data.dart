@@ -37,24 +37,22 @@ class NullableTooltipThemeDataConverter
   }
 
   @override
-  Map<String, dynamic>? toJson(TooltipThemeData? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(TooltipThemeData? object) {
+    if (object == null) return null;
 
     return <String, dynamic>{
-      'excludeFromSemantics': value.excludeFromSemantics,
-      'height': value.height,
+      'excludeFromSemantics': object.excludeFromSemantics,
+      'height': object.height,
       'margin': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.margin as EdgeInsets?),
+          .toJson(object.margin as EdgeInsets?),
       'padding': const NullableEdgeInsetsGeometryConverter()
-          .toJson(value.padding as EdgeInsets?),
-      'preferBelow': value.preferBelow,
-      'showDuration': value.showDuration?.inMilliseconds,
-      'textStyle': const NullableTextStyleConverter().toJson(value.textStyle),
-      'verticalOffset': value.verticalOffset,
-      'waitDuration': value.waitDuration?.inMilliseconds,
+          .toJson(object.padding as EdgeInsets?),
+      'preferBelow': object.preferBelow,
+      'showDuration': object.showDuration?.inMilliseconds,
+      'textStyle': const NullableTextStyleConverter().toJson(object.textStyle),
+      'verticalOffset': object.verticalOffset,
+      'waitDuration': object.waitDuration?.inMilliseconds,
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -68,7 +66,7 @@ class TooltipThemeDataConverter
   }
 
   @override
-  Map<String, dynamic> toJson(TooltipThemeData value) {
-    return const NullableTooltipThemeDataConverter().toJson(value)!;
+  Map<String, dynamic> toJson(TooltipThemeData object) {
+    return const NullableTooltipThemeDataConverter().toJson(object)!;
   }
 }

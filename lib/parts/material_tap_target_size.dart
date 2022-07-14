@@ -20,19 +20,15 @@ class NullableMaterialTapTargetSizeConverter
   }
 
   @override
-  String? toJson(MaterialTapTargetSize? value) {
-    if (value == null) return null;
+  String? toJson(MaterialTapTargetSize? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case MaterialTapTargetSize.padded:
         return 'padded';
-        break;
       case MaterialTapTargetSize.shrinkWrap:
         return 'shrinkWrap';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -46,7 +42,7 @@ class MaterialTapTargetSizeConverter
   }
 
   @override
-  String toJson(MaterialTapTargetSize value) {
-    return const NullableMaterialTapTargetSizeConverter().toJson(value)!;
+  String toJson(MaterialTapTargetSize object) {
+    return const NullableMaterialTapTargetSizeConverter().toJson(object)!;
   }
 }

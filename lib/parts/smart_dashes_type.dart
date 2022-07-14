@@ -20,19 +20,15 @@ class NullableSmartDashesTypeConverter
   }
 
   @override
-  String? toJson(SmartDashesType? value) {
-    if (value == null) return null;
+  String? toJson(SmartDashesType? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case SmartDashesType.disabled:
         return 'disabled';
-        break;
       case SmartDashesType.enabled:
         return 'enabled';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -45,7 +41,7 @@ class SmartDashesTypeConverter extends JsonConverter<SmartDashesType, String> {
   }
 
   @override
-  String toJson(SmartDashesType value) {
-    return const NullableSmartDashesTypeConverter().toJson(value)!;
+  String toJson(SmartDashesType object) {
+    return const NullableSmartDashesTypeConverter().toJson(object)!;
   }
 }

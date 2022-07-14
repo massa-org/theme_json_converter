@@ -63,37 +63,35 @@ class NullableMaterialStatePropertyEdgeInsetsGeometryConverter
 
   @override
   Map<String, dynamic>? toJson(
-      MaterialStateProperty<EdgeInsetsGeometry?>? value) {
-    if (value == null) return null;
+      MaterialStateProperty<EdgeInsetsGeometry?>? object) {
+    if (object == null) return null;
 
     return {
       'disabled': const NullableEdgeInsetsGeometryConverter().toJson(
-        value.resolve({MaterialState.disabled}) as EdgeInsets?,
+        object.resolve({MaterialState.disabled}) as EdgeInsets?,
       ),
       'dragged': const NullableEdgeInsetsGeometryConverter().toJson(
-        value.resolve({MaterialState.dragged}) as EdgeInsets?,
+        object.resolve({MaterialState.dragged}) as EdgeInsets?,
       ),
       'empty': const NullableEdgeInsetsGeometryConverter().toJson(
-        value.resolve({}) as EdgeInsets?,
+        object.resolve({}) as EdgeInsets?,
       ),
       'error': const NullableEdgeInsetsGeometryConverter().toJson(
-        value.resolve({MaterialState.error}) as EdgeInsets?,
+        object.resolve({MaterialState.error}) as EdgeInsets?,
       ),
       'focused': const NullableEdgeInsetsGeometryConverter().toJson(
-        value.resolve({MaterialState.focused}) as EdgeInsets?,
+        object.resolve({MaterialState.focused}) as EdgeInsets?,
       ),
       'hovered': const NullableEdgeInsetsGeometryConverter().toJson(
-        value.resolve({MaterialState.hovered}) as EdgeInsets?,
+        object.resolve({MaterialState.hovered}) as EdgeInsets?,
       ),
       'pressed': const NullableEdgeInsetsGeometryConverter().toJson(
-        value.resolve({MaterialState.pressed}) as EdgeInsets?,
+        object.resolve({MaterialState.pressed}) as EdgeInsets?,
       ),
       'selected': const NullableEdgeInsetsGeometryConverter().toJson(
-        value.resolve({MaterialState.selected}) as EdgeInsets?,
+        object.resolve({MaterialState.selected}) as EdgeInsets?,
       ),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -110,8 +108,8 @@ class MaterialStatePropertyEdgeInsetsGeometryConverter extends JsonConverter<
 
   @override
   Map<String, dynamic> toJson(
-      MaterialStateProperty<EdgeInsetsGeometry?> value) {
+      MaterialStateProperty<EdgeInsetsGeometry?> object) {
     return const NullableMaterialStatePropertyEdgeInsetsGeometryConverter()
-        .toJson(value)!;
+        .toJson(object)!;
   }
 }

@@ -20,12 +20,12 @@ class NullableRangeSliderValueIndicatorShapeConverter
   }
 
   @override
-  String? toJson(RangeSliderValueIndicatorShape? value) {
-    if (value == null) return null;
+  String? toJson(RangeSliderValueIndicatorShape? object) {
+    if (object == null) return null;
 
-    if (value is PaddleRangeSliderValueIndicatorShape) {
+    if (object is PaddleRangeSliderValueIndicatorShape) {
       return 'paddle';
-    } else if (value is RectangularRangeSliderValueIndicatorShape) {
+    } else if (object is RectangularRangeSliderValueIndicatorShape) {
       return 'rectangular';
     }
 
@@ -44,8 +44,8 @@ class RangeSliderValueIndicatorShapeConverter
   }
 
   @override
-  String toJson(RangeSliderValueIndicatorShape value) {
+  String toJson(RangeSliderValueIndicatorShape object) {
     return const NullableRangeSliderValueIndicatorShapeConverter()
-        .toJson(value)!;
+        .toJson(object)!;
   }
 }

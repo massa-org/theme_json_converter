@@ -30,21 +30,19 @@ class NullableMaterialStatePropertyDoubleConverter extends JsonConverter<
   }
 
   @override
-  Map<String, dynamic>? toJson(MaterialStateProperty<double?>? value) {
-    if (value == null) return null;
+  Map<String, dynamic>? toJson(MaterialStateProperty<double?>? object) {
+    if (object == null) return null;
 
     return {
-      'disabled': value.resolve({MaterialState.disabled}),
-      'dragged': value.resolve({MaterialState.dragged}),
-      'empty': value.resolve({}),
-      'error': value.resolve({MaterialState.error}),
-      'focused': value.resolve({MaterialState.focused}),
-      'hovered': value.resolve({MaterialState.hovered}),
-      'pressed': value.resolve({MaterialState.pressed}),
-      'selected': value.resolve({MaterialState.selected}),
+      'disabled': object.resolve({MaterialState.disabled}),
+      'dragged': object.resolve({MaterialState.dragged}),
+      'empty': object.resolve({}),
+      'error': object.resolve({MaterialState.error}),
+      'focused': object.resolve({MaterialState.focused}),
+      'hovered': object.resolve({MaterialState.hovered}),
+      'pressed': object.resolve({MaterialState.pressed}),
+      'selected': object.resolve({MaterialState.selected}),
     };
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -58,7 +56,7 @@ class MaterialStatePropertyDoubleConverter extends JsonConverter<
   }
 
   @override
-  Map<String, dynamic> toJson(MaterialStateProperty<double?> value) {
-    return const NullableMaterialStatePropertyDoubleConverter().toJson(value)!;
+  Map<String, dynamic> toJson(MaterialStateProperty<double?> object) {
+    return const NullableMaterialStatePropertyDoubleConverter().toJson(object)!;
   }
 }

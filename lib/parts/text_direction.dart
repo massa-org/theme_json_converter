@@ -20,20 +20,16 @@ class NullableTextDirectionConverter
   }
 
   @override
-  String? toJson(TextDirection? value) {
-    if (value == null) return null;
+  String? toJson(TextDirection? object) {
+    if (object == null) return null;
 
-    switch (value) {
+    switch (object) {
       case TextDirection.ltr:
         return 'ltr';
-        break;
 
       case TextDirection.rtl:
         return 'rtl';
-        break;
     }
-
-    throw 'Json_Unsuported_Value';
   }
 }
 
@@ -46,7 +42,7 @@ class TextDirectionConverter extends JsonConverter<TextDirection, String> {
   }
 
   @override
-  String toJson(TextDirection value) {
-    return const NullableTextDirectionConverter().toJson(value)!;
+  String toJson(TextDirection object) {
+    return const NullableTextDirectionConverter().toJson(object)!;
   }
 }
