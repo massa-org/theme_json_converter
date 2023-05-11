@@ -11,18 +11,6 @@ class NullableThemeDataConverter
     if (json == null) return null;
 
     return ThemeData(
-      accentColor: const NullableColorConverter().fromJson(
-        json['accentColor'],
-      ),
-      accentColorBrightness: const NullableBrightnessConverter().fromJson(
-        json['accentColorBrightness'],
-      ),
-      accentIconTheme: const NullableIconThemeDataConverter().fromJson(
-        json['accentIconTheme'],
-      ),
-      accentTextTheme: const NullableTextThemeConverter().fromJson(
-        json['accentTextTheme'],
-      ),
       appBarTheme: const NullableAppBarThemeConverter().fromJson(
         json['appBarTheme'],
       ),
@@ -54,9 +42,6 @@ class NullableThemeDataConverter
       buttonBarTheme: const NullableButtonBarThemeDataConverter().fromJson(
         json['buttonBarTheme'],
       ),
-      buttonColor: const NullableColorConverter().fromJson(
-        json['buttonColor'],
-      ),
       buttonTheme: const NullableButtonThemeDataConverter().fromJson(
         json['buttonTheme'],
       ),
@@ -82,8 +67,6 @@ class NullableThemeDataConverter
           const NullableCupertinoThemeDataConverter().fromJson(
         json['cupertinoOverrideTheme'],
       ),
-      // @deprecated
-      // cursorColor
       dataTableTheme: const NullableDataTableThemeDataConverter().fromJson(
         json['dataTableTheme'],
       ),
@@ -266,13 +249,6 @@ class NullableThemeDataConverter
     if (object == null) return null;
 
     return <String, dynamic>{
-      'accentColor': const NullableColorConverter().toJson(object.accentColor),
-      'accentColorBrightness': const NullableBrightnessConverter()
-          .toJson(object.accentColorBrightness),
-      'accentIconTheme':
-          const NullableIconThemeDataConverter().toJson(object.accentIconTheme),
-      'accentTextTheme':
-          const NullableTextThemeConverter().toJson(object.accentTextTheme),
       'appBarTheme':
           const NullableAppBarThemeConverter().toJson(object.appBarTheme),
       'applyElevationOverlayColor': object.applyElevationOverlayColor,
@@ -292,7 +268,6 @@ class NullableThemeDataConverter
           .toJson(object.bottomSheetTheme),
       'brightness':
           const NullableBrightnessConverter().toJson(object.brightness),
-      'buttonColor': const NullableColorConverter().toJson(object.buttonColor),
       'buttonBarTheme': const NullableButtonBarThemeDataConverter()
           .toJson(object.buttonBarTheme),
       'buttonTheme':

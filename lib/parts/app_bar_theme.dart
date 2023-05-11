@@ -17,12 +17,6 @@ class NullableAppBarThemeConverter
       backgroundColor: const NullableColorConverter().fromJson(
         json['backgroundColor'] ?? json['color'],
       ),
-      backwardsCompatibility: json['backwardsCompatibility'] == null
-          ? null
-          : (json['backwardsCompatibility'] as bool),
-      brightness: const NullableBrightnessConverter().fromJson(
-        json['brightness'],
-      ),
       centerTitle:
           json['centerTitle'] == null ? null : (json['centerTitle'] as bool),
       elevation: (json['elevation'] as num?)?.toDouble(),
@@ -38,9 +32,6 @@ class NullableAppBarThemeConverter
       systemOverlayStyle:
           const NullableSystemUiOverlayStyleConverter().fromJson(
         json['systemOverlayStyle'],
-      ),
-      textTheme: const NullableTextThemeConverter().fromJson(
-        json['textTheme'],
       ),
       titleSpacing: (json['titleSpacing'] as num?)?.toDouble(),
       titleTextStyle: const NullableTextStyleConverter().fromJson(
@@ -59,12 +50,6 @@ class NullableAppBarThemeConverter
     return <String, dynamic>{
       'actionsIconTheme': const NullableIconThemeDataConverter()
           .toJson(object.actionsIconTheme),
-      'backgroundColor':
-          const NullableColorConverter().toJson(object.backgroundColor) ??
-              const NullableColorConverter().toJson(object.color),
-      'backwardsCompatibility': object.backwardsCompatibility,
-      'brightness':
-          const NullableBrightnessConverter().toJson(object.brightness),
       'centerTitle': object.centerTitle,
       'elevation': object.elevation,
       'foregroundColor':
@@ -74,7 +59,6 @@ class NullableAppBarThemeConverter
       'shadowColor': const NullableColorConverter().toJson(object.shadowColor),
       'systemOverlayStyle': const NullableSystemUiOverlayStyleConverter()
           .toJson(object.systemOverlayStyle),
-      'textTheme': const NullableTextThemeConverter().toJson(object.textTheme),
       'titleSpacing': object.titleSpacing,
       'titleTextStyle':
           const NullableTextStyleConverter().toJson(object.titleTextStyle),
