@@ -69,6 +69,7 @@ const Map<String, String> typeConverterMapping = {
       'MaterialStateProperty<BorderSide?>Converter',
   'MaterialStatePropertyColor': 'MaterialStateProperty<Color?>Converter',
   'MaterialStatePropertyDouble': 'MaterialStateProperty<double?>Converter',
+  'MaterialStatePropertyBool': 'MaterialStateProperty<bool?>Converter',
   'MaterialStatePropertyEdgeInsetsGeometry':
       'MaterialStateProperty<EdgeInsetsGeometry?>Converter',
   'MaterialStatePropertyMouseCursor':

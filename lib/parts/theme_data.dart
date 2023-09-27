@@ -92,9 +92,7 @@ class NullableThemeDataConverter
       errorColor: const NullableColorConverter().fromJson(
         json['errorColor'],
       ),
-      fixTextFieldOutlineLabel: json['fixTextFieldOutlineLabel'] == null
-          ? null
-          : (json['fixTextFieldOutlineLabel'] as bool),
+
       floatingActionButtonTheme:
           const NullableFloatingActionButtonThemeDataConverter().fromJson(
         json['floatingActionButtonTheme'],
@@ -147,9 +145,7 @@ class NullableThemeDataConverter
       primaryColor: const NullableColorConverter().fromJson(
         json['primaryColor'],
       ),
-      primaryColorBrightness: const NullableBrightnessConverter().fromJson(
-        json['primaryColorBrightness'],
-      ),
+
       primaryColorDark: const NullableColorConverter().fromJson(
         json['primaryColorDark'],
       ),
@@ -298,7 +294,6 @@ class NullableThemeDataConverter
         object.elevatedButtonTheme,
       ),
       'errorColor': const NullableColorConverter().toJson(object.errorColor),
-      'fixTextFieldOutlineLabel': object.fixTextFieldOutlineLabel,
       'floatingActionButtonTheme':
           const NullableFloatingActionButtonThemeDataConverter().toJson(
         object.floatingActionButtonTheme,
@@ -334,9 +329,6 @@ class NullableThemeDataConverter
           .toJson(object.popupMenuTheme),
       'primaryColor':
           const NullableColorConverter().toJson(object.primaryColor),
-      'primaryColorBrightness': const NullableBrightnessConverter().toJson(
-        object.primaryColorBrightness,
-      ),
       'primaryColorDark':
           const NullableColorConverter().toJson(object.primaryColorDark),
       'primaryColorLight':

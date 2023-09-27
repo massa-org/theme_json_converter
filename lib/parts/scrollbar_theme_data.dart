@@ -12,9 +12,8 @@ class NullableScrollbarThemeDataConverter
 
     return ScrollbarThemeData(
       crossAxisMargin: (json['crossAxisMargin'] as num?)?.toDouble(),
-      isAlwaysShown: json['isAlwaysShown'] == null
-          ? null
-          : (json['isAlwaysShown'] as bool),
+      trackVisibility: const NullableMaterialStatePropertyBoolConverter()
+          .fromJson(json['trackVisibility']),
       mainAxisMargin: (json['mainAxisMargin'] as num?)?.toDouble(),
       minThumbLength: (json['minThumbLength'] as num?)?.toDouble(),
       radius: const NullableRadiusConverter().fromJson(
@@ -35,7 +34,8 @@ class NullableScrollbarThemeDataConverter
 
     return {
       'crossAxisMargin': object.crossAxisMargin,
-      'isAlwaysShown': object.isAlwaysShown,
+      'trackVisibility': const NullableMaterialStatePropertyBoolConverter()
+          .toJson(object.trackVisibility),
       'mainAxisMargin': object.mainAxisMargin,
       'minThumbLength': object.minThumbLength,
       'radius': const NullableRadiusConverter().toJson(object.radius),

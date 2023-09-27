@@ -38,15 +38,21 @@ class NullableColorSchemeConverter
       primary: const NullableColorConverter().fromJson(
         json['primary'],
       )!,
-      primaryVariant: const NullableColorConverter().fromJson(
-        json['primaryVariant'],
-      )!,
+      primaryContainer: const NullableColorConverter().fromJson(
+        json['primaryContainer'],
+      ),
+      onPrimaryContainer: const NullableColorConverter().fromJson(
+        json['onPrimaryContainer'],
+      ),
       secondary: const NullableColorConverter().fromJson(
         json['secondary'],
       )!,
-      secondaryVariant: const NullableColorConverter().fromJson(
-        json['secondaryVariant'],
-      )!,
+      secondaryContainer: const NullableColorConverter().fromJson(
+        json['secondaryContainer'],
+      ),
+      onSecondaryContainer: const NullableColorConverter().fromJson(
+        json['onSecondaryContainer'],
+      ),
       surface: const NullableColorConverter().fromJson(
         json['surface'],
       )!,
@@ -69,11 +75,15 @@ class NullableColorSchemeConverter
       'onSecondary': const NullableColorConverter().toJson(object.onSecondary),
       'onSurface': const NullableColorConverter().toJson(object.onSurface),
       'primary': const NullableColorConverter().toJson(object.primary),
-      'primaryVariant':
-          const NullableColorConverter().toJson(object.primaryVariant),
+      'primaryContainer':
+          const NullableColorConverter().toJson(object.primaryContainer),
+      'onPrimaryContainer':
+          const NullableColorConverter().toJson(object.onPrimaryContainer),
       'secondary': const NullableColorConverter().toJson(object.secondary),
-      'secondaryVariant':
-          const NullableColorConverter().toJson(object.secondaryVariant),
+      'secondaryContainer':
+          const NullableColorConverter().toJson(object.secondaryContainer),
+      'onSecondaryContainer':
+          const NullableColorConverter().toJson(object.onSecondaryContainer),
       'surface': const NullableColorConverter().toJson(object.surface),
     };
   }

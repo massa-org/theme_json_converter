@@ -80,6 +80,7 @@ part 'parts/material_color.dart';
 part 'parts/material_state_property_border_side.dart';
 part 'parts/material_state_property_color.dart';
 part 'parts/material_state_property_double.dart';
+part 'parts/material_state_property_bool.dart';
 part 'parts/material_state_property_edge_insets_geometry.dart';
 part 'parts/material_state_property_mouse_cursor.dart';
 part 'parts/material_state_property_outlined_border.dart';

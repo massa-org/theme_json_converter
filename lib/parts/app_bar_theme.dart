@@ -11,12 +11,23 @@ class NullableAppBarThemeConverter
     if (json == null) return null;
 
     return AppBarTheme(
-      actionsIconTheme: const NullableIconThemeDataConverter().fromJson(
-        json['actionsIconTheme'],
-      ),
+      // from only params
+      color: const NullableColorConverter().fromJson(json['color']),
       backgroundColor: const NullableColorConverter().fromJson(
         json['backgroundColor'] ?? json['color'],
       ),
+      // from to
+      surfaceTintColor:
+          const NullableColorConverter().fromJson(json['surfaceTintColor']),
+      toolbarHeight: (json['toolbarHeight'] as num?)?.toDouble(),
+      scrolledUnderElevation:
+          (json['scrolledUnderElevation'] as num?)?.toDouble(),
+      shape: const NullableShapeBorderConverter().fromJson(json['shape']),
+
+      actionsIconTheme: const NullableIconThemeDataConverter().fromJson(
+        json['actionsIconTheme'],
+      ),
+
       centerTitle:
           json['centerTitle'] == null ? null : (json['centerTitle'] as bool),
       elevation: (json['elevation'] as num?)?.toDouble(),
@@ -48,6 +59,13 @@ class NullableAppBarThemeConverter
     if (object == null) return null;
 
     return <String, dynamic>{
+      // 'color': const NullableColorConverter().toJson(object.color),
+      'surfaceTintColor':
+          const NullableColorConverter().toJson(object.surfaceTintColor),
+      'toolbarHeight': object.toolbarHeight,
+      'scrolledUnderElevation': object.scrolledUnderElevation,
+      'shape': const NullableShapeBorderConverter().toJson(object.shape),
+
       'actionsIconTheme': const NullableIconThemeDataConverter()
           .toJson(object.actionsIconTheme),
       'centerTitle': object.centerTitle,
