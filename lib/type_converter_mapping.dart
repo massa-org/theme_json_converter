@@ -65,19 +65,19 @@ const Map<String, String> typeConverterMapping = {
   'MainAxisSize': 'MainAxisSizeConverter',
   'MaterialBannerThemeData': 'MaterialBannerThemeDataConverter',
   'MaterialColor': 'MaterialColorConverter',
-  'MaterialStatePropertyBorderSide':
-      'MaterialStateProperty<BorderSide?>Converter',
-  'MaterialStatePropertyColor': 'MaterialStateProperty<Color?>Converter',
-  'MaterialStatePropertyDouble': 'MaterialStateProperty<double?>Converter',
-  'MaterialStatePropertyEdgeInsetsGeometry':
-      'MaterialStateProperty<EdgeInsetsGeometry?>Converter',
-  'MaterialStatePropertyMouseCursor':
-      'MaterialStateProperty<MouseCursor?>Converter',
-  'MaterialStatePropertyOutlinedBorder':
-      'MaterialStateProperty<OutlinedBorder?>Converter',
-  'MaterialStatePropertySize': 'MaterialStateProperty<Size?>Converter',
-  'MaterialStatePropertyTextStyle':
-      'MaterialStateProperty<TextStyle?>Converter',
+  'MaterialStateProperty<BorderSide?>':
+      'MaterialStatePropertyBorderSideConverter',
+  'MaterialStateProperty<Color?>': 'MaterialStatePropertyColorConverter',
+  'MaterialStateProperty<double?>': 'MaterialStatePropertyDoubleConverter',
+  'MaterialStateProperty<EdgeInsetsGeometry?>':
+      'MaterialStatePropertyEdgeInsetsGeometryConverter',
+  'MaterialStateProperty<MouseCursor?>':
+      'MaterialStatePropertyMouseCursorConverter',
+  'MaterialStateProperty<OutlinedBorder?>':
+      'MaterialStatePropertyOutlinedBorderConverter',
+  'MaterialStateProperty<Size?>': 'MaterialStatePropertySizeConverter',
+  'MaterialStateProperty<TextStyle?>':
+      'MaterialStatePropertyTextStyleConverter',
   'MaterialTapTargetSize': 'MaterialTapTargetSizeConverter',
   'MaterialType': 'MaterialTypeConverter',
   'MaxLengthEnforcement': 'MaxLengthEnforcementConverter',
@@ -220,21 +220,21 @@ const Map<String, String> typeConverterMapping = {
   'MainAxisSize?': 'NullableMainAxisSizeConverter',
   'MaterialBannerThemeData?': 'NullableMaterialBannerThemeDataConverter',
   'MaterialColor?': 'NullableMaterialColorConverter',
-  'MaterialStatePropertyBorderSide?':
-      'NullableMaterialStateProperty<BorderSide?>Converter',
-  'MaterialStatePropertyColor?':
-      'NullableMaterialStateProperty<Color?>Converter',
-  'MaterialStatePropertyDouble?':
-      'NullableMaterialStateProperty<double?>Converter',
-  'MaterialStatePropertyEdgeInsetsGeometry?':
-      'NullableMaterialStateProperty<EdgeInsetsGeometry?>Converter',
-  'MaterialStatePropertyMouseCursor?':
-      'NullableMaterialStateProperty<MouseCursor?>Converter',
-  'MaterialStatePropertyOutlinedBorder?':
-      'NullableMaterialStateProperty<OutlinedBorder?>Converter',
-  'MaterialStatePropertySize?': 'NullableMaterialStateProperty<Size?>Converter',
-  'MaterialStatePropertyTextStyle?':
-      'NullableMaterialStateProperty<TextStyle?>Converter',
+  'MaterialStateProperty<BorderSide?>?':
+      'NullableMaterialStatePropertyBorderSideConverter',
+  'MaterialStateProperty<Color?>?':
+      'NullableMaterialStatePropertyColorConverter',
+  'MaterialStateProperty<double?>?':
+      'NullableMaterialStatePropertyDoubleConverter',
+  'MaterialStateProperty<EdgeInsetsGeometry?>?':
+      'NullableMaterialStatePropertyEdgeInsetsGeometryConverter',
+  'MaterialStateProperty<MouseCursor?>?':
+      'NullableMaterialStatePropertyMouseCursorConverter',
+  'MaterialStateProperty<OutlinedBorder?>?':
+      'NullableMaterialStatePropertyOutlinedBorderConverter',
+  'MaterialStateProperty<Size?>?': 'NullableMaterialStatePropertySizeConverter',
+  'MaterialStateProperty<TextStyle?>?':
+      'NullableMaterialStatePropertyTextStyleConverter',
   'MaterialTapTargetSize?': 'NullableMaterialTapTargetSizeConverter',
   'MaterialType?': 'NullableMaterialTypeConverter',
   'MaxLengthEnforcement?': 'NullableMaxLengthEnforcementConverter',
