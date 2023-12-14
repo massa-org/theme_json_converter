@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableCupertinoTextThemeDataConverter
-    extends JsonConverter<CupertinoTextThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<CupertinoTextThemeData?, dynamic> {
   const NullableCupertinoTextThemeDataConverter();
 
+  @override
+  CupertinoTextThemeData? fromJson(json) =>
+      const TypedNullableCupertinoTextThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableCupertinoTextThemeDataConverter().toJson(object);
+}
+
+class TypedNullableCupertinoTextThemeDataConverter
+    extends JsonConverter<CupertinoTextThemeData?, Map<String, dynamic>?> {
+  const TypedNullableCupertinoTextThemeDataConverter();
   @override
   CupertinoTextThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -70,9 +83,22 @@ class NullableCupertinoTextThemeDataConverter
 }
 
 class CupertinoTextThemeDataConverter
-    extends JsonConverter<CupertinoTextThemeData, Map<String, dynamic>> {
+    extends JsonConverter<CupertinoTextThemeData, dynamic> {
   const CupertinoTextThemeDataConverter();
 
+  @override
+  CupertinoTextThemeData fromJson(json) =>
+      const TypedCupertinoTextThemeDataConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedCupertinoTextThemeDataConverter().toJson(object);
+}
+
+class TypedCupertinoTextThemeDataConverter
+    extends JsonConverter<CupertinoTextThemeData, Map<String, dynamic>> {
+  const TypedCupertinoTextThemeDataConverter();
   @override
   CupertinoTextThemeData fromJson(Map<String, dynamic> json) {
     return const NullableCupertinoTextThemeDataConverter().fromJson(json)!;

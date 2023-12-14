@@ -1,9 +1,20 @@
 part of theme_json_converter;
 
-class NullableCardThemeConverter
-    extends JsonConverter<CardTheme?, Map<String, dynamic>?> {
+class NullableCardThemeConverter extends JsonConverter<CardTheme?, dynamic> {
   const NullableCardThemeConverter();
 
+  @override
+  CardTheme? fromJson(json) => const TypedNullableCardThemeConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableCardThemeConverter().toJson(object);
+}
+
+class TypedNullableCardThemeConverter
+    extends JsonConverter<CardTheme?, Map<String, dynamic>?> {
+  const TypedNullableCardThemeConverter();
   @override
   CardTheme? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -46,10 +57,20 @@ class NullableCardThemeConverter
   }
 }
 
-class CardThemeConverter
-    extends JsonConverter<CardTheme, Map<String, dynamic>> {
+class CardThemeConverter extends JsonConverter<CardTheme, dynamic> {
   const CardThemeConverter();
 
+  @override
+  CardTheme fromJson(json) => const TypedCardThemeConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedCardThemeConverter().toJson(object);
+}
+
+class TypedCardThemeConverter
+    extends JsonConverter<CardTheme, Map<String, dynamic>> {
+  const TypedCardThemeConverter();
   @override
   CardTheme fromJson(Map<String, dynamic> json) {
     return const NullableCardThemeConverter().fromJson(json)!;

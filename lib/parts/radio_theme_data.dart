@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableRadioThemeDataConverter
-    extends JsonConverter<RadioThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<RadioThemeData?, dynamic> {
   const NullableRadioThemeDataConverter();
 
+  @override
+  RadioThemeData? fromJson(json) => const TypedNullableRadioThemeDataConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableRadioThemeDataConverter().toJson(object);
+}
+
+class TypedNullableRadioThemeDataConverter
+    extends JsonConverter<RadioThemeData?, Map<String, dynamic>?> {
+  const TypedNullableRadioThemeDataConverter();
   @override
   RadioThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -60,10 +72,20 @@ class NullableRadioThemeDataConverter
   }
 }
 
-class RadioThemeDataConverter
-    extends JsonConverter<RadioThemeData, Map<String, dynamic>> {
+class RadioThemeDataConverter extends JsonConverter<RadioThemeData, dynamic> {
   const RadioThemeDataConverter();
 
+  @override
+  RadioThemeData fromJson(json) => const TypedRadioThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedRadioThemeDataConverter().toJson(object);
+}
+
+class TypedRadioThemeDataConverter
+    extends JsonConverter<RadioThemeData, Map<String, dynamic>> {
+  const TypedRadioThemeDataConverter();
   @override
   RadioThemeData fromJson(Map<String, dynamic> json) {
     return const NullableRadioThemeDataConverter().fromJson(json)!;

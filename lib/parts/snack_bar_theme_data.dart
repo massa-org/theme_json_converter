@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableSnackBarThemeDataConverter
-    extends JsonConverter<SnackBarThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<SnackBarThemeData?, dynamic> {
   const NullableSnackBarThemeDataConverter();
 
+  @override
+  SnackBarThemeData? fromJson(json) =>
+      const TypedNullableSnackBarThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableSnackBarThemeDataConverter().toJson(object);
+}
+
+class TypedNullableSnackBarThemeDataConverter
+    extends JsonConverter<SnackBarThemeData?, Map<String, dynamic>?> {
+  const TypedNullableSnackBarThemeDataConverter();
   @override
   SnackBarThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -55,9 +68,21 @@ class NullableSnackBarThemeDataConverter
 }
 
 class SnackBarThemeDataConverter
-    extends JsonConverter<SnackBarThemeData, Map<String, dynamic>> {
+    extends JsonConverter<SnackBarThemeData, dynamic> {
   const SnackBarThemeDataConverter();
 
+  @override
+  SnackBarThemeData fromJson(json) => const TypedSnackBarThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedSnackBarThemeDataConverter().toJson(object);
+}
+
+class TypedSnackBarThemeDataConverter
+    extends JsonConverter<SnackBarThemeData, Map<String, dynamic>> {
+  const TypedSnackBarThemeDataConverter();
   @override
   SnackBarThemeData fromJson(Map<String, dynamic> json) {
     return const NullableSnackBarThemeDataConverter().fromJson(json)!;

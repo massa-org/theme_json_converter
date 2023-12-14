@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableMaterialBannerThemeDataConverter
-    extends JsonConverter<MaterialBannerThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<MaterialBannerThemeData?, dynamic> {
   const NullableMaterialBannerThemeDataConverter();
 
+  @override
+  MaterialBannerThemeData? fromJson(json) =>
+      const TypedNullableMaterialBannerThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableMaterialBannerThemeDataConverter().toJson(object);
+}
+
+class TypedNullableMaterialBannerThemeDataConverter
+    extends JsonConverter<MaterialBannerThemeData?, Map<String, dynamic>?> {
+  const TypedNullableMaterialBannerThemeDataConverter();
   @override
   MaterialBannerThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -44,9 +57,22 @@ class NullableMaterialBannerThemeDataConverter
 }
 
 class MaterialBannerThemeDataConverter
-    extends JsonConverter<MaterialBannerThemeData, Map<String, dynamic>> {
+    extends JsonConverter<MaterialBannerThemeData, dynamic> {
   const MaterialBannerThemeDataConverter();
 
+  @override
+  MaterialBannerThemeData fromJson(json) =>
+      const TypedMaterialBannerThemeDataConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedMaterialBannerThemeDataConverter().toJson(object);
+}
+
+class TypedMaterialBannerThemeDataConverter
+    extends JsonConverter<MaterialBannerThemeData, Map<String, dynamic>> {
+  const TypedMaterialBannerThemeDataConverter();
   @override
   MaterialBannerThemeData fromJson(Map<String, dynamic> json) {
     return const NullableMaterialBannerThemeDataConverter().fromJson(json)!;

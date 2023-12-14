@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableIconThemeDataConverter
-    extends JsonConverter<IconThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<IconThemeData?, dynamic> {
   const NullableIconThemeDataConverter();
 
+  @override
+  IconThemeData? fromJson(json) => const TypedNullableIconThemeDataConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableIconThemeDataConverter().toJson(object);
+}
+
+class TypedNullableIconThemeDataConverter
+    extends JsonConverter<IconThemeData?, Map<String, dynamic>?> {
+  const TypedNullableIconThemeDataConverter();
   @override
   IconThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -31,10 +43,20 @@ class NullableIconThemeDataConverter
   }
 }
 
-class IconThemeDataConverter
-    extends JsonConverter<IconThemeData, Map<String, dynamic>> {
+class IconThemeDataConverter extends JsonConverter<IconThemeData, dynamic> {
   const IconThemeDataConverter();
 
+  @override
+  IconThemeData fromJson(json) => const TypedIconThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedIconThemeDataConverter().toJson(object);
+}
+
+class TypedIconThemeDataConverter
+    extends JsonConverter<IconThemeData, Map<String, dynamic>> {
+  const TypedIconThemeDataConverter();
   @override
   IconThemeData fromJson(Map<String, dynamic> json) {
     return const NullableIconThemeDataConverter().fromJson(json)!;

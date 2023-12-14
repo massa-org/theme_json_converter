@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableBottomSheetThemeDataConverter
-    extends JsonConverter<BottomSheetThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<BottomSheetThemeData?, dynamic> {
   const NullableBottomSheetThemeDataConverter();
 
+  @override
+  BottomSheetThemeData? fromJson(json) =>
+      const TypedNullableBottomSheetThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableBottomSheetThemeDataConverter().toJson(object);
+}
+
+class TypedNullableBottomSheetThemeDataConverter
+    extends JsonConverter<BottomSheetThemeData?, Map<String, dynamic>?> {
+  const TypedNullableBottomSheetThemeDataConverter();
   @override
   BottomSheetThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -46,9 +59,22 @@ class NullableBottomSheetThemeDataConverter
 }
 
 class BottomSheetThemeDataConverter
-    extends JsonConverter<BottomSheetThemeData, Map<String, dynamic>> {
+    extends JsonConverter<BottomSheetThemeData, dynamic> {
   const BottomSheetThemeDataConverter();
 
+  @override
+  BottomSheetThemeData fromJson(json) =>
+      const TypedBottomSheetThemeDataConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedBottomSheetThemeDataConverter().toJson(object);
+}
+
+class TypedBottomSheetThemeDataConverter
+    extends JsonConverter<BottomSheetThemeData, Map<String, dynamic>> {
+  const TypedBottomSheetThemeDataConverter();
   @override
   BottomSheetThemeData fromJson(Map<String, dynamic> json) {
     return const NullableBottomSheetThemeDataConverter().fromJson(json)!;

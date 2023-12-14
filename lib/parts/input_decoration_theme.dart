@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableInputDecorationThemeConverter
-    extends JsonConverter<InputDecorationTheme?, Map<String, dynamic>?> {
+    extends JsonConverter<InputDecorationTheme?, dynamic> {
   const NullableInputDecorationThemeConverter();
 
+  @override
+  InputDecorationTheme? fromJson(json) =>
+      const TypedNullableInputDecorationThemeConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableInputDecorationThemeConverter().toJson(object);
+}
+
+class TypedNullableInputDecorationThemeConverter
+    extends JsonConverter<InputDecorationTheme?, Map<String, dynamic>?> {
+  const TypedNullableInputDecorationThemeConverter();
   @override
   InputDecorationTheme? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -125,9 +138,22 @@ class NullableInputDecorationThemeConverter
 }
 
 class InputDecorationThemeConverter
-    extends JsonConverter<InputDecorationTheme, Map<String, dynamic>> {
+    extends JsonConverter<InputDecorationTheme, dynamic> {
   const InputDecorationThemeConverter();
 
+  @override
+  InputDecorationTheme fromJson(json) =>
+      const TypedInputDecorationThemeConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedInputDecorationThemeConverter().toJson(object);
+}
+
+class TypedInputDecorationThemeConverter
+    extends JsonConverter<InputDecorationTheme, Map<String, dynamic>> {
+  const TypedInputDecorationThemeConverter();
   @override
   InputDecorationTheme fromJson(Map<String, dynamic> json) {
     return const NullableInputDecorationThemeConverter().fromJson(json)!;

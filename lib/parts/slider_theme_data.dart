@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableSliderThemeDataConverter
-    extends JsonConverter<SliderThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<SliderThemeData?, dynamic> {
   const NullableSliderThemeDataConverter();
 
+  @override
+  SliderThemeData? fromJson(json) =>
+      const TypedNullableSliderThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableSliderThemeDataConverter().toJson(object);
+}
+
+class TypedNullableSliderThemeDataConverter
+    extends JsonConverter<SliderThemeData?, Map<String, dynamic>?> {
+  const TypedNullableSliderThemeDataConverter();
   @override
   SliderThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -161,10 +174,21 @@ class NullableSliderThemeDataConverter
   }
 }
 
-class SliderThemeDataConverter
-    extends JsonConverter<SliderThemeData, Map<String, dynamic>> {
+class SliderThemeDataConverter extends JsonConverter<SliderThemeData, dynamic> {
   const SliderThemeDataConverter();
 
+  @override
+  SliderThemeData fromJson(json) => const TypedSliderThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedSliderThemeDataConverter().toJson(object);
+}
+
+class TypedSliderThemeDataConverter
+    extends JsonConverter<SliderThemeData, Map<String, dynamic>> {
+  const TypedSliderThemeDataConverter();
   @override
   SliderThemeData fromJson(Map<String, dynamic> json) {
     return const NullableSliderThemeDataConverter().fromJson(json)!;

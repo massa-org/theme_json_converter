@@ -1,9 +1,20 @@
 part of theme_json_converter;
 
-class NullableGradientConverter
-    extends JsonConverter<Gradient?, Map<String, dynamic>?> {
+class NullableGradientConverter extends JsonConverter<Gradient?, dynamic> {
   const NullableGradientConverter();
 
+  @override
+  Gradient? fromJson(json) => const TypedNullableGradientConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableGradientConverter().toJson(object);
+}
+
+class TypedNullableGradientConverter
+    extends JsonConverter<Gradient?, Map<String, dynamic>?> {
+  const TypedNullableGradientConverter();
   @override
   Gradient? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -159,9 +170,20 @@ class NullableGradientConverter
   }
 }
 
-class GradientConverter extends JsonConverter<Gradient, Map<String, dynamic>> {
+class GradientConverter extends JsonConverter<Gradient, dynamic> {
   const GradientConverter();
 
+  @override
+  Gradient fromJson(json) =>
+      const TypedGradientConverter().fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedGradientConverter().toJson(object);
+}
+
+class TypedGradientConverter
+    extends JsonConverter<Gradient, Map<String, dynamic>> {
+  const TypedGradientConverter();
   @override
   Gradient fromJson(Map<String, dynamic> json) {
     return const NullableGradientConverter().fromJson(json)!;

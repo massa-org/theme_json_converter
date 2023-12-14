@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableTextSelectionThemeDataConverter
-    extends JsonConverter<TextSelectionThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<TextSelectionThemeData?, dynamic> {
   const NullableTextSelectionThemeDataConverter();
 
+  @override
+  TextSelectionThemeData? fromJson(json) =>
+      const TypedNullableTextSelectionThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableTextSelectionThemeDataConverter().toJson(object);
+}
+
+class TypedNullableTextSelectionThemeDataConverter
+    extends JsonConverter<TextSelectionThemeData?, Map<String, dynamic>?> {
+  const TypedNullableTextSelectionThemeDataConverter();
   @override
   TextSelectionThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -42,9 +55,22 @@ class NullableTextSelectionThemeDataConverter
 }
 
 class TextSelectionThemeDataConverter
-    extends JsonConverter<TextSelectionThemeData, Map<String, dynamic>> {
+    extends JsonConverter<TextSelectionThemeData, dynamic> {
   const TextSelectionThemeDataConverter();
 
+  @override
+  TextSelectionThemeData fromJson(json) =>
+      const TypedTextSelectionThemeDataConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedTextSelectionThemeDataConverter().toJson(object);
+}
+
+class TypedTextSelectionThemeDataConverter
+    extends JsonConverter<TextSelectionThemeData, Map<String, dynamic>> {
+  const TypedTextSelectionThemeDataConverter();
   @override
   TextSelectionThemeData fromJson(Map<String, dynamic> json) {
     return const NullableTextSelectionThemeDataConverter().fromJson(json)!;

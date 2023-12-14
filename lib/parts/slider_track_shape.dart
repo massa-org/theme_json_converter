@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableSliderTrackShapeConverter
-    extends JsonConverter<SliderTrackShape?, Map<String, dynamic>?> {
+    extends JsonConverter<SliderTrackShape?, dynamic> {
   const NullableSliderTrackShapeConverter();
 
+  @override
+  SliderTrackShape? fromJson(json) =>
+      const TypedNullableSliderTrackShapeConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableSliderTrackShapeConverter().toJson(object);
+}
+
+class TypedNullableSliderTrackShapeConverter
+    extends JsonConverter<SliderTrackShape?, Map<String, dynamic>?> {
+  const TypedNullableSliderTrackShapeConverter();
   @override
   SliderTrackShape? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -39,9 +52,21 @@ class NullableSliderTrackShapeConverter
 }
 
 class SliderTrackShapeConverter
-    extends JsonConverter<SliderTrackShape, Map<String, dynamic>> {
+    extends JsonConverter<SliderTrackShape, dynamic> {
   const SliderTrackShapeConverter();
 
+  @override
+  SliderTrackShape fromJson(json) => const TypedSliderTrackShapeConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedSliderTrackShapeConverter().toJson(object);
+}
+
+class TypedSliderTrackShapeConverter
+    extends JsonConverter<SliderTrackShape, Map<String, dynamic>> {
+  const TypedSliderTrackShapeConverter();
   @override
   SliderTrackShape fromJson(Map<String, dynamic> json) {
     return const NullableSliderTrackShapeConverter().fromJson(json)!;

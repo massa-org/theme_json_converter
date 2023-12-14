@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableBorderRadiusConverter
-    extends JsonConverter<BorderRadius?, Map<String, dynamic>?> {
+    extends JsonConverter<BorderRadius?, dynamic> {
   const NullableBorderRadiusConverter();
 
+  @override
+  BorderRadius? fromJson(json) => const TypedNullableBorderRadiusConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableBorderRadiusConverter().toJson(object);
+}
+
+class TypedNullableBorderRadiusConverter
+    extends JsonConverter<BorderRadius?, Map<String, dynamic>?> {
+  const TypedNullableBorderRadiusConverter();
   @override
   BorderRadius? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -85,10 +97,20 @@ class NullableBorderRadiusConverter
   }
 }
 
-class BorderRadiusConverter
-    extends JsonConverter<BorderRadius, Map<String, dynamic>> {
+class BorderRadiusConverter extends JsonConverter<BorderRadius, dynamic> {
   const BorderRadiusConverter();
 
+  @override
+  BorderRadius fromJson(json) => const TypedBorderRadiusConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedBorderRadiusConverter().toJson(object);
+}
+
+class TypedBorderRadiusConverter
+    extends JsonConverter<BorderRadius, Map<String, dynamic>> {
+  const TypedBorderRadiusConverter();
   @override
   BorderRadius fromJson(Map<String, dynamic> json) {
     return const NullableBorderRadiusConverter().fromJson(json)!;

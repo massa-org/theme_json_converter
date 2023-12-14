@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableBoxConstraintsConverter
-    extends JsonConverter<BoxConstraints?, Map<String, dynamic>?> {
+    extends JsonConverter<BoxConstraints?, dynamic> {
   const NullableBoxConstraintsConverter();
 
+  @override
+  BoxConstraints? fromJson(json) => const TypedNullableBoxConstraintsConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableBoxConstraintsConverter().toJson(object);
+}
+
+class TypedNullableBoxConstraintsConverter
+    extends JsonConverter<BoxConstraints?, Map<String, dynamic>?> {
+  const TypedNullableBoxConstraintsConverter();
   @override
   BoxConstraints? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -31,10 +43,20 @@ class NullableBoxConstraintsConverter
   }
 }
 
-class BoxConstraintsConverter
-    extends JsonConverter<BoxConstraints, Map<String, dynamic>> {
+class BoxConstraintsConverter extends JsonConverter<BoxConstraints, dynamic> {
   const BoxConstraintsConverter();
 
+  @override
+  BoxConstraints fromJson(json) => const TypedBoxConstraintsConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedBoxConstraintsConverter().toJson(object);
+}
+
+class TypedBoxConstraintsConverter
+    extends JsonConverter<BoxConstraints, Map<String, dynamic>> {
+  const TypedBoxConstraintsConverter();
   @override
   BoxConstraints fromJson(Map<String, dynamic> json) {
     return const NullableBoxConstraintsConverter().fromJson(json)!;

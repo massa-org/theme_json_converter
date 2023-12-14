@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableDialogThemeConverter
-    extends JsonConverter<DialogTheme?, Map<String, dynamic>?> {
+    extends JsonConverter<DialogTheme?, dynamic> {
   const NullableDialogThemeConverter();
 
+  @override
+  DialogTheme? fromJson(json) => const TypedNullableDialogThemeConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableDialogThemeConverter().toJson(object);
+}
+
+class TypedNullableDialogThemeConverter
+    extends JsonConverter<DialogTheme?, Map<String, dynamic>?> {
+  const TypedNullableDialogThemeConverter();
   @override
   DialogTheme? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -44,10 +56,20 @@ class NullableDialogThemeConverter
   }
 }
 
-class DialogThemeConverter
-    extends JsonConverter<DialogTheme, Map<String, dynamic>> {
+class DialogThemeConverter extends JsonConverter<DialogTheme, dynamic> {
   const DialogThemeConverter();
 
+  @override
+  DialogTheme fromJson(json) => const TypedDialogThemeConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedDialogThemeConverter().toJson(object);
+}
+
+class TypedDialogThemeConverter
+    extends JsonConverter<DialogTheme, Map<String, dynamic>> {
+  const TypedDialogThemeConverter();
   @override
   DialogTheme fromJson(Map<String, dynamic> json) {
     return const NullableDialogThemeConverter().fromJson(json)!;

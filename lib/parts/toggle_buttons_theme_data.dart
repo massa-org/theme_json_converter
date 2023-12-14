@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableToggleButtonsThemeDataConverter
-    extends JsonConverter<ToggleButtonsThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<ToggleButtonsThemeData?, dynamic> {
   const NullableToggleButtonsThemeDataConverter();
 
+  @override
+  ToggleButtonsThemeData? fromJson(json) =>
+      const TypedNullableToggleButtonsThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableToggleButtonsThemeDataConverter().toJson(object);
+}
+
+class TypedNullableToggleButtonsThemeDataConverter
+    extends JsonConverter<ToggleButtonsThemeData?, Map<String, dynamic>?> {
+  const TypedNullableToggleButtonsThemeDataConverter();
   @override
   ToggleButtonsThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -89,9 +102,22 @@ class NullableToggleButtonsThemeDataConverter
 }
 
 class ToggleButtonsThemeDataConverter
-    extends JsonConverter<ToggleButtonsThemeData, Map<String, dynamic>> {
+    extends JsonConverter<ToggleButtonsThemeData, dynamic> {
   const ToggleButtonsThemeDataConverter();
 
+  @override
+  ToggleButtonsThemeData fromJson(json) =>
+      const TypedToggleButtonsThemeDataConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedToggleButtonsThemeDataConverter().toJson(object);
+}
+
+class TypedToggleButtonsThemeDataConverter
+    extends JsonConverter<ToggleButtonsThemeData, Map<String, dynamic>> {
+  const TypedToggleButtonsThemeDataConverter();
   @override
   ToggleButtonsThemeData fromJson(Map<String, dynamic> json) {
     return const NullableToggleButtonsThemeDataConverter().fromJson(json)!;

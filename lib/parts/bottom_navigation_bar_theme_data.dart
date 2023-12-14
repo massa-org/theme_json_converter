@@ -74,9 +74,22 @@ class NullableBottomNavigationBarThemeDataConverter extends JsonConverter<
 }
 
 class BottomNavigationBarThemeDataConverter
-    extends JsonConverter<BottomNavigationBarThemeData, Map<String, dynamic>> {
+    extends JsonConverter<BottomNavigationBarThemeData, dynamic> {
   const BottomNavigationBarThemeDataConverter();
 
+  @override
+  BottomNavigationBarThemeData fromJson(json) =>
+      const TypedBottomNavigationBarThemeDataConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedBottomNavigationBarThemeDataConverter().toJson(object);
+}
+
+class TypedBottomNavigationBarThemeDataConverter
+    extends JsonConverter<BottomNavigationBarThemeData, Map<String, dynamic>> {
+  const TypedBottomNavigationBarThemeDataConverter();
   @override
   BottomNavigationBarThemeData fromJson(Map<String, dynamic> json) {
     return const NullableBottomNavigationBarThemeDataConverter()

@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableTextHeightBehaviorConverter
-    extends JsonConverter<TextHeightBehavior?, Map<String, dynamic>?> {
+    extends JsonConverter<TextHeightBehavior?, dynamic> {
   const NullableTextHeightBehaviorConverter();
 
+  @override
+  TextHeightBehavior? fromJson(json) =>
+      const TypedNullableTextHeightBehaviorConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableTextHeightBehaviorConverter().toJson(object);
+}
+
+class TypedNullableTextHeightBehaviorConverter
+    extends JsonConverter<TextHeightBehavior?, Map<String, dynamic>?> {
+  const TypedNullableTextHeightBehaviorConverter();
   @override
   TextHeightBehavior? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -32,9 +45,21 @@ class NullableTextHeightBehaviorConverter
 }
 
 class TextHeightBehaviorConverter
-    extends JsonConverter<TextHeightBehavior, Map<String, dynamic>> {
+    extends JsonConverter<TextHeightBehavior, dynamic> {
   const TextHeightBehaviorConverter();
 
+  @override
+  TextHeightBehavior fromJson(json) => const TypedTextHeightBehaviorConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedTextHeightBehaviorConverter().toJson(object);
+}
+
+class TypedTextHeightBehaviorConverter
+    extends JsonConverter<TextHeightBehavior, Map<String, dynamic>> {
+  const TypedTextHeightBehaviorConverter();
   @override
   TextHeightBehavior fromJson(Map<String, dynamic> json) {
     return const NullableTextHeightBehaviorConverter().fromJson(json)!;

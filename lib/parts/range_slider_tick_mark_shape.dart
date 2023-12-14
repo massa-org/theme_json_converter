@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableRangeSliderTickMarkShapeConverter
-    extends JsonConverter<RangeSliderTickMarkShape?, Map<String, dynamic>?> {
+    extends JsonConverter<RangeSliderTickMarkShape?, dynamic> {
   const NullableRangeSliderTickMarkShapeConverter();
 
+  @override
+  RangeSliderTickMarkShape? fromJson(json) =>
+      const TypedNullableRangeSliderTickMarkShapeConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableRangeSliderTickMarkShapeConverter().toJson(object);
+}
+
+class TypedNullableRangeSliderTickMarkShapeConverter
+    extends JsonConverter<RangeSliderTickMarkShape?, Map<String, dynamic>?> {
+  const TypedNullableRangeSliderTickMarkShapeConverter();
   @override
   RangeSliderTickMarkShape? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -35,9 +48,22 @@ class NullableRangeSliderTickMarkShapeConverter
 }
 
 class RangeSliderTickMarkShapeConverter
-    extends JsonConverter<RangeSliderTickMarkShape, Map<String, dynamic>> {
+    extends JsonConverter<RangeSliderTickMarkShape, dynamic> {
   const RangeSliderTickMarkShapeConverter();
 
+  @override
+  RangeSliderTickMarkShape fromJson(json) =>
+      const TypedRangeSliderTickMarkShapeConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedRangeSliderTickMarkShapeConverter().toJson(object);
+}
+
+class TypedRangeSliderTickMarkShapeConverter
+    extends JsonConverter<RangeSliderTickMarkShape, Map<String, dynamic>> {
+  const TypedRangeSliderTickMarkShapeConverter();
   @override
   RangeSliderTickMarkShape fromJson(Map<String, dynamic> json) {
     return const NullableRangeSliderTickMarkShapeConverter().fromJson(json)!;

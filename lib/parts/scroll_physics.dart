@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableScrollPhysicsConverter
-    extends JsonConverter<ScrollPhysics?, Map<String, dynamic>?> {
+    extends JsonConverter<ScrollPhysics?, dynamic> {
   const NullableScrollPhysicsConverter();
 
+  @override
+  ScrollPhysics? fromJson(json) => const TypedNullableScrollPhysicsConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableScrollPhysicsConverter().toJson(object);
+}
+
+class TypedNullableScrollPhysicsConverter
+    extends JsonConverter<ScrollPhysics?, Map<String, dynamic>?> {
+  const TypedNullableScrollPhysicsConverter();
   @override
   ScrollPhysics? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -99,10 +111,20 @@ class NullableScrollPhysicsConverter
   }
 }
 
-class ScrollPhysicsConverter
-    extends JsonConverter<ScrollPhysics, Map<String, dynamic>> {
+class ScrollPhysicsConverter extends JsonConverter<ScrollPhysics, dynamic> {
   const ScrollPhysicsConverter();
 
+  @override
+  ScrollPhysics fromJson(json) => const TypedScrollPhysicsConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedScrollPhysicsConverter().toJson(object);
+}
+
+class TypedScrollPhysicsConverter
+    extends JsonConverter<ScrollPhysics, Map<String, dynamic>> {
+  const TypedScrollPhysicsConverter();
   @override
   ScrollPhysics fromJson(Map<String, dynamic> json) {
     return const NullableScrollPhysicsConverter().fromJson(json)!;

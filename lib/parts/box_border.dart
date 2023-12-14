@@ -1,9 +1,20 @@
 part of theme_json_converter;
 
-class NullableBoxBorderConverter
-    extends JsonConverter<BoxBorder?, Map<String, dynamic>?> {
+class NullableBoxBorderConverter extends JsonConverter<BoxBorder?, dynamic> {
   const NullableBoxBorderConverter();
 
+  @override
+  BoxBorder? fromJson(json) => const TypedNullableBoxBorderConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableBoxBorderConverter().toJson(object);
+}
+
+class TypedNullableBoxBorderConverter
+    extends JsonConverter<BoxBorder?, Map<String, dynamic>?> {
+  const TypedNullableBoxBorderConverter();
   @override
   BoxBorder? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -55,10 +66,20 @@ class NullableBoxBorderConverter
   }
 }
 
-class BoxBorderConverter
-    extends JsonConverter<BoxBorder, Map<String, dynamic>> {
+class BoxBorderConverter extends JsonConverter<BoxBorder, dynamic> {
   const BoxBorderConverter();
 
+  @override
+  BoxBorder fromJson(json) => const TypedBoxBorderConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedBoxBorderConverter().toJson(object);
+}
+
+class TypedBoxBorderConverter
+    extends JsonConverter<BoxBorder, Map<String, dynamic>> {
+  const TypedBoxBorderConverter();
   @override
   BoxBorder fromJson(Map<String, dynamic> json) {
     return const NullableBoxBorderConverter().fromJson(json)!;

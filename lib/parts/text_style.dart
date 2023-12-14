@@ -1,9 +1,20 @@
 part of theme_json_converter;
 
-class NullableTextStyleConverter
-    extends JsonConverter<TextStyle?, Map<String, dynamic>?> {
+class NullableTextStyleConverter extends JsonConverter<TextStyle?, dynamic> {
   const NullableTextStyleConverter();
 
+  @override
+  TextStyle? fromJson(json) => const TypedNullableTextStyleConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableTextStyleConverter().toJson(object);
+}
+
+class TypedNullableTextStyleConverter
+    extends JsonConverter<TextStyle?, Map<String, dynamic>?> {
+  const TypedNullableTextStyleConverter();
   @override
   TextStyle? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -118,10 +129,20 @@ class NullableTextStyleConverter
   }
 }
 
-class TextStyleConverter
-    extends JsonConverter<TextStyle, Map<String, dynamic>> {
+class TextStyleConverter extends JsonConverter<TextStyle, dynamic> {
   const TextStyleConverter();
 
+  @override
+  TextStyle fromJson(json) => const TypedTextStyleConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedTextStyleConverter().toJson(object);
+}
+
+class TypedTextStyleConverter
+    extends JsonConverter<TextStyle, Map<String, dynamic>> {
+  const TypedTextStyleConverter();
   @override
   TextStyle fromJson(Map<String, dynamic> json) {
     return const NullableTextStyleConverter().fromJson(json)!;

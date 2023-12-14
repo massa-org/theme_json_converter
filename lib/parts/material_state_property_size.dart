@@ -79,9 +79,22 @@ class NullableMaterialStatePropertySizeConverter extends JsonConverter<
 }
 
 class MaterialStatePropertySizeConverter
-    extends JsonConverter<MaterialStateProperty<Size?>, Map<String, dynamic>> {
+    extends JsonConverter<MaterialStateProperty<Size?>, dynamic> {
   const MaterialStatePropertySizeConverter();
 
+  @override
+  MaterialStateProperty<Size?> fromJson(json) =>
+      const TypedMaterialStatePropertySizeConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedMaterialStatePropertySizeConverter().toJson(object);
+}
+
+class TypedMaterialStatePropertySizeConverter
+    extends JsonConverter<MaterialStateProperty<Size?>, Map<String, dynamic>> {
+  const TypedMaterialStatePropertySizeConverter();
   @override
   MaterialStateProperty<Size?> fromJson(Map<String, dynamic> json) {
     return const NullableMaterialStatePropertySizeConverter().fromJson(json)!;

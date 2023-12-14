@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableMouseCursorConverter
-    extends JsonConverter<MouseCursor?, Map<String, dynamic>?> {
+    extends JsonConverter<MouseCursor?, dynamic> {
   const NullableMouseCursorConverter();
 
+  @override
+  MouseCursor? fromJson(json) => const TypedNullableMouseCursorConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableMouseCursorConverter().toJson(object);
+}
+
+class TypedNullableMouseCursorConverter
+    extends JsonConverter<MouseCursor?, Map<String, dynamic>?> {
+  const TypedNullableMouseCursorConverter();
   @override
   MouseCursor? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -331,10 +343,20 @@ class NullableMouseCursorConverter
   }
 }
 
-class MouseCursorConverter
-    extends JsonConverter<MouseCursor, Map<String, dynamic>> {
+class MouseCursorConverter extends JsonConverter<MouseCursor, dynamic> {
   const MouseCursorConverter();
 
+  @override
+  MouseCursor fromJson(json) => const TypedMouseCursorConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedMouseCursorConverter().toJson(object);
+}
+
+class TypedMouseCursorConverter
+    extends JsonConverter<MouseCursor, Map<String, dynamic>> {
+  const TypedMouseCursorConverter();
   @override
   MouseCursor fromJson(Map<String, dynamic> json) {
     return const NullableMouseCursorConverter().fromJson(json)!;

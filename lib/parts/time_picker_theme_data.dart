@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableTimePickerThemeDataConverter
-    extends JsonConverter<TimePickerThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<TimePickerThemeData?, dynamic> {
   const NullableTimePickerThemeDataConverter();
 
+  @override
+  TimePickerThemeData? fromJson(json) =>
+      const TypedNullableTimePickerThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableTimePickerThemeDataConverter().toJson(object);
+}
+
+class TypedNullableTimePickerThemeDataConverter
+    extends JsonConverter<TimePickerThemeData?, Map<String, dynamic>?> {
+  const TypedNullableTimePickerThemeDataConverter();
   @override
   TimePickerThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -92,9 +105,22 @@ class NullableTimePickerThemeDataConverter
 }
 
 class TimePickerThemeDataConverter
-    extends JsonConverter<TimePickerThemeData, Map<String, dynamic>> {
+    extends JsonConverter<TimePickerThemeData, dynamic> {
   const TimePickerThemeDataConverter();
 
+  @override
+  TimePickerThemeData fromJson(json) =>
+      const TypedTimePickerThemeDataConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedTimePickerThemeDataConverter().toJson(object);
+}
+
+class TypedTimePickerThemeDataConverter
+    extends JsonConverter<TimePickerThemeData, Map<String, dynamic>> {
+  const TypedTimePickerThemeDataConverter();
   @override
   TimePickerThemeData fromJson(Map<String, dynamic> json) {
     return const NullableTimePickerThemeDataConverter().fromJson(json)!;

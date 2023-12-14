@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullablePopupMenuThemeDataConverter
-    extends JsonConverter<PopupMenuThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<PopupMenuThemeData?, dynamic> {
   const NullablePopupMenuThemeDataConverter();
 
+  @override
+  PopupMenuThemeData? fromJson(json) =>
+      const TypedNullablePopupMenuThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullablePopupMenuThemeDataConverter().toJson(object);
+}
+
+class TypedNullablePopupMenuThemeDataConverter
+    extends JsonConverter<PopupMenuThemeData?, Map<String, dynamic>?> {
+  const TypedNullablePopupMenuThemeDataConverter();
   @override
   PopupMenuThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -42,9 +55,21 @@ class NullablePopupMenuThemeDataConverter
 }
 
 class PopupMenuThemeDataConverter
-    extends JsonConverter<PopupMenuThemeData, Map<String, dynamic>> {
+    extends JsonConverter<PopupMenuThemeData, dynamic> {
   const PopupMenuThemeDataConverter();
 
+  @override
+  PopupMenuThemeData fromJson(json) => const TypedPopupMenuThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedPopupMenuThemeDataConverter().toJson(object);
+}
+
+class TypedPopupMenuThemeDataConverter
+    extends JsonConverter<PopupMenuThemeData, Map<String, dynamic>> {
+  const TypedPopupMenuThemeDataConverter();
   @override
   PopupMenuThemeData fromJson(Map<String, dynamic> json) {
     return const NullablePopupMenuThemeDataConverter().fromJson(json)!;

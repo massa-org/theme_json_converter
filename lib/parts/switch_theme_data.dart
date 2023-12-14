@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableSwitchThemeDataConverter
-    extends JsonConverter<SwitchThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<SwitchThemeData?, dynamic> {
   const NullableSwitchThemeDataConverter();
 
+  @override
+  SwitchThemeData? fromJson(json) =>
+      const TypedNullableSwitchThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableSwitchThemeDataConverter().toJson(object);
+}
+
+class TypedNullableSwitchThemeDataConverter
+    extends JsonConverter<SwitchThemeData?, Map<String, dynamic>?> {
+  const TypedNullableSwitchThemeDataConverter();
   @override
   SwitchThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -37,10 +50,21 @@ class NullableSwitchThemeDataConverter
   }
 }
 
-class SwitchThemeDataConverter
-    extends JsonConverter<SwitchThemeData, Map<String, dynamic>> {
+class SwitchThemeDataConverter extends JsonConverter<SwitchThemeData, dynamic> {
   const SwitchThemeDataConverter();
 
+  @override
+  SwitchThemeData fromJson(json) => const TypedSwitchThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedSwitchThemeDataConverter().toJson(object);
+}
+
+class TypedSwitchThemeDataConverter
+    extends JsonConverter<SwitchThemeData, Map<String, dynamic>> {
+  const TypedSwitchThemeDataConverter();
   @override
   SwitchThemeData fromJson(Map<String, dynamic> json) {
     return const NullableSwitchThemeDataConverter().fromJson(json)!;

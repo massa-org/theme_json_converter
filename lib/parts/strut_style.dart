@@ -1,9 +1,20 @@
 part of theme_json_converter;
 
-class NullableStrutStyleConverter
-    extends JsonConverter<StrutStyle?, Map<String, dynamic>?> {
+class NullableStrutStyleConverter extends JsonConverter<StrutStyle?, dynamic> {
   const NullableStrutStyleConverter();
 
+  @override
+  StrutStyle? fromJson(json) => const TypedNullableStrutStyleConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableStrutStyleConverter().toJson(object);
+}
+
+class TypedNullableStrutStyleConverter
+    extends JsonConverter<StrutStyle?, Map<String, dynamic>?> {
+  const TypedNullableStrutStyleConverter();
   @override
   StrutStyle? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -50,10 +61,20 @@ class NullableStrutStyleConverter
   }
 }
 
-class StrutStyleConverter
-    extends JsonConverter<StrutStyle, Map<String, dynamic>> {
+class StrutStyleConverter extends JsonConverter<StrutStyle, dynamic> {
   const StrutStyleConverter();
 
+  @override
+  StrutStyle fromJson(json) => const TypedStrutStyleConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedStrutStyleConverter().toJson(object);
+}
+
+class TypedStrutStyleConverter
+    extends JsonConverter<StrutStyle, Map<String, dynamic>> {
+  const TypedStrutStyleConverter();
   @override
   StrutStyle fromJson(Map<String, dynamic> json) {
     return const NullableStrutStyleConverter().fromJson(json)!;

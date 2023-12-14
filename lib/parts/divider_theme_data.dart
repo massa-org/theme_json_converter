@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableDividerThemeDataConverter
-    extends JsonConverter<DividerThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<DividerThemeData?, dynamic> {
   const NullableDividerThemeDataConverter();
 
+  @override
+  DividerThemeData? fromJson(json) =>
+      const TypedNullableDividerThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableDividerThemeDataConverter().toJson(object);
+}
+
+class TypedNullableDividerThemeDataConverter
+    extends JsonConverter<DividerThemeData?, Map<String, dynamic>?> {
+  const TypedNullableDividerThemeDataConverter();
   @override
   DividerThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -36,9 +49,21 @@ class NullableDividerThemeDataConverter
 }
 
 class DividerThemeDataConverter
-    extends JsonConverter<DividerThemeData, Map<String, dynamic>> {
+    extends JsonConverter<DividerThemeData, dynamic> {
   const DividerThemeDataConverter();
 
+  @override
+  DividerThemeData fromJson(json) => const TypedDividerThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedDividerThemeDataConverter().toJson(object);
+}
+
+class TypedDividerThemeDataConverter
+    extends JsonConverter<DividerThemeData, Map<String, dynamic>> {
+  const TypedDividerThemeDataConverter();
   @override
   DividerThemeData fromJson(Map<String, dynamic> json) {
     return const NullableDividerThemeDataConverter().fromJson(json)!;

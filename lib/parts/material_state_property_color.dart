@@ -58,9 +58,22 @@ class NullableMaterialStatePropertyColorConverter extends JsonConverter<
 }
 
 class MaterialStatePropertyColorConverter
-    extends JsonConverter<MaterialStateProperty<Color?>, Map<String, dynamic>> {
+    extends JsonConverter<MaterialStateProperty<Color?>, dynamic> {
   const MaterialStatePropertyColorConverter();
 
+  @override
+  MaterialStateProperty<Color?> fromJson(json) =>
+      const TypedMaterialStatePropertyColorConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedMaterialStatePropertyColorConverter().toJson(object);
+}
+
+class TypedMaterialStatePropertyColorConverter
+    extends JsonConverter<MaterialStateProperty<Color?>, Map<String, dynamic>> {
+  const TypedMaterialStatePropertyColorConverter();
   @override
   MaterialStateProperty<Color?> fromJson(Map<String, dynamic> json) {
     return const NullableMaterialStatePropertyColorConverter().fromJson(json)!;

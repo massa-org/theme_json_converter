@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableShapeBorderConverter
-    extends JsonConverter<ShapeBorder?, Map<String, dynamic>?> {
+    extends JsonConverter<ShapeBorder?, dynamic> {
   const NullableShapeBorderConverter();
 
+  @override
+  ShapeBorder? fromJson(json) => const TypedNullableShapeBorderConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableShapeBorderConverter().toJson(object);
+}
+
+class TypedNullableShapeBorderConverter
+    extends JsonConverter<ShapeBorder?, Map<String, dynamic>?> {
+  const TypedNullableShapeBorderConverter();
   @override
   ShapeBorder? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -89,10 +101,20 @@ class NullableShapeBorderConverter
   }
 }
 
-class ShapeBorderConverter
-    extends JsonConverter<ShapeBorder, Map<String, dynamic>> {
+class ShapeBorderConverter extends JsonConverter<ShapeBorder, dynamic> {
   const ShapeBorderConverter();
 
+  @override
+  ShapeBorder fromJson(json) => const TypedShapeBorderConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedShapeBorderConverter().toJson(object);
+}
+
+class TypedShapeBorderConverter
+    extends JsonConverter<ShapeBorder, Map<String, dynamic>> {
+  const TypedShapeBorderConverter();
   @override
   ShapeBorder fromJson(Map<String, dynamic> json) {
     return const NullableShapeBorderConverter().fromJson(json)!;

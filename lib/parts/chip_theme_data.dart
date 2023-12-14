@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableChipThemeDataConverter
-    extends JsonConverter<ChipThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<ChipThemeData?, dynamic> {
   const NullableChipThemeDataConverter();
 
+  @override
+  ChipThemeData? fromJson(json) => const TypedNullableChipThemeDataConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableChipThemeDataConverter().toJson(object);
+}
+
+class TypedNullableChipThemeDataConverter
+    extends JsonConverter<ChipThemeData?, Map<String, dynamic>?> {
+  const TypedNullableChipThemeDataConverter();
   @override
   ChipThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -100,10 +112,20 @@ class NullableChipThemeDataConverter
   }
 }
 
-class ChipThemeDataConverter
-    extends JsonConverter<ChipThemeData, Map<String, dynamic>> {
+class ChipThemeDataConverter extends JsonConverter<ChipThemeData, dynamic> {
   const ChipThemeDataConverter();
 
+  @override
+  ChipThemeData fromJson(json) => const TypedChipThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedChipThemeDataConverter().toJson(object);
+}
+
+class TypedChipThemeDataConverter
+    extends JsonConverter<ChipThemeData, Map<String, dynamic>> {
+  const TypedChipThemeDataConverter();
   @override
   ChipThemeData fromJson(Map<String, dynamic> json) {
     return const NullableChipThemeDataConverter().fromJson(json)!;

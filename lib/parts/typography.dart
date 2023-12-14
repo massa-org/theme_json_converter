@@ -1,9 +1,20 @@
 part of theme_json_converter;
 
-class NullableTypographyConverter
-    extends JsonConverter<Typography?, Map<String, dynamic>?> {
+class NullableTypographyConverter extends JsonConverter<Typography?, dynamic> {
   const NullableTypographyConverter();
 
+  @override
+  Typography? fromJson(json) => const TypedNullableTypographyConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableTypographyConverter().toJson(object);
+}
+
+class TypedNullableTypographyConverter
+    extends JsonConverter<Typography?, Map<String, dynamic>?> {
+  const TypedNullableTypographyConverter();
   @override
   Typography? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -47,10 +58,20 @@ class NullableTypographyConverter
   }
 }
 
-class TypographyConverter
-    extends JsonConverter<Typography, Map<String, dynamic>> {
+class TypographyConverter extends JsonConverter<Typography, dynamic> {
   const TypographyConverter();
 
+  @override
+  Typography fromJson(json) => const TypedTypographyConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedTypographyConverter().toJson(object);
+}
+
+class TypedTypographyConverter
+    extends JsonConverter<Typography, Map<String, dynamic>> {
+  const TypedTypographyConverter();
   @override
   Typography fromJson(Map<String, dynamic> json) {
     return const NullableTypographyConverter().fromJson(json)!;

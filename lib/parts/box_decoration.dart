@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableBoxDecorationConverter
-    extends JsonConverter<BoxDecoration?, Map<String, dynamic>?> {
+    extends JsonConverter<BoxDecoration?, dynamic> {
   const NullableBoxDecorationConverter();
 
+  @override
+  BoxDecoration? fromJson(json) => const TypedNullableBoxDecorationConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableBoxDecorationConverter().toJson(object);
+}
+
+class TypedNullableBoxDecorationConverter
+    extends JsonConverter<BoxDecoration?, Map<String, dynamic>?> {
+  const TypedNullableBoxDecorationConverter();
   @override
   BoxDecoration? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -63,10 +75,20 @@ class NullableBoxDecorationConverter
   }
 }
 
-class BoxDecorationConverter
-    extends JsonConverter<BoxDecoration, Map<String, dynamic>> {
+class BoxDecorationConverter extends JsonConverter<BoxDecoration, dynamic> {
   const BoxDecorationConverter();
 
+  @override
+  BoxDecoration fromJson(json) => const TypedBoxDecorationConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedBoxDecorationConverter().toJson(object);
+}
+
+class TypedBoxDecorationConverter
+    extends JsonConverter<BoxDecoration, Map<String, dynamic>> {
+  const TypedBoxDecorationConverter();
   @override
   BoxDecoration fromJson(Map<String, dynamic> json) {
     return const NullableBoxDecorationConverter().fromJson(json)!;

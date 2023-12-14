@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableAppBarThemeConverter
-    extends JsonConverter<AppBarTheme?, Map<String, dynamic>?> {
+    extends JsonConverter<AppBarTheme?, dynamic> {
   const NullableAppBarThemeConverter();
 
+  @override
+  AppBarTheme? fromJson(json) => const TypedNullableAppBarThemeConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableAppBarThemeConverter().toJson(object);
+}
+
+class TypedNullableAppBarThemeConverter
+    extends JsonConverter<AppBarTheme?, Map<String, dynamic>?> {
+  const TypedNullableAppBarThemeConverter();
   @override
   AppBarTheme? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -84,10 +96,20 @@ class NullableAppBarThemeConverter
   }
 }
 
-class AppBarThemeConverter
-    extends JsonConverter<AppBarTheme, Map<String, dynamic>> {
+class AppBarThemeConverter extends JsonConverter<AppBarTheme, dynamic> {
   const AppBarThemeConverter();
 
+  @override
+  AppBarTheme fromJson(json) => const TypedAppBarThemeConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedAppBarThemeConverter().toJson(object);
+}
+
+class TypedAppBarThemeConverter
+    extends JsonConverter<AppBarTheme, Map<String, dynamic>> {
+  const TypedAppBarThemeConverter();
   @override
   AppBarTheme fromJson(Map<String, dynamic> json) {
     return const NullableAppBarThemeConverter().fromJson(json)!;

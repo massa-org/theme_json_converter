@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableTabBarThemeConverter
-    extends JsonConverter<TabBarTheme?, Map<String, dynamic>?> {
+    extends JsonConverter<TabBarTheme?, dynamic> {
   const NullableTabBarThemeConverter();
 
+  @override
+  TabBarTheme? fromJson(json) => const TypedNullableTabBarThemeConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableTabBarThemeConverter().toJson(object);
+}
+
+class TypedNullableTabBarThemeConverter
+    extends JsonConverter<TabBarTheme?, Map<String, dynamic>?> {
+  const TypedNullableTabBarThemeConverter();
   @override
   TabBarTheme? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -53,10 +65,20 @@ class NullableTabBarThemeConverter
   }
 }
 
-class TabBarThemeConverter
-    extends JsonConverter<TabBarTheme, Map<String, dynamic>> {
+class TabBarThemeConverter extends JsonConverter<TabBarTheme, dynamic> {
   const TabBarThemeConverter();
 
+  @override
+  TabBarTheme fromJson(json) => const TypedTabBarThemeConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedTabBarThemeConverter().toJson(object);
+}
+
+class TypedTabBarThemeConverter
+    extends JsonConverter<TabBarTheme, Map<String, dynamic>> {
+  const TypedTabBarThemeConverter();
   @override
   TabBarTheme fromJson(Map<String, dynamic> json) {
     return const NullableTabBarThemeConverter().fromJson(json)!;

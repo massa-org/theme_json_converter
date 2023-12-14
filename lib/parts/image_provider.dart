@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableImageProviderConverter
-    extends JsonConverter<ImageProvider?, Map<String, dynamic>?> {
+    extends JsonConverter<ImageProvider?, dynamic> {
   const NullableImageProviderConverter();
 
+  @override
+  ImageProvider? fromJson(json) => const TypedNullableImageProviderConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableImageProviderConverter().toJson(object);
+}
+
+class TypedNullableImageProviderConverter
+    extends JsonConverter<ImageProvider?, Map<String, dynamic>?> {
+  const TypedNullableImageProviderConverter();
   @override
   ImageProvider? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -63,10 +75,20 @@ class NullableImageProviderConverter
   }
 }
 
-class ImageProviderConverter
-    extends JsonConverter<ImageProvider, Map<String, dynamic>> {
+class ImageProviderConverter extends JsonConverter<ImageProvider, dynamic> {
   const ImageProviderConverter();
 
+  @override
+  ImageProvider fromJson(json) => const TypedImageProviderConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedImageProviderConverter().toJson(object);
+}
+
+class TypedImageProviderConverter
+    extends JsonConverter<ImageProvider, Map<String, dynamic>> {
+  const TypedImageProviderConverter();
   @override
   ImageProvider fromJson(Map<String, dynamic> json) {
     return const NullableImageProviderConverter().fromJson(json)!;

@@ -1,9 +1,20 @@
 part of theme_json_converter;
 
-class NullableBorderSideConverter
-    extends JsonConverter<BorderSide?, Map<String, dynamic>?> {
+class NullableBorderSideConverter extends JsonConverter<BorderSide?, dynamic> {
   const NullableBorderSideConverter();
 
+  @override
+  BorderSide? fromJson(json) => const TypedNullableBorderSideConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableBorderSideConverter().toJson(object);
+}
+
+class TypedNullableBorderSideConverter
+    extends JsonConverter<BorderSide?, Map<String, dynamic>?> {
+  const TypedNullableBorderSideConverter();
   @override
   BorderSide? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -35,10 +46,20 @@ class NullableBorderSideConverter
   }
 }
 
-class BorderSideConverter
-    extends JsonConverter<BorderSide, Map<String, dynamic>> {
+class BorderSideConverter extends JsonConverter<BorderSide, dynamic> {
   const BorderSideConverter();
 
+  @override
+  BorderSide fromJson(json) => const TypedBorderSideConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedBorderSideConverter().toJson(object);
+}
+
+class TypedBorderSideConverter
+    extends JsonConverter<BorderSide, Map<String, dynamic>> {
+  const TypedBorderSideConverter();
   @override
   BorderSide fromJson(Map<String, dynamic> json) {
     return const NullableBorderSideConverter().fromJson(json)!;

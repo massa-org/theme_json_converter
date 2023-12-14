@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableRangeSliderThumbShapeConverter
-    extends JsonConverter<RangeSliderThumbShape?, Map<String, dynamic>?> {
+    extends JsonConverter<RangeSliderThumbShape?, dynamic> {
   const NullableRangeSliderThumbShapeConverter();
 
+  @override
+  RangeSliderThumbShape? fromJson(json) =>
+      const TypedNullableRangeSliderThumbShapeConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableRangeSliderThumbShapeConverter().toJson(object);
+}
+
+class TypedNullableRangeSliderThumbShapeConverter
+    extends JsonConverter<RangeSliderThumbShape?, Map<String, dynamic>?> {
+  const TypedNullableRangeSliderThumbShapeConverter();
   @override
   RangeSliderThumbShape? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -44,9 +57,22 @@ class NullableRangeSliderThumbShapeConverter
 }
 
 class RangeSliderThumbShapeConverter
-    extends JsonConverter<RangeSliderThumbShape, Map<String, dynamic>> {
+    extends JsonConverter<RangeSliderThumbShape, dynamic> {
   const RangeSliderThumbShapeConverter();
 
+  @override
+  RangeSliderThumbShape fromJson(json) =>
+      const TypedRangeSliderThumbShapeConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedRangeSliderThumbShapeConverter().toJson(object);
+}
+
+class TypedRangeSliderThumbShapeConverter
+    extends JsonConverter<RangeSliderThumbShape, Map<String, dynamic>> {
+  const TypedRangeSliderThumbShapeConverter();
   @override
   RangeSliderThumbShape fromJson(Map<String, dynamic> json) {
     return const NullableRangeSliderThumbShapeConverter().fromJson(json)!;

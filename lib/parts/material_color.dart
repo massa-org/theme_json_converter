@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableMaterialColorConverter
-    extends JsonConverter<MaterialColor?, Map<String, dynamic>?> {
+    extends JsonConverter<MaterialColor?, dynamic> {
   const NullableMaterialColorConverter();
 
+  @override
+  MaterialColor? fromJson(json) => const TypedNullableMaterialColorConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableMaterialColorConverter().toJson(object);
+}
+
+class TypedNullableMaterialColorConverter
+    extends JsonConverter<MaterialColor?, Map<String, dynamic>?> {
+  const TypedNullableMaterialColorConverter();
   @override
   MaterialColor? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -46,10 +58,20 @@ class NullableMaterialColorConverter
   }
 }
 
-class MaterialColorConverter
-    extends JsonConverter<MaterialColor, Map<String, dynamic>> {
+class MaterialColorConverter extends JsonConverter<MaterialColor, dynamic> {
   const MaterialColorConverter();
 
+  @override
+  MaterialColor fromJson(json) => const TypedMaterialColorConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedMaterialColorConverter().toJson(object);
+}
+
+class TypedMaterialColorConverter
+    extends JsonConverter<MaterialColor, Map<String, dynamic>> {
+  const TypedMaterialColorConverter();
   @override
   MaterialColor fromJson(Map<String, dynamic> json) {
     return const NullableMaterialColorConverter().fromJson(json)!;

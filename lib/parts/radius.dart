@@ -1,9 +1,19 @@
 part of theme_json_converter;
 
-class NullableRadiusConverter
-    extends JsonConverter<Radius?, Map<String, dynamic>?> {
+class NullableRadiusConverter extends JsonConverter<Radius?, dynamic> {
   const NullableRadiusConverter();
 
+  @override
+  Radius? fromJson(json) => const TypedNullableRadiusConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) => const TypedNullableRadiusConverter().toJson(object);
+}
+
+class TypedNullableRadiusConverter
+    extends JsonConverter<Radius?, Map<String, dynamic>?> {
+  const TypedNullableRadiusConverter();
   @override
   Radius? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -41,9 +51,19 @@ class NullableRadiusConverter
   }
 }
 
-class RadiusConverter extends JsonConverter<Radius, Map<String, dynamic>> {
+class RadiusConverter extends JsonConverter<Radius, dynamic> {
   const RadiusConverter();
 
+  @override
+  Radius fromJson(json) =>
+      const TypedRadiusConverter().fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedRadiusConverter().toJson(object);
+}
+
+class TypedRadiusConverter extends JsonConverter<Radius, Map<String, dynamic>> {
+  const TypedRadiusConverter();
   @override
   Radius fromJson(Map<String, dynamic> json) {
     return const NullableRadiusConverter().fromJson(json)!;

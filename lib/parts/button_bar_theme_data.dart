@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableButtonBarThemeDataConverter
-    extends JsonConverter<ButtonBarThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<ButtonBarThemeData?, dynamic> {
   const NullableButtonBarThemeDataConverter();
 
+  @override
+  ButtonBarThemeData? fromJson(json) =>
+      const TypedNullableButtonBarThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableButtonBarThemeDataConverter().toJson(object);
+}
+
+class TypedNullableButtonBarThemeDataConverter
+    extends JsonConverter<ButtonBarThemeData?, Map<String, dynamic>?> {
+  const TypedNullableButtonBarThemeDataConverter();
   @override
   ButtonBarThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -62,9 +75,21 @@ class NullableButtonBarThemeDataConverter
 }
 
 class ButtonBarThemeDataConverter
-    extends JsonConverter<ButtonBarThemeData, Map<String, dynamic>> {
+    extends JsonConverter<ButtonBarThemeData, dynamic> {
   const ButtonBarThemeDataConverter();
 
+  @override
+  ButtonBarThemeData fromJson(json) => const TypedButtonBarThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedButtonBarThemeDataConverter().toJson(object);
+}
+
+class TypedButtonBarThemeDataConverter
+    extends JsonConverter<ButtonBarThemeData, Map<String, dynamic>> {
+  const TypedButtonBarThemeDataConverter();
   @override
   ButtonBarThemeData fromJson(Map<String, dynamic> json) {
     return const NullableButtonBarThemeDataConverter().fromJson(json)!;

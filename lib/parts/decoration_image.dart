@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableDecorationImageConverter
-    extends JsonConverter<DecorationImage?, Map<String, dynamic>?> {
+    extends JsonConverter<DecorationImage?, dynamic> {
   const NullableDecorationImageConverter();
 
+  @override
+  DecorationImage? fromJson(json) =>
+      const TypedNullableDecorationImageConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableDecorationImageConverter().toJson(object);
+}
+
+class TypedNullableDecorationImageConverter
+    extends JsonConverter<DecorationImage?, Map<String, dynamic>?> {
+  const TypedNullableDecorationImageConverter();
   @override
   DecorationImage? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -43,10 +56,21 @@ class NullableDecorationImageConverter
   }
 }
 
-class DecorationImageConverter
-    extends JsonConverter<DecorationImage, Map<String, dynamic>> {
+class DecorationImageConverter extends JsonConverter<DecorationImage, dynamic> {
   const DecorationImageConverter();
 
+  @override
+  DecorationImage fromJson(json) => const TypedDecorationImageConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedDecorationImageConverter().toJson(object);
+}
+
+class TypedDecorationImageConverter
+    extends JsonConverter<DecorationImage, Map<String, dynamic>> {
+  const TypedDecorationImageConverter();
   @override
   DecorationImage fromJson(Map<String, dynamic> json) {
     return const NullableDecorationImageConverter().fromJson(json)!;

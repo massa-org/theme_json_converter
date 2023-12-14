@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableScrollbarThemeDataConverter
-    extends JsonConverter<ScrollbarThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<ScrollbarThemeData?, dynamic> {
   const NullableScrollbarThemeDataConverter();
 
+  @override
+  ScrollbarThemeData? fromJson(json) =>
+      const TypedNullableScrollbarThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableScrollbarThemeDataConverter().toJson(object);
+}
+
+class TypedNullableScrollbarThemeDataConverter
+    extends JsonConverter<ScrollbarThemeData?, Map<String, dynamic>?> {
+  const TypedNullableScrollbarThemeDataConverter();
   @override
   ScrollbarThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -48,9 +61,21 @@ class NullableScrollbarThemeDataConverter
 }
 
 class ScrollbarThemeDataConverter
-    extends JsonConverter<ScrollbarThemeData, Map<String, dynamic>> {
+    extends JsonConverter<ScrollbarThemeData, dynamic> {
   const ScrollbarThemeDataConverter();
 
+  @override
+  ScrollbarThemeData fromJson(json) => const TypedScrollbarThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedScrollbarThemeDataConverter().toJson(object);
+}
+
+class TypedScrollbarThemeDataConverter
+    extends JsonConverter<ScrollbarThemeData, Map<String, dynamic>> {
+  const TypedScrollbarThemeDataConverter();
   @override
   ScrollbarThemeData fromJson(Map<String, dynamic> json) {
     return const NullableScrollbarThemeDataConverter().fromJson(json)!;

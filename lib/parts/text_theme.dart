@@ -1,9 +1,20 @@
 part of theme_json_converter;
 
-class NullableTextThemeConverter
-    extends JsonConverter<TextTheme?, Map<String, dynamic>?> {
+class NullableTextThemeConverter extends JsonConverter<TextTheme?, dynamic> {
   const NullableTextThemeConverter();
 
+  @override
+  TextTheme? fromJson(json) => const TypedNullableTextThemeConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableTextThemeConverter().toJson(object);
+}
+
+class TypedNullableTextThemeConverter
+    extends JsonConverter<TextTheme?, Map<String, dynamic>?> {
+  const TypedNullableTextThemeConverter();
   @override
   TextTheme? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -93,10 +104,20 @@ class NullableTextThemeConverter
   }
 }
 
-class TextThemeConverter
-    extends JsonConverter<TextTheme, Map<String, dynamic>> {
+class TextThemeConverter extends JsonConverter<TextTheme, dynamic> {
   const TextThemeConverter();
 
+  @override
+  TextTheme fromJson(json) => const TypedTextThemeConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedTextThemeConverter().toJson(object);
+}
+
+class TypedTextThemeConverter
+    extends JsonConverter<TextTheme, Map<String, dynamic>> {
+  const TypedTextThemeConverter();
   @override
   TextTheme fromJson(Map<String, dynamic> json) {
     return const NullableTextThemeConverter().fromJson(json)!;

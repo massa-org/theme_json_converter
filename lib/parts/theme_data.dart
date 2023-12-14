@@ -1,9 +1,20 @@
 part of theme_json_converter;
 
-class NullableThemeDataConverter
-    extends JsonConverter<ThemeData?, Map<String, dynamic>?> {
+class NullableThemeDataConverter extends JsonConverter<ThemeData?, dynamic> {
   const NullableThemeDataConverter();
 
+  @override
+  ThemeData? fromJson(json) => const TypedNullableThemeDataConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableThemeDataConverter().toJson(object);
+}
+
+class TypedNullableThemeDataConverter
+    extends JsonConverter<ThemeData?, Map<String, dynamic>?> {
+  const TypedNullableThemeDataConverter();
   @override
   ThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -409,10 +420,20 @@ class NullableThemeDataConverter
   }
 }
 
-class ThemeDataConverter
-    extends JsonConverter<ThemeData, Map<String, dynamic>> {
+class ThemeDataConverter extends JsonConverter<ThemeData, dynamic> {
   const ThemeDataConverter();
 
+  @override
+  ThemeData fromJson(json) => const TypedThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedThemeDataConverter().toJson(object);
+}
+
+class TypedThemeDataConverter
+    extends JsonConverter<ThemeData, Map<String, dynamic>> {
+  const TypedThemeDataConverter();
   @override
   ThemeData fromJson(Map<String, dynamic> json) {
     return const NullableThemeDataConverter().fromJson(json)!;

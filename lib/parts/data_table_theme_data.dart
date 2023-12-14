@@ -1,9 +1,22 @@
 part of theme_json_converter;
 
 class NullableDataTableThemeDataConverter
-    extends JsonConverter<DataTableThemeData?, Map<String, dynamic>?> {
+    extends JsonConverter<DataTableThemeData?, dynamic> {
   const NullableDataTableThemeDataConverter();
 
+  @override
+  DataTableThemeData? fromJson(json) =>
+      const TypedNullableDataTableThemeDataConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableDataTableThemeDataConverter().toJson(object);
+}
+
+class TypedNullableDataTableThemeDataConverter
+    extends JsonConverter<DataTableThemeData?, Map<String, dynamic>?> {
+  const TypedNullableDataTableThemeDataConverter();
   @override
   DataTableThemeData? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -62,9 +75,21 @@ class NullableDataTableThemeDataConverter
 }
 
 class DataTableThemeDataConverter
-    extends JsonConverter<DataTableThemeData, Map<String, dynamic>> {
+    extends JsonConverter<DataTableThemeData, dynamic> {
   const DataTableThemeDataConverter();
 
+  @override
+  DataTableThemeData fromJson(json) => const TypedDataTableThemeDataConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedDataTableThemeDataConverter().toJson(object);
+}
+
+class TypedDataTableThemeDataConverter
+    extends JsonConverter<DataTableThemeData, Map<String, dynamic>> {
+  const TypedDataTableThemeDataConverter();
   @override
   DataTableThemeData fromJson(Map<String, dynamic> json) {
     return const NullableDataTableThemeDataConverter().fromJson(json)!;

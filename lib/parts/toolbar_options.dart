@@ -1,9 +1,21 @@
 part of theme_json_converter;
 
 class NullableToolbarOptionsConverter
-    extends JsonConverter<ToolbarOptions?, Map<String, dynamic>?> {
+    extends JsonConverter<ToolbarOptions?, dynamic> {
   const NullableToolbarOptionsConverter();
 
+  @override
+  ToolbarOptions? fromJson(json) => const TypedNullableToolbarOptionsConverter()
+      .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableToolbarOptionsConverter().toJson(object);
+}
+
+class TypedNullableToolbarOptionsConverter
+    extends JsonConverter<ToolbarOptions?, Map<String, dynamic>?> {
+  const TypedNullableToolbarOptionsConverter();
   @override
   ToolbarOptions? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
@@ -31,10 +43,20 @@ class NullableToolbarOptionsConverter
   }
 }
 
-class ToolbarOptionsConverter
-    extends JsonConverter<ToolbarOptions, Map<String, dynamic>> {
+class ToolbarOptionsConverter extends JsonConverter<ToolbarOptions, dynamic> {
   const ToolbarOptionsConverter();
 
+  @override
+  ToolbarOptions fromJson(json) => const TypedToolbarOptionsConverter()
+      .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) => const TypedToolbarOptionsConverter().toJson(object);
+}
+
+class TypedToolbarOptionsConverter
+    extends JsonConverter<ToolbarOptions, Map<String, dynamic>> {
+  const TypedToolbarOptionsConverter();
   @override
   ToolbarOptions fromJson(Map<String, dynamic> json) {
     return const NullableToolbarOptionsConverter().fromJson(json)!;
