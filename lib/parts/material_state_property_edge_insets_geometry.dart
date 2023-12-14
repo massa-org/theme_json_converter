@@ -2,8 +2,24 @@ part of theme_json_converter;
 
 class NullableMaterialStatePropertyEdgeInsetsGeometryConverter
     extends JsonConverter<MaterialStateProperty<EdgeInsetsGeometry?>?,
-        Map<String, dynamic>?> {
+        dynamic> {
   const NullableMaterialStatePropertyEdgeInsetsGeometryConverter();
+
+  @override
+  MaterialStateProperty<EdgeInsetsGeometry?>? fromJson(json) =>
+      const TypedNullableMaterialStatePropertyEdgeInsetsGeometryConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableMaterialStatePropertyEdgeInsetsGeometryConverter()
+          .toJson(object);
+}
+
+class TypedNullableMaterialStatePropertyEdgeInsetsGeometryConverter
+    extends JsonConverter<MaterialStateProperty<EdgeInsetsGeometry?>?,
+        Map<String, dynamic>?> {
+  const TypedNullableMaterialStatePropertyEdgeInsetsGeometryConverter();
 
   @override
   MaterialStateProperty<EdgeInsetsGeometry?>? fromJson(
@@ -97,9 +113,25 @@ class NullableMaterialStatePropertyEdgeInsetsGeometryConverter
   }
 }
 
-class MaterialStatePropertyEdgeInsetsGeometryConverter extends JsonConverter<
-    MaterialStateProperty<EdgeInsetsGeometry?>, Map<String, dynamic>> {
+class MaterialStatePropertyEdgeInsetsGeometryConverter
+    extends JsonConverter<MaterialStateProperty<EdgeInsetsGeometry?>, dynamic> {
   const MaterialStatePropertyEdgeInsetsGeometryConverter();
+
+  @override
+  MaterialStateProperty<EdgeInsetsGeometry?> fromJson(json) =>
+      const TypedMaterialStatePropertyEdgeInsetsGeometryConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedMaterialStatePropertyEdgeInsetsGeometryConverter()
+          .toJson(object);
+}
+
+class TypedMaterialStatePropertyEdgeInsetsGeometryConverter
+    extends JsonConverter<MaterialStateProperty<EdgeInsetsGeometry?>,
+        Map<String, dynamic>> {
+  const TypedMaterialStatePropertyEdgeInsetsGeometryConverter();
 
   @override
   MaterialStateProperty<EdgeInsetsGeometry?> fromJson(

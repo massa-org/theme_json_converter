@@ -1,8 +1,22 @@
 part of theme_json_converter;
 
-class NullableMaterialStatePropertyColorConverter extends JsonConverter<
-    MaterialStateProperty<Color?>?, Map<String, dynamic>?> {
+class NullableMaterialStatePropertyColorConverter
+    extends JsonConverter<MaterialStateProperty<Color?>?, dynamic> {
   const NullableMaterialStatePropertyColorConverter();
+
+  @override
+  MaterialStateProperty<Color?>? fromJson(json) =>
+      const TypedNullableMaterialStatePropertyColorConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableMaterialStatePropertyColorConverter().toJson(object);
+}
+
+class TypedNullableMaterialStatePropertyColorConverter extends JsonConverter<
+    MaterialStateProperty<Color?>?, Map<String, dynamic>?> {
+  const TypedNullableMaterialStatePropertyColorConverter();
 
   @override
   MaterialStateProperty<Color?>? fromJson(Map<String, dynamic>? json) {

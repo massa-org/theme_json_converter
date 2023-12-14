@@ -1,8 +1,24 @@
 part of theme_json_converter;
 
-class NullableMaterialStatePropertyMouseCursorConverter extends JsonConverter<
-    MaterialStateProperty<MouseCursor?>?, Map<String, dynamic>?> {
+class NullableMaterialStatePropertyMouseCursorConverter
+    extends JsonConverter<MaterialStateProperty<MouseCursor?>?, dynamic> {
   const NullableMaterialStatePropertyMouseCursorConverter();
+
+  @override
+  MaterialStateProperty<MouseCursor?>? fromJson(json) =>
+      const TypedNullableMaterialStatePropertyMouseCursorConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableMaterialStatePropertyMouseCursorConverter()
+          .toJson(object);
+}
+
+class TypedNullableMaterialStatePropertyMouseCursorConverter
+    extends JsonConverter<MaterialStateProperty<MouseCursor?>?,
+        Map<String, dynamic>?> {
+  const TypedNullableMaterialStatePropertyMouseCursorConverter();
 
   @override
   MaterialStateProperty<MouseCursor?>? fromJson(Map<String, dynamic>? json) {
@@ -79,9 +95,23 @@ class NullableMaterialStatePropertyMouseCursorConverter extends JsonConverter<
   }
 }
 
-class MaterialStatePropertyMouseCursorConverter extends JsonConverter<
-    MaterialStateProperty<MouseCursor?>, Map<String, dynamic>> {
+class MaterialStatePropertyMouseCursorConverter
+    extends JsonConverter<MaterialStateProperty<MouseCursor?>, dynamic> {
   const MaterialStatePropertyMouseCursorConverter();
+
+  @override
+  MaterialStateProperty<MouseCursor?> fromJson(json) =>
+      const MaterialStatePropertyMouseCursorConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const MaterialStatePropertyMouseCursorConverter().toJson(object);
+}
+
+class TypedMaterialStatePropertyMouseCursorConverter extends JsonConverter<
+    MaterialStateProperty<MouseCursor?>, Map<String, dynamic>> {
+  const TypedMaterialStatePropertyMouseCursorConverter();
 
   @override
   MaterialStateProperty<MouseCursor?> fromJson(Map<String, dynamic> json) {

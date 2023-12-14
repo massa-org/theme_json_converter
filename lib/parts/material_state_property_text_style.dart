@@ -1,8 +1,24 @@
 part of theme_json_converter;
 
-class NullableMaterialStatePropertyTextStyleConverter extends JsonConverter<
-    MaterialStateProperty<TextStyle?>?, Map<String, dynamic>?> {
+class NullableMaterialStatePropertyTextStyleConverter
+    extends JsonConverter<MaterialStateProperty<TextStyle?>?, dynamic> {
   const NullableMaterialStatePropertyTextStyleConverter();
+
+  @override
+  MaterialStateProperty<TextStyle?>? fromJson(json) =>
+      const TypedNullableMaterialStatePropertyTextStyleConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableMaterialStatePropertyTextStyleConverter()
+          .toJson(object);
+}
+
+class TypedNullableMaterialStatePropertyTextStyleConverter
+    extends JsonConverter<MaterialStateProperty<TextStyle?>?,
+        Map<String, dynamic>?> {
+  const TypedNullableMaterialStatePropertyTextStyleConverter();
 
   @override
   MaterialStateProperty<TextStyle?>? fromJson(Map<String, dynamic>? json) {
@@ -78,9 +94,23 @@ class NullableMaterialStatePropertyTextStyleConverter extends JsonConverter<
   }
 }
 
-class MaterialStatePropertyTextStyleConverter extends JsonConverter<
-    MaterialStateProperty<TextStyle?>, Map<String, dynamic>> {
+class MaterialStatePropertyTextStyleConverter
+    extends JsonConverter<MaterialStateProperty<TextStyle?>, dynamic> {
   const MaterialStatePropertyTextStyleConverter();
+
+  @override
+  MaterialStateProperty<TextStyle?> fromJson(json) =>
+      const TypedMaterialStatePropertyTextStyleConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedMaterialStatePropertyTextStyleConverter().toJson(object);
+}
+
+class TypedMaterialStatePropertyTextStyleConverter extends JsonConverter<
+    MaterialStateProperty<TextStyle?>, Map<String, dynamic>> {
+  const TypedMaterialStatePropertyTextStyleConverter();
 
   @override
   MaterialStateProperty<TextStyle?> fromJson(Map<String, dynamic> json) {

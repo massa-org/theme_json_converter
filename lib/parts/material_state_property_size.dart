@@ -1,8 +1,22 @@
 part of theme_json_converter;
 
-class NullableMaterialStatePropertySizeConverter extends JsonConverter<
-    MaterialStateProperty<Size?>?, Map<String, dynamic>?> {
+class NullableMaterialStatePropertySizeConverter
+    extends JsonConverter<MaterialStateProperty<Size?>?, dynamic> {
   const NullableMaterialStatePropertySizeConverter();
+
+  @override
+  MaterialStateProperty<Size?>? fromJson(json) =>
+      const TypedNullableMaterialStatePropertySizeConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableMaterialStatePropertySizeConverter().toJson(object);
+}
+
+class TypedNullableMaterialStatePropertySizeConverter extends JsonConverter<
+    MaterialStateProperty<Size?>?, Map<String, dynamic>?> {
+  const TypedNullableMaterialStatePropertySizeConverter();
 
   @override
   MaterialStateProperty<Size?>? fromJson(Map<String, dynamic>? json) {

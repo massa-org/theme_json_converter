@@ -1,8 +1,24 @@
 part of theme_json_converter;
 
-class NullableMaterialStatePropertyBorderSideConverter extends JsonConverter<
-    MaterialStateProperty<BorderSide?>?, Map<String, dynamic>?> {
+class NullableMaterialStatePropertyBorderSideConverter
+    extends JsonConverter<MaterialStateProperty<BorderSide?>?, dynamic> {
   const NullableMaterialStatePropertyBorderSideConverter();
+
+  @override
+  MaterialStateProperty<BorderSide?>? fromJson(json) =>
+      const TypedNullableMaterialStatePropertyBorderSideConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableMaterialStatePropertyBorderSideConverter()
+          .toJson(object);
+}
+
+class TypedNullableMaterialStatePropertyBorderSideConverter
+    extends JsonConverter<MaterialStateProperty<BorderSide?>?,
+        Map<String, dynamic>?> {
+  const TypedNullableMaterialStatePropertyBorderSideConverter();
 
   @override
   MaterialStateProperty<BorderSide?>? fromJson(Map<String, dynamic>? json) {
@@ -76,9 +92,23 @@ class NullableMaterialStatePropertyBorderSideConverter extends JsonConverter<
   }
 }
 
-class MaterialStatePropertyBorderSideConverter extends JsonConverter<
-    MaterialStateProperty<BorderSide?>, Map<String, dynamic>> {
+class MaterialStatePropertyBorderSideConverter
+    extends JsonConverter<MaterialStateProperty<BorderSide?>, dynamic> {
   const MaterialStatePropertyBorderSideConverter();
+
+  @override
+  MaterialStateProperty<BorderSide?> fromJson(json) =>
+      const TypedMaterialStatePropertyBorderSideConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedMaterialStatePropertyBorderSideConverter().toJson(object);
+}
+
+class TypedMaterialStatePropertyBorderSideConverter extends JsonConverter<
+    MaterialStateProperty<BorderSide?>, Map<String, dynamic>> {
+  const TypedMaterialStatePropertyBorderSideConverter();
 
   @override
   MaterialStateProperty<BorderSide?> fromJson(Map<String, dynamic> json) {

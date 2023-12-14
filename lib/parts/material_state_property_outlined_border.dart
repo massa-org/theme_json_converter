@@ -1,9 +1,24 @@
 part of theme_json_converter;
 
 class NullableMaterialStatePropertyOutlinedBorderConverter
+    extends JsonConverter<MaterialStateProperty<OutlinedBorder?>?, dynamic> {
+  const NullableMaterialStatePropertyOutlinedBorderConverter();
+
+  @override
+  MaterialStateProperty<OutlinedBorder?>? fromJson(json) =>
+      const TypedNullableMaterialStatePropertyOutlinedBorderConverter()
+          .fromJson(json == null ? null : Map<String, dynamic>.from(json));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedNullableMaterialStatePropertyOutlinedBorderConverter()
+          .toJson(object);
+}
+
+class TypedNullableMaterialStatePropertyOutlinedBorderConverter
     extends JsonConverter<MaterialStateProperty<OutlinedBorder?>?,
         Map<String, dynamic>?> {
-  const NullableMaterialStatePropertyOutlinedBorderConverter();
+  const TypedNullableMaterialStatePropertyOutlinedBorderConverter();
 
   @override
   MaterialStateProperty<OutlinedBorder?>? fromJson(Map<String, dynamic>? json) {
@@ -90,9 +105,23 @@ class NullableMaterialStatePropertyOutlinedBorderConverter
   }
 }
 
-class MaterialStatePropertyOutlinedBorderConverter extends JsonConverter<
-    MaterialStateProperty<OutlinedBorder?>, Map<String, dynamic>> {
+class MaterialStatePropertyOutlinedBorderConverter
+    extends JsonConverter<MaterialStateProperty<OutlinedBorder?>, dynamic> {
   const MaterialStatePropertyOutlinedBorderConverter();
+
+  @override
+  MaterialStateProperty<OutlinedBorder?> fromJson(json) =>
+      const TypedMaterialStatePropertyOutlinedBorderConverter()
+          .fromJson(Map<String, dynamic>.from(json!));
+
+  @override
+  dynamic toJson(object) =>
+      const TypedMaterialStatePropertyOutlinedBorderConverter().toJson(object);
+}
+
+class TypedMaterialStatePropertyOutlinedBorderConverter extends JsonConverter<
+    MaterialStateProperty<OutlinedBorder?>, Map<String, dynamic>> {
+  const TypedMaterialStatePropertyOutlinedBorderConverter();
 
   @override
   MaterialStateProperty<OutlinedBorder?> fromJson(Map<String, dynamic> json) {
